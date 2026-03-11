@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PulseSheet Global Timesheet</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <p class="eyebrow">Global Timesheet to Payroll</p>
+        <h1>PulseSheet</h1>
+        <p class="sidebar-copy">A dual workspace for admins and ESS users, shaped around grouped timesheets, break-aware task logs, review expansion, and payroll readiness.</p>
+      </div>
+
+      <div class="portal-switch">
+        <button id="portalAdminTab" class="portal-tab active" type="button">Admin Portal</button>
+        <button id="portalEssTab" class="portal-tab" type="button">ESS Portal</button>
+      </div>
+
+      <div class="nav-group" data-nav-portal="admin">
+        <p class="nav-title">Admin</p>
+        <button class="nav-button active" data-screen-target="overview" type="button">Overview</button>
+        <button class="nav-button" data-screen-target="clients" type="button">Clients</button>
+        <button class="nav-button" data-screen-target="rate-cards" type="button">Rate Cards</button>
+        <button class="nav-button" data-screen-target="projects" type="button">Projects</button>
+        <button class="nav-button" data-screen-target="tasks" type="button">Tasks</button>
+        <button class="nav-button" data-screen-target="timesheets" type="button">Timesheets</button>
+        <button class="nav-button" data-screen-target="approvals" type="button">Approvals</button>
+        <button class="nav-button" data-screen-target="payroll" type="button">Payroll</button>
+        <button class="nav-button" data-screen-target="settings" type="button">Settings</button>
+      </div>
+
+      <div class="nav-group is-hidden" data-nav-portal="ess">
+        <p class="nav-title">ESS</p>
+        <button class="nav-button" data-screen-target="dashboard" type="button">Dashboard</button>
+        <button class="nav-button" data-screen-target="timelog" type="button">Timelog</button>
+        <button class="nav-button" data-screen-target="my-timesheets" type="button">My Timesheets</button>
+      </div>
+
+      <article class="sidebar-note">
+        <p class="eyebrow">Competitor pattern</p>
+        <strong id="criticalRule"></strong>
+        <p>Observed across Gusto, QuickBooks Time, Clockify, Zoho People, Zoho Projects, and Jibble: admin owns setup and approvals; ESS stays focused on entering task time and submitting a clean timesheet.</p>
+      </article>
+
+      <section class="agent-panel">
+        <div class="agent-head">
+          <p class="eyebrow">Codex Agent</p>
+          <strong>Command console</strong>
+        </div>
+        <div id="agentMessages" class="agent-messages" aria-live="polite"></div>
+        <div class="agent-hints">
+          <button class="agent-hint" data-agent-prompt="help" type="button">help</button>
+          <button class="agent-hint" data-agent-prompt="summary" type="button">summary</button>
+          <button class="agent-hint" data-agent-prompt="show pending approvals" type="button">show pending approvals</button>
+          <button class="agent-hint" data-agent-prompt="show notifications" type="button">show notifications</button>
+          <button class="agent-hint" data-agent-prompt="show audit trail" type="button">show audit trail</button>
+        </div>
+        <form id="agentForm" class="agent-form">
+          <input id="agentInput" type="text" placeholder="Type command: log time worker Olivia Carter project US Payroll task API Mapping date 2026-03-11 hours 8">
+          <button class="primary-button" type="submit">Run</button>
+        </form>
+      </section>
+    </aside>
+
+    <div class="workspace">
+      <header class="workspace-header">
+        <div>
+          <p id="portalModeLabel" class="eyebrow">Admin Portal</p>
+          <h2 id="screenTitle">Overview</h2>
+          <p id="screenSubtitle" class="screen-copy">Monitor configuration health, approvals, and payroll activity across India and the US.</p>
+        </div>
+        <p id="portalFeedback" class="feedback" aria-live="polite"></p>
+      </header>
+
+      <main class="screen-stack">
+        <section class="screen is-active" data-portal="admin" data-screen="overview">
+          <div class="metric-grid">
+            <article class="metric-card"><span>Clients</span><strong id="metricClients">0</strong></article>
+            <article class="metric-card"><span>Projects</span><strong id="metricProjects">0</strong></article>
+            <article class="metric-card"><span>Pending approvals</span><strong id="metricPending">0</strong></article>
+            <article class="metric-card"><span>Payroll runs</span><strong id="metricPayrollRuns">0</strong></article>
+            <article class="metric-card"><span>Approved hours</span><strong id="metricApprovedHours">0.0h</strong></article>
+            <article class="metric-card"><span>OT hours</span><strong id="metricOtHours">0.0h</strong></article>
+          </div>
+          <div class="content-grid two-up">
+            <section class="panel"><div class="panel-head"><h3>Country mix</h3></div><div class="table-wrap"><table><thead><tr><th>Country</th><th>Clients</th><th>Projects</th><th>Hours</th><th>Runs</th></tr></thead><tbody id="countryMixBody"></tbody></table></div></section>
+            <section class="panel"><div class="panel-head"><h3>Project health</h3></div><div class="table-wrap"><table><thead><tr><th>Project</th><th>Estimate</th><th>Logged</th><th>Variance</th><th>Pending</th></tr></thead><tbody id="projectHealthBody"></tbody></table></div></section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="admin" data-screen="clients">
+          <div class="content-grid split-form">
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Client setup</p><h3>Create client</h3></div></div>
+              <form id="clientForm" class="stack-form">
+                <label>Client name<input id="clientName" type="text" required></label>
+                <div class="inline-grid"><label>Country<select id="clientCountry" required></select></label><label>Currency<input id="clientCurrency" type="text" required></label></div>
+                <label>GST number<input id="clientGstNumber" type="text"></label>
+                <fieldset class="checkbox-group"><legend>Enabled modules</legend><label><input type="checkbox" value="Client Details" checked> Client Details</label><label><input type="checkbox" value="Projects" checked> Projects</label><label><input type="checkbox" value="Permissions" checked> Permissions</label><label><input type="checkbox" value="Billing" checked> Billing</label></fieldset>
+                <button class="primary-button" type="submit">Create client</button>
+              </form>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Clients</p><h3>Client registry</h3></div></div>
+              <div class="table-wrap"><table><thead><tr><th>Client</th><th>Country</th><th>Currency</th><th>Modules</th><th></th></tr></thead><tbody id="clientsBody"></tbody></table></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="admin" data-screen="rate-cards">
+          <div class="content-grid split-form">
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Rate card engine</p><h3>Create rate card</h3></div></div>
+              <form id="rateCardForm" class="stack-form">
+                <div class="inline-grid"><label>Name<input id="rateCardName" type="text" required></label><label>Role<input id="rateCardRole" type="text" required></label></div>
+                <div class="inline-grid three-up"><label>Country<select id="rateCardCountry" required></select></label><label>Currency<input id="rateCardCurrency" type="text" required></label><label>Hourly rate<input id="rateCardHourlyRate" type="number" min="1" step="0.01" required></label></div>
+                <div class="inline-grid three-up"><label>Daily shift<input id="rateCardDailyShift" type="number" min="1" step="0.25" required></label><label>Weekly limit<input id="rateCardWeeklyLimit" type="number" min="1" step="0.25" required></label><label>Biweekly limit<input id="rateCardBiweeklyLimit" type="number" min="1" step="0.25" required></label></div>
+                <div class="inline-grid three-up"><label>Monthly limit<input id="rateCardMonthlyLimit" type="number" min="1" step="0.25" required></label><label>OT frequency<select id="rateCardOtFrequency"></select></label><label>OT threshold<input id="rateCardOtThreshold" type="number" min="1" step="0.25" required></label></div>
+                <div class="inline-grid"><label>OT multiplier<input id="rateCardOtMultiplier" type="number" min="1" step="0.1" required></label><label>Open bucket<select id="rateCardOpenBucket"><option value="true">Enabled</option><option value="false">Blocked</option></select></label></div>
+                <button class="primary-button" type="submit">Create rate card</button>
+              </form>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Rate cards</p><h3>Configured cards</h3></div></div>
+              <div class="table-wrap"><table><thead><tr><th>Name</th><th>Country</th><th>Role</th><th>Rate</th><th>OT</th><th></th></tr></thead><tbody id="rateCardsBody"></tbody></table></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="admin" data-screen="projects">
+          <div class="content-grid split-form">
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Project setup</p><h3>Create project</h3></div></div>
+              <form id="projectForm" class="stack-form">
+                <div class="inline-grid"><label>Client<select id="projectClient" required></select></label><label>Project name<input id="projectName" type="text" required></label></div>
+                <div class="inline-grid three-up"><label>Type<select id="projectType"></select></label><label>Rate card<select id="projectRateCard" required></select></label><label>Pay period<select id="projectPayPeriod"></select></label></div>
+                <div class="inline-grid three-up"><label>Estimated hours<input id="projectEstimatedHours" type="number" min="1" step="0.25" required></label><label>Start date<input id="projectStartDate" type="date" required></label><label>End date<input id="projectEndDate" type="date" required></label></div>
+                <div class="inline-grid"><label>Task estimate policy<select id="projectTaskPolicy"></select></label><label>Project estimate policy<select id="projectEstimatePolicy"></select></label></div>
+                <fieldset class="checkbox-group"><legend>Assigned workers</legend><div id="projectAssignees" class="checkbox-grid"></div></fieldset>
+                <button class="primary-button" type="submit">Create project</button>
+              </form>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Projects</p><h3>Portfolio</h3></div></div>
+              <div class="table-wrap"><table><thead><tr><th>Project</th><th>Client</th><th>Pay period</th><th>Estimate</th><th>Policies</th><th></th></tr></thead><tbody id="projectsBody"></tbody></table></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="admin" data-screen="tasks">
+          <div class="content-grid split-form">
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Task management</p><h3>Create task</h3></div></div>
+              <form id="taskForm" class="stack-form">
+                <label>Project<select id="taskProject" required></select></label>
+                <label>Task name<input id="taskName" type="text" required></label>
+                <div class="inline-grid three-up"><label>Start date<input id="taskStartDate" type="date" required></label><label>End date<input id="taskEndDate" type="date" required></label><label>Due date<input id="taskDueDate" type="date" required></label></div>
+                <label>Estimated hours<input id="taskEstimatedHours" type="number" min="1" step="0.25" required></label>
+                <button class="primary-button" type="submit">Create task</button>
+              </form>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Tasks</p><h3>Task list</h3></div></div>
+              <div class="table-wrap"><table><thead><tr><th>Task</th><th>Project</th><th>Date range</th><th>Estimate</th><th></th></tr></thead><tbody id="tasksBody"></tbody></table></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="admin" data-screen="timesheets">
+          <section class="panel"><div class="panel-head"><div><p class="eyebrow">Timesheet explorer</p><h3>All submitted and reviewed timesheets</h3></div></div><div id="adminTimesheetsList" class="card-stack"></div></section>
+        </section>
+
+        <section class="screen" data-portal="admin" data-screen="approvals">
+          <section class="panel">
+            <div class="panel-head"><div><p class="eyebrow">Approval queue</p><h3>Review timesheets in bulk or line-by-line</h3></div></div>
+            <div class="toolbar"><input id="approvalBulkReason" type="text" placeholder="Bulk rejection reason"><button id="approveSelectedButton" class="primary-button" type="button">Approve selected</button><button id="rejectSelectedButton" class="secondary-button" type="button">Reject selected</button></div>
+            <div id="approvalsList" class="card-stack"></div>
+          </section>
+        </section>
+
+        <section class="screen" data-portal="admin" data-screen="payroll">
+          <div class="content-grid split-form">
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Payroll run</p><h3>Generate payroll from approved time</h3></div></div>
+              <form id="payrollRunForm" class="stack-form">
+                <div class="inline-grid"><label>Worker<select id="payrollWorker"></select></label><label>Project<select id="payrollProject"></select></label></div>
+                <label>Scope<select id="payrollScope"><option value="current">Current pay period</option><option value="all">All approved entries</option></select></label>
+                <button class="primary-button" type="submit">Generate payroll</button>
+              </form>
+              <div id="payrollPreview" class="preview-surface"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Runs</p><h3>Payroll history</h3></div></div>
+              <div class="table-wrap"><table><thead><tr><th>Generated</th><th>Worker</th><th>Project</th><th>Gross</th><th>Net</th></tr></thead><tbody id="payrollRunsBody"></tbody></table></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="admin" data-screen="settings">
+          <div class="content-grid split-form">
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Country policies</p><h3>Shift, OT, and compliance defaults</h3></div></div>
+              <form id="settingsForm" class="stack-form">
+                <label>Country<select id="settingsCountry"></select></label>
+                <div class="inline-grid three-up"><label>Daily shift<input id="settingsDailyShift" type="number" min="1" step="0.25" required></label><label>Weekly limit<input id="settingsWeeklyLimit" type="number" min="1" step="0.25" required></label><label>Biweekly limit<input id="settingsBiweeklyLimit" type="number" min="1" step="0.25" required></label></div>
+                <div class="inline-grid three-up"><label>Monthly limit<input id="settingsMonthlyLimit" type="number" min="1" step="0.25" required></label><label>OT frequency<select id="settingsOtFrequency"></select></label><label>OT threshold<input id="settingsOtThreshold" type="number" min="1" step="0.25" required></label></div>
+                <div class="inline-grid three-up"><label>OT multiplier<input id="settingsOtMultiplier" type="number" min="1" step="0.1" required></label><label>Open bucket<select id="settingsOpenBucket"><option value="true">Enabled</option><option value="false">Blocked</option></select></label><span class="form-note">Compliance fields update by country.</span></div>
+                <div class="inline-grid three-up"><label>Basic percent<input id="settingsBasicPercent" type="number" min="0" step="0.01"></label><label>PF rate<input id="settingsPfRate" type="number" min="0" step="0.01"></label><label>ESI rate<input id="settingsEsiRate" type="number" min="0" step="0.0001"></label></div>
+                <div class="inline-grid three-up"><label>ESI threshold<input id="settingsEsiThreshold" type="number" min="0" step="1"></label><label>Professional tax<input id="settingsProfessionalTax" type="number" min="0" step="1"></label><label>TDS rate<input id="settingsTdsRate" type="number" min="0" step="0.01"></label></div>
+                <div class="inline-grid three-up"><label>Federal tax rate<input id="settingsFederalTaxRate" type="number" min="0" step="0.01"></label><label>State tax rate<input id="settingsStateTaxRate" type="number" min="0" step="0.01"></label><label>Social Security rate<input id="settingsSocialSecurityRate" type="number" min="0" step="0.0001"></label></div>
+                <label>Medicare rate<input id="settingsMedicareRate" type="number" min="0" step="0.0001"></label>
+                <button class="primary-button" type="submit">Save country settings</button>
+              </form>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Governance</p><h3>Permissions, notifications, and audit</h3></div></div>
+              <div class="table-wrap compact"><table><thead><tr><th>Role</th><th>Scope</th><th>Actions</th></tr></thead><tbody id="permissionsBody"></tbody></table></div>
+              <div class="stack-split"><div><h4>Notifications</h4><div id="notificationsList" class="card-stack compact"></div></div><div><h4>Audit trail</h4><div id="auditList" class="card-stack compact"></div></div></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="ess" data-screen="dashboard">
+          <div class="metric-grid ess-grid">
+            <article class="metric-card"><span>Draft bundles</span><strong id="essDraftCount">0</strong></article>
+            <article class="metric-card"><span>Submitted timesheets</span><strong id="essSubmittedCount">0</strong></article>
+            <article class="metric-card"><span>Approved timesheets</span><strong id="essApprovedCount">0</strong></article>
+            <article class="metric-card"><span>Latest net pay</span><strong id="essNetPreview">-</strong></article>
+          </div>
+          <div class="content-grid two-up">
+            <section class="panel"><div class="panel-head"><div><p class="eyebrow">Draft bundles</p><h3>Ready to submit</h3></div></div><div id="essDraftGroups" class="card-stack"></div></section>
+            <section class="panel"><div class="panel-head"><div><p class="eyebrow">Status feed</p><h3>Worker updates</h3></div></div><div id="essStatusFeed" class="card-stack"></div></section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="ess" data-screen="timelog">
+          <div class="content-grid split-form">
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Timelog</p><h3>Log time against tasks</h3></div></div>
+              <form id="essLogForm" class="stack-form">
+                <div class="inline-grid"><label>Worker<select id="essWorker"></select></label><label>Project<select id="essProject"></select></label></div>
+                <div class="inline-grid"><label>Task<select id="essTask"></select></label><label>Date<input id="essDate" type="date" required></label></div>
+                <div class="inline-grid three-up"><label>Logged hours<input id="essLoggedHours" type="number" min="0.25" max="24" step="0.25" required></label><label>Break minutes<input id="essBreakMinutes" type="number" min="0" max="600" step="15" value="0"></label><label>Category<select id="essCategory"></select></label></div>
+                <label>Notes<textarea id="essNotes" rows="4" placeholder="What did you work on?"></textarea></label>
+                <button class="primary-button" type="submit">Save task log</button>
+              </form>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Draft lines</p><h3>Current unsent task logs</h3></div></div>
+              <div class="table-wrap"><table><thead><tr><th>Date</th><th>Project</th><th>Task</th><th>Logged</th><th>Break</th><th>Payable</th><th>Flags</th></tr></thead><tbody id="essEntriesBody"></tbody></table></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="screen" data-portal="ess" data-screen="my-timesheets">
+          <div class="content-grid split-form">
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">Submit timesheet</p><h3>Club draft task logs into a timesheet</h3></div></div>
+              <form id="essSubmitForm" class="stack-form">
+                <div class="inline-grid"><label>Worker<select id="essSubmitWorker"></select></label><label>Project<select id="essSubmitProject"></select></label></div>
+                <label>Scope<select id="essSubmitScope"><option value="current">Current pay period</option><option value="all">All draft periods</option></select></label>
+                <button class="primary-button" type="submit">Submit timesheet</button>
+              </form>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><p class="eyebrow">My timesheets</p><h3>Review submitted bundles</h3></div></div>
+              <div id="essTimesheetsList" class="card-stack"></div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="dashboard.mjs"></script>
+</body>
+</html>
