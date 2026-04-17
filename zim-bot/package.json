@@ -1,0 +1,13 @@
+{
+  "name": "zim-bot",
+  "version": "1.0.0",
+  "description": "Zim — AI assistant for Zimyo Core HR, Workflows & Payroll",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}

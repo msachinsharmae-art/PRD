@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US Payroll Dashboard</title>
+  <style>
+    /* ═══════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f2f5;
+      color: #1e293b;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══════════════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════════════ */
+    .header {
+      background: #1a2332;
+      color: #fff;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-right: 32px;
+      flex-shrink: 0;
+    }
+    .header-brand h1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      white-space: nowrap;
+    }
+    .header-brand .brand-flag {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    /* State selector — prominent */
+    .state-selector-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-right: auto;
+    }
+    .state-selector-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: #8b95a5;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .state-selector {
+      appearance: none;
+      background: #253349;
+      border: 2px solid #2563eb;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 8px 40px 8px 14px;
+      cursor: pointer;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+    }
+    .state-selector:hover,
+    .state-selector:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 3px rgba(37,99,235,.35);
+    }
+
+    /* Nav links */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .header-nav a {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 6px;
+      color: #94a3b8;
+      transition: color .15s, background .15s;
+      white-space: nowrap;
+    }
+    .header-nav a:hover,
+    .header-nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,.08);
+    }
+    .header-nav a.active {
+      background: rgba(37,99,235,.25);
+      color: #93c5fd;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       MAIN CONTAINER
+       ═══════════════════════════════════════════════════ */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 28px 24px 48px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       LOADING OVERLAY
+       ═══════════════════════════════════════════════════ */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 60px 0 0;
+      background: rgba(240,242,245,.7);
+      z-index: 50;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 180px;
+    }
+    .loading-overlay.active { display: flex; }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #e2e8f0;
+      border-top-color: #2563eb;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ═══════════════════════════════════════════════════
+       PAGE TITLE BAR
+       ═══════════════════════════════════════════════════ */
+    .page-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .page-title-bar h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a2332;
+    }
+    .page-title-bar .state-label {
+      font-size: 14px;
+      color: #64748b;
+      margin-left: 10px;
+      font-weight: 400;
+    }
+    .company-name {
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SUMMARY CARDS
+       ═══════════════════════════════════════════════════ */
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .summary-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 22px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .summary-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .card-icon.blue   { background: #eff6ff; }
+    .card-icon.amber  { background: #fffbeb; }
+    .card-icon.green  { background: #f0fdf4; }
+    .card-icon.red    { background: #fef2f2; }
+    .card-body { flex: 1; min-width: 0; }
+    .card-value {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .card-label {
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       QUICK ACTIONS
+       ═══════════════════════════════════════════════════ */
+    .quick-actions {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .qa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s, transform .1s;
+      font-family: inherit;
+    }
+    .qa-btn:active { transform: scale(.97); }
+    .qa-btn.primary {
+      background: #2563eb;
+      color: #fff;
+    }
+    .qa-btn.primary:hover { background: #1d4ed8; }
+    .qa-btn.secondary {
+      background: #fff;
+      color: #1e293b;
+      border: 1px solid #e2e8f0;
+    }
+    .qa-btn.secondary:hover { background: #f8fafc; border-color: #cbd5e1; }
+
+    /* ═══════════════════════════════════════════════════
+       TWO-COL LAYOUT (table + compliance)
+       ═══════════════════════════════════════════════════ */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 22px;
+      align-items: start;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PANEL (shared card style)
+       ═══════════════════════════════════════════════════ */
+    .panel {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+      overflow: hidden;
+    }
+    .panel-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .panel-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a2332;
+    }
+    .panel-badge {
+      font-size: 12px;
+      font-weight: 600;
+      background: #eff6ff;
+      color: #2563eb;
+      padding: 2px 10px;
+      border-radius: 10px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       TABLE
+       ═══════════════════════════════════════════════════ */
+    .pay-runs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .pay-runs-table thead th {
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #64748b;
+      background: #f8fafc;
+      border-bottom: 1px solid #f1f5f9;
+      white-space: nowrap;
+    }
+    .pay-runs-table tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f8fafc;
+      color: #334155;
+      white-space: nowrap;
+    }
+    .pay-runs-table tbody tr:hover { background: #f8fafc; }
+    .pay-runs-table tbody tr:last-child td { border-bottom: none; }
+    .pay-runs-table .mono {
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+      font-size: 12px;
+    }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    .badge-draft     { background: #f1f5f9; color: #64748b; }
+    .badge-review    { background: #fef9c3; color: #92400e; }
+    .badge-approved  { background: #dbeafe; color: #1e40af; }
+    .badge-finalized { background: #dcfce7; color: #166534; }
+
+    /* View button */
+    .btn-view {
+      padding: 5px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      background: #fff;
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background .15s, border-color .15s;
+    }
+    .btn-view:hover { background: #eff6ff; border-color: #bfdbfe; }
+
+    /* Empty state */
+    .table-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    .table-empty .empty-icon { font-size: 32px; margin-bottom: 8px; }
+
+    /* ═══════════════════════════════════════════════════
+       COMPLIANCE SUMMARY PANEL
+       ═══════════════════════════════════════════════════ */
+    .compliance-list {
+      padding: 16px 20px;
+    }
+    .compliance-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #f8fafc;
+      font-size: 13px;
+    }
+    .compliance-row:last-child { border-bottom: none; }
+    .compliance-key {
+      color: #64748b;
+      font-weight: 500;
+    }
+    .compliance-val {
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .compliance-val.yes { color: #16a34a; }
+    .compliance-val.no  { color: #dc2626; }
+    .compliance-val.na  { color: #94a3b8; }
+
+    .compliance-footer {
+      padding: 12px 20px;
+      background: #f8fafc;
+      border-top: 1px solid #f1f5f9;
+      font-size: 12px;
+      color: #64748b;
+      text-align: center;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 900px) {
+      .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .header { padding: 0 16px; }
+      .container { padding: 20px 14px 40px; }
+      .summary-cards {
+        grid-template-columns: 1fr;
+      }
+      .header-nav { display: none; }
+      .quick-actions { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="header">
+  <div class="header-brand">
+    <span class="brand-flag">&#127482;&#127480;</span>
+    <div>
+      <h1>US Payroll</h1>
+    </div>
+  </div>
+
+  <div class="state-selector-wrap">
+    <span class="state-selector-label">State</span>
+    <select id="stateSelect" class="state-selector">
+      <option value="">All States</option>
+    </select>
+  </div>
+
+  <nav class="header-nav">
+    <a href="#" data-tab="dashboard" class="active" onclick="switchTab('dashboard',this)">Dashboard</a>
+    <a href="#" data-tab="employees" onclick="switchTab('employees',this)">Employees</a>
+    <a href="#" data-tab="pay-run" onclick="switchTab('pay-run',this)">Pay Runs</a>
+    <a href="#" data-tab="pay-stubs" onclick="switchTab('pay-stubs',this)">Pay Stubs</a>
+    <a href="#" data-tab="reports" onclick="switchTab('reports',this)">Reports</a>
+  </nav>
+</header>
+
+<!-- ═══════════ IFRAME for sub-pages (hidden by default) ═══════════ -->
+<iframe id="subPageFrame" style="display:none; width:100%; border:none; min-height:calc(100vh - 60px);" onload="autoResizeFrame()"></iframe>
+
+<!-- ═══════════════════════ LOADING ═══════════════════════ -->
+<div id="loadingOverlay" class="loading-overlay">
+  <div class="spinner"></div>
+</div>
+
+<!-- ═══════════════════════ DASHBOARD CONTENT ═══════════════════════ -->
+<div class="container" id="dashboardContent">
+
+  <!-- Page title -->
+  <div class="page-title-bar">
+    <h2>Dashboard <span id="stateLabelTitle" class="state-label"></span></h2>
+    <span id="companyName" class="company-name"></span>
+  </div>
+
+  <!-- Summary cards -->
+  <div class="summary-cards">
+    <div class="summary-card">
+      <div class="card-icon blue">&#128101;</div>
+      <div class="card-body">
+        <div class="card-value" id="cardEmployees">--</div>
+        <div class="card-label">Total Employees</div>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon amber">&#9203;</div>
+      <div class="card-body">
+        <div class="card-value" id="cardPending">--</div>
+        <div class="card-label">Pending Pay Runs</div>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon green">&#128176;</div>
+      <div class="card-body">
+        <div class="card-value" id="cardYTDPayroll">--</div>
+        <div class="card-label">YTD Payroll Total</div>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon red">&#127970;</div>
+      <div class="card-body">
+        <div class="card-value" id="cardYTDTax">--</div>
+        <div class="card-label">YTD Tax Liability</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick actions -->
+  <div class="quick-actions">
+    <a href="#pay-run" class="qa-btn primary" onclick="switchTab('pay-run',null)">+ New Pay Run</a>
+    <a href="#employees" class="qa-btn secondary" onclick="switchTab('employees',null)">+ Add Employee</a>
+    <a href="#reports" class="qa-btn secondary" onclick="switchTab('reports',null)">View Reports</a>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="content-grid">
+
+    <!-- Recent pay runs table -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Recent Pay Runs</span>
+        <span class="panel-badge" id="payRunCount">0</span>
+      </div>
+      <div id="payRunsTableWrap">
+        <table class="pay-runs-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>State</th>
+              <th>Period</th>
+              <th>Pay Date</th>
+              <th>Status</th>
+              <th>Emps</th>
+              <th>Total Gross</th>
+              <th>Total Net</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="payRunsBody">
+            <tr><td colspan="9" class="table-empty">
+              <div class="empty-icon">&#128203;</div>
+              Loading pay runs...
+            </td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- State compliance summary -->
+    <div class="panel" id="compliancePanel">
+      <div class="panel-header">
+        <span class="panel-title">State Compliance</span>
+        <span class="panel-badge" id="complianceStateBadge">--</span>
+      </div>
+      <div class="compliance-list" id="complianceList">
+        <div class="compliance-row">
+          <span class="compliance-key">Select a state to view details</span>
+        </div>
+      </div>
+      <div class="compliance-footer" id="complianceFooter">
+        Choose a state from the dropdown above
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════ TAB SWITCHING (Single Portal) ═══════════ -->
+<script>
+function switchTab(tab, el) {
+  if (el) { el.preventDefault && el.preventDefault(); }
+  // Update nav active state
+  document.querySelectorAll('.header-nav a').forEach(a => a.classList.remove('active'));
+  const navLink = el || document.querySelector('[data-tab="' + tab + '"]');
+  if (navLink) navLink.classList.add('active');
+
+  const dashContent = document.getElementById('dashboardContent');
+  const frame = document.getElementById('subPageFrame');
+  const loading = document.getElementById('loadingOverlay');
+
+  if (tab === 'dashboard') {
+    frame.style.display = 'none';
+    frame.src = '';
+    dashContent.style.display = '';
+    loading.style.display = '';
+    return;
+  }
+
+  // Show iframe with the sub-page
+  dashContent.style.display = 'none';
+  loading.style.display = 'none';
+  frame.style.display = 'block';
+  frame.src = '/us-payroll/' + tab + '.html';
+}
+
+function autoResizeFrame() {
+  const frame = document.getElementById('subPageFrame');
+  try {
+    const h = frame.contentDocument.body.scrollHeight;
+    if (h > 200) frame.style.height = h + 40 + 'px';
+  } catch(e) {
+    frame.style.height = 'calc(100vh - 60px)';
+  }
+}
+
+// Handle hash-based navigation
+window.addEventListener('hashchange', function() {
+  const tab = location.hash.replace('#', '') || 'dashboard';
+  switchTab(tab);
+});
+if (location.hash && location.hash !== '#dashboard') {
+  switchTab(location.hash.replace('#', ''));
+}
+</script>
+
+<!-- ═══════════════════════ DASHBOARD JAVASCRIPT ═══════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── API base ───────────────────────────────────────────────
+  const API = '/api/us-payroll';
+
+  // ── DOM refs ───────────────────────────────────────────────
+  const stateSelect         = document.getElementById('stateSelect');
+  const loadingOverlay      = document.getElementById('loadingOverlay');
+  const stateLabelTitle     = document.getElementById('stateLabelTitle');
+  const companyNameEl       = document.getElementById('companyName');
+
+  const cardEmployees       = document.getElementById('cardEmployees');
+  const cardPending         = document.getElementById('cardPending');
+  const cardYTDPayroll      = document.getElementById('cardYTDPayroll');
+  const cardYTDTax          = document.getElementById('cardYTDTax');
+
+  const payRunCount         = document.getElementById('payRunCount');
+  const payRunsBody         = document.getElementById('payRunsBody');
+
+  const complianceStateBadge = document.getElementById('complianceStateBadge');
+  const complianceList       = document.getElementById('complianceList');
+  const complianceFooter     = document.getElementById('complianceFooter');
+
+  // ── State data cache ──────────────────────────────────────
+  let statesCache = [];
+
+  // ── Helpers ────────────────────────────────────────────────
+  function showLoading()  { loadingOverlay.classList.add('active'); }
+  function hideLoading()  { loadingOverlay.classList.remove('active'); }
+
+  function fmt$(value) {
+    if (value == null || isNaN(value)) return '$0.00';
+    return '$' + Number(value).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function fmtDate(dateStr) {
+    if (!dateStr) return '--';
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  function fmtPeriod(start, end) {
+    if (!start || !end) return '--';
+    const s = new Date(start + 'T00:00:00');
+    const e = new Date(end + 'T00:00:00');
+    const opts = { month: 'short', day: 'numeric' };
+    return s.toLocaleDateString('en-US', opts) + ' - ' + e.toLocaleDateString('en-US', opts);
+  }
+
+  function badgeClass(status) {
+    const map = { draft: 'badge-draft', review: 'badge-review', approved: 'badge-approved', finalized: 'badge-finalized' };
+    return map[status] || 'badge-draft';
+  }
+
+  async function apiFetch(path) {
+    const resp = await fetch(API + path);
+    if (!resp.ok) throw new Error('API error: ' + resp.status);
+    return resp.json();
+  }
+
+  // ── Load states dropdown ──────────────────────────────────
+  async function loadStates() {
+    try {
+      const data = await apiFetch('/states');
+      statesCache = data.states || [];
+      stateSelect.innerHTML = '<option value="">All States</option>';
+      for (const s of statesCache) {
+        const opt = document.createElement('option');
+        opt.value = s.code;
+        opt.textContent = s.code + ' - ' + (s.name || s.code);
+        stateSelect.appendChild(opt);
+      }
+    } catch (err) {
+      console.error('Failed to load states:', err);
+      // Fallback
+      const fallback = ['CA', 'TX', 'FL', 'WA', 'NY', 'GA'];
+      stateSelect.innerHTML = '<option value="">All States</option>';
+      for (const code of fallback) {
+        const opt = document.createElement('option');
+        opt.value = code;
+        opt.textContent = code;
+        stateSelect.appendChild(opt);
+      }
+    }
+  }
+
+  // ── Load company settings ─────────────────────────────────
+  async function loadSettings() {
+    try {
+      const data = await apiFetch('/settings');
+      const s = data.settings || {};
+      companyNameEl.textContent = s.company_name || '';
+    } catch {
+      companyNameEl.textContent = '';
+    }
+  }
+
+  // ── Refresh all dashboard data ────────────────────────────
+  async function refreshDashboard() {
+    const state = stateSelect.value;
+    const qs = state ? '?state=' + state : '';
+
+    stateLabelTitle.textContent = state
+      ? '(' + getStateName(state) + ')'
+      : '(All States)';
+
+    showLoading();
+
+    try {
+      // Fire all requests in parallel
+      const [empData, runData] = await Promise.all([
+        apiFetch('/employees' + qs),
+        apiFetch('/pay-runs' + qs)
+      ]);
+
+      const employees = empData.employees || [];
+      const payRuns   = runData.pay_runs || [];
+
+      // ── Summary cards ──────────────────────────────────
+      cardEmployees.textContent = employees.length;
+
+      const pendingRuns = payRuns.filter(r => r.status === 'draft' || r.status === 'review');
+      cardPending.textContent = pendingRuns.length;
+
+      // YTD payroll = sum of all finalized pay run gross totals
+      const finalizedRuns = payRuns.filter(r => r.status === 'finalized');
+      const ytdGross = finalizedRuns.reduce((sum, r) => sum + ((r.totals && r.totals.total_gross) || 0), 0);
+      cardYTDPayroll.textContent = fmt$(ytdGross);
+
+      const ytdTax = finalizedRuns.reduce((sum, r) => {
+        const t = r.totals || {};
+        return sum + (t.total_federal_tax || 0) + (t.total_state_tax || 0)
+                   + (t.total_ss_employee || 0) + (t.total_medicare_employee || 0);
+      }, 0);
+      cardYTDTax.textContent = fmt$(ytdTax);
+
+      // ── Recent pay runs table ──────────────────────────
+      renderPayRunsTable(payRuns.slice(0, 15));
+      payRunCount.textContent = payRuns.length;
+
+      // ── Compliance panel ───────────────────────────────
+      renderCompliancePanel(state);
+
+    } catch (err) {
+      console.error('Dashboard load error:', err);
+      cardEmployees.textContent = '--';
+      cardPending.textContent = '--';
+      cardYTDPayroll.textContent = '--';
+      cardYTDTax.textContent = '--';
+      renderPayRunsTable([]);
+    } finally {
+      hideLoading();
+    }
+  }
+
+  // ── Pay runs table render ─────────────────────────────────
+  function renderPayRunsTable(runs) {
+    if (!runs || runs.length === 0) {
+      payRunsBody.innerHTML = '<tr><td colspan="9" class="table-empty">' +
+        '<div class="empty-icon">&#128203;</div>No pay runs found</td></tr>';
+      return;
+    }
+
+    let html = '';
+    for (const r of runs) {
+      const totals = r.totals || {};
+      const empCount = (r.employees || r.stubs || []).length;
+      html += '<tr>' +
+        '<td class="mono">' + esc(r.pay_run_id || '--') + '</td>' +
+        '<td>' + esc(r.state || '--') + '</td>' +
+        '<td>' + fmtPeriod(r.pay_period_start, r.pay_period_end) + '</td>' +
+        '<td>' + fmtDate(r.pay_date) + '</td>' +
+        '<td><span class="badge ' + badgeClass(r.status) + '">' + esc(r.status || 'draft') + '</span></td>' +
+        '<td>' + empCount + '</td>' +
+        '<td class="mono">' + fmt$(totals.total_gross) + '</td>' +
+        '<td class="mono">' + fmt$(totals.total_net) + '</td>' +
+        '<td><button class="btn-view" onclick="viewPayRun(\'' + esc(r.pay_run_id) + '\')">View</button></td>' +
+        '</tr>';
+    }
+    payRunsBody.innerHTML = html;
+  }
+
+  // ── Compliance panel render ───────────────────────────────
+  function renderCompliancePanel(stateCode) {
+    if (!stateCode) {
+      complianceStateBadge.textContent = '--';
+      complianceList.innerHTML = '<div class="compliance-row">' +
+        '<span class="compliance-key">Select a state to view compliance details</span></div>';
+      complianceFooter.textContent = 'Choose a state from the dropdown above';
+      return;
+    }
+
+    const stateInfo = statesCache.find(s => s.code === stateCode);
+    if (!stateInfo) {
+      complianceStateBadge.textContent = stateCode;
+      complianceList.innerHTML = '<div class="compliance-row">' +
+        '<span class="compliance-key">State data not available</span></div>';
+      complianceFooter.textContent = '';
+      return;
+    }
+
+    complianceStateBadge.textContent = stateInfo.code + ' - ' + stateInfo.name;
+
+    const cfg = stateInfo.config || {};
+    const hasIT = stateInfo.has_income_tax;
+
+    let rows = '';
+
+    // Has income tax
+    rows += complianceRow('State Income Tax',
+      hasIT ? 'Yes' : 'No',
+      hasIT ? 'yes' : 'no');
+
+    // Minimum wage
+    if (cfg.minimumWage != null) {
+      rows += complianceRow('Minimum Wage', fmt$(cfg.minimumWage) + '/hr', '');
+    }
+
+    // Exempt salary threshold
+    if (cfg.exemptSalaryThreshold != null) {
+      rows += complianceRow('Exempt Threshold', fmt$(cfg.exemptSalaryThreshold) + '/yr', '');
+    }
+
+    // OT rules
+    if (cfg.overtimeRules) {
+      const otType = cfg.overtimeRules.type || 'weekly';
+      const label = otType.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      rows += complianceRow('Overtime Type', label, '');
+    }
+
+    // SDI
+    if (cfg.sdiRate != null) {
+      rows += complianceRow('SDI Rate', (cfg.sdiRate * 100).toFixed(2) + '%', '');
+    }
+
+    // Pay frequency rules
+    if (cfg.payFrequencyRules) {
+      const allowed = (cfg.payFrequencyRules.allowed || []).join(', ');
+      if (allowed) {
+        rows += complianceRow('Pay Frequencies', allowed, '');
+      }
+    }
+
+    complianceList.innerHTML = rows;
+
+    const reqFields = stateInfo.required_stub_fields || [];
+    complianceFooter.textContent = reqFields.length > 0
+      ? 'Required stub fields: ' + reqFields.length
+      : 'State module loaded';
+  }
+
+  function complianceRow(key, val, cls) {
+    return '<div class="compliance-row">' +
+      '<span class="compliance-key">' + esc(key) + '</span>' +
+      '<span class="compliance-val' + (cls ? ' ' + cls : '') + '">' + esc(val) + '</span>' +
+      '</div>';
+  }
+
+  // ── Get state name from cache ─────────────────────────────
+  function getStateName(code) {
+    const s = statesCache.find(st => st.code === code);
+    return s ? s.name : code;
+  }
+
+  // ── Escape HTML ───────────────────────────────────────────
+  function esc(str) {
+    if (str == null) return '';
+    const div = document.createElement('div');
+    div.textContent = String(str);
+    return div.innerHTML;
+  }
+
+  // ── Global: view pay run ──────────────────────────────────
+  window.viewPayRun = function(id) {
+    // Navigate within the single portal
+    const frame = document.getElementById('subPageFrame');
+    const dashContent = document.getElementById('dashboardContent');
+    dashContent.style.display = 'none';
+    document.getElementById('loadingOverlay').style.display = 'none';
+    frame.style.display = 'block';
+    frame.src = '/us-payroll/pay-run.html?id=' + encodeURIComponent(id);
+    document.querySelectorAll('.header-nav a').forEach(a => a.classList.remove('active'));
+    document.querySelector('[data-tab="pay-run"]').classList.add('active');
+  };
+
+  // ── State change listener ─────────────────────────────────
+  stateSelect.addEventListener('change', function() {
+    // Persist state selection
+    try { sessionStorage.setItem('us-payroll-state', stateSelect.value); } catch {}
+    refreshDashboard();
+  });
+
+  // ── Init ──────────────────────────────────────────────────
+  async function init() {
+    showLoading();
+    try {
+      await Promise.all([loadStates(), loadSettings()]);
+
+      // Restore persisted state selection
+      try {
+        const saved = sessionStorage.getItem('us-payroll-state');
+        if (saved && stateSelect.querySelector('option[value="' + saved + '"]')) {
+          stateSelect.value = saved;
+        }
+      } catch {}
+
+      await refreshDashboard();
+    } catch (err) {
+      console.error('Init error:', err);
+      hideLoading();
+    }
+  }
+
+  init();
+})();
+</script>
+
+</body>
+</html>

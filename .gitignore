@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.*.local
+
+# Build output
+dist/
+build/
+out/
+
+# Test results & artifacts
+test-results/
+playwright-report/
+playwright-tests/screenshots/
+playwright-tests/test-results/
+*.png
+*.mp4
+
+# Playwright state & browser data
+playwright-tests/auth/session.json
+playwright-tests/browser-profile/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# OS files
+.DS_Store
+ehthumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Claude Code
+.claude/
+
+# Personal / non-work files
+Learn_Python.ipynb
+Untitled.ipynb
+generate_role_based_cvs.js
+.ipynb_checkpoints/
+employees.csv
+
+# Misc
+*.tmp
+*.bak
+*.orig

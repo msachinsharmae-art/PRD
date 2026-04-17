@@ -1,0 +1,3374 @@
+{
+  "Home": {
+    "url": "https://www.zimyo.net/payroll/",
+    "tabs": [],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Payroll Requests",
+      "Pending for Payroll",
+      "Pending for FNF",
+      "Salary on Hold",
+      "Pending for Payment",
+      "Payroll Approvals",
+      "Approval Pending on Me",
+      "Payroll Pending for Approval",
+      "Approval Received",
+      "Approval Rejected",
+      "Salary Benefits & Taxation",
+      "Investment Declaration",
+      "Reimbursement",
+      "Loans & Advances",
+      "Non compliant minimum wages"
+    ],
+    "buttons": [
+      "Refresh",
+      "Refresh",
+      "Logout",
+      "Download"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "Entity",
+          "Fixed Cost",
+          "Variable Cost"
+        ],
+        "rowCount": 14
+      },
+      {
+        "headers": [
+          "Entity",
+          "Forecasted Payout",
+          "Actual Payout Disbursed"
+        ],
+        "rowCount": 14
+      },
+      {
+        "headers": [
+          "Employee Name",
+          "Employee Code",
+          "Entity Name",
+          "Department Name",
+          "Designation Name",
+          "Location Name",
+          "Wage Received",
+          "Wage as per Slab"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Payroll Operations": {
+    "url": "https://www.zimyo.net/payroll/payroll-operations/run-payroll",
+    "tabs": [
+      {
+        "text": "Run Payroll",
+        "href": "/payroll/payroll-operations/run-payroll"
+      },
+      {
+        "text": "Process Arrear",
+        "href": "/payroll/payroll-operations/arrear"
+      },
+      {
+        "text": "Full & Final Settlement",
+        "href": "/payroll/payroll-operations/fnf/pending"
+      },
+      {
+        "text": "Success (0/0)",
+        "href": null
+      },
+      {
+        "text": "Error (0)",
+        "href": null
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      },
+      {
+        "text": "Run Payroll",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 112,
+        "y": 157
+      },
+      {
+        "text": "Process Arrear",
+        "href": "/payroll/payroll-operations/arrear",
+        "x": 112,
+        "y": 184
+      },
+      {
+        "text": "Full & Final Settlement",
+        "href": "/payroll/payroll-operations/fnf/pending",
+        "x": 112,
+        "y": 212
+      }
+    ],
+    "headings": [
+      "Run Payroll",
+      "Process Arrear",
+      "Full & Final Settlement",
+      "Leave & AttendanceProcess ArrearReview & Run PayrollPublish Payslips"
+    ],
+    "buttons": [
+      "Search",
+      "Success (0/0)",
+      "Error (0)",
+      "Bulk Attendance Recompute",
+      "Bulk Upload",
+      "Lock Attendance & Proceed",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "Employee Name",
+          "Entity Name",
+          "Designation",
+          "Department",
+          "Location",
+          "Working Days",
+          "Payable Present",
+          "LOP Days",
+          "Leaves",
+          "Penalized",
+          "Overtime",
+          "Extra OT",
+          "Status",
+          "Action"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Payroll Operations > Run Payroll": {
+    "url": "https://www.zimyo.net/payroll/payroll-operations/run-payroll",
+    "tabs": [
+      {
+        "text": "Run Payroll",
+        "href": "/payroll/payroll-operations/run-payroll"
+      },
+      {
+        "text": "Process Arrear",
+        "href": "/payroll/payroll-operations/arrear"
+      },
+      {
+        "text": "Full & Final Settlement",
+        "href": "/payroll/payroll-operations/fnf/pending"
+      },
+      {
+        "text": "Success (0/0)",
+        "href": null
+      },
+      {
+        "text": "Error (0)",
+        "href": null
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Run Payroll",
+      "Process Arrear",
+      "Full & Final Settlement",
+      "Leave & AttendanceProcess ArrearReview & Run PayrollPublish Payslips"
+    ],
+    "buttons": [
+      "Search",
+      "Success (0/0)",
+      "Error (0)",
+      "Bulk Attendance Recompute",
+      "Bulk Upload",
+      "Lock Attendance & Proceed",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "Employee Name",
+          "Entity Name",
+          "Designation",
+          "Department",
+          "Location",
+          "Working Days",
+          "Payable Present",
+          "LOP Days",
+          "Leaves",
+          "Penalized",
+          "Overtime",
+          "Extra OT",
+          "Status",
+          "Action"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Payroll Operations > Process Arrear": {
+    "url": "https://www.zimyo.net/payroll/payroll-operations/arrear",
+    "tabs": [
+      {
+        "text": "Run Payroll",
+        "href": "/payroll/payroll-operations/run-payroll"
+      },
+      {
+        "text": "Process Arrear",
+        "href": "/payroll/payroll-operations/arrear"
+      },
+      {
+        "text": "Full & Final Settlement",
+        "href": "/payroll/payroll-operations/fnf/pending"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Run Payroll",
+      "Process Arrear",
+      "Full & Final Settlement",
+      "Arrear infoPreview & GenerateSummary"
+    ],
+    "buttons": [
+      "Search",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "Code",
+          "Employee Name",
+          "Designation",
+          "Department",
+          "Paid On",
+          "Arrear Salary",
+          "Arrear Days",
+          "Arrear Status"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Payroll Operations > Full & Final Settlement": {
+    "url": "https://www.zimyo.net/payroll/payroll-operations/fnf/pending",
+    "tabs": [
+      {
+        "text": "Run Payroll",
+        "href": "/payroll/payroll-operations/run-payroll"
+      },
+      {
+        "text": "Process Arrear",
+        "href": "/payroll/payroll-operations/arrear"
+      },
+      {
+        "text": "Full & Final Settlement",
+        "href": "/payroll/payroll-operations/fnf/pending"
+      },
+      {
+        "text": "Pending for F&F",
+        "href": "/payroll/payroll-operations/fnf/pending"
+      },
+      {
+        "text": "F&F Completed",
+        "href": "/payroll/payroll-operations/fnf/completed"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Run Payroll",
+      "Process Arrear",
+      "Full & Final Settlement",
+      "Pending for F&F",
+      "F&F Completed",
+      "Pending F&F",
+      "Pending F&F",
+      "Analyst",
+      "Analyst",
+      "Assistant Manager",
+      "Analyst",
+      "Analyst",
+      "Analyst",
+      "Analyst",
+      "Analyst"
+    ],
+    "buttons": [
+      "Search",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Employee Workspace": {
+    "url": "https://www.zimyo.net/payroll/employees/list",
+    "tabs": [
+      {
+        "text": "Employee Directory",
+        "href": "/payroll/employees/list"
+      },
+      {
+        "text": "Payslips",
+        "href": "/payroll/employees/payslips"
+      },
+      {
+        "text": "Action Logs",
+        "href": "/payroll/employees/logs"
+      },
+      {
+        "text": "Email Documents",
+        "href": "/payroll/employees/email_docs"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Employee Directory",
+      "Payslips",
+      "Action Logs",
+      "Email Documents",
+      "Employees(360)Upload Form 16",
+      "Employees(360)",
+      "Analyst",
+      "Analyst",
+      "Analyst",
+      "Executive",
+      "Analyst",
+      "Analyst",
+      "Assistant Manager",
+      "Assistant Manager",
+      "Analyst"
+    ],
+    "buttons": [
+      "Upload Form 16",
+      "Submit",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Employee Workspace > Employee Directory": {
+    "url": "https://www.zimyo.net/payroll/employees/list",
+    "tabs": [
+      {
+        "text": "Employee Directory",
+        "href": "/payroll/employees/list"
+      },
+      {
+        "text": "Payslips",
+        "href": "/payroll/employees/payslips"
+      },
+      {
+        "text": "Action Logs",
+        "href": "/payroll/employees/logs"
+      },
+      {
+        "text": "Email Documents",
+        "href": "/payroll/employees/email_docs"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Employee Directory",
+      "Payslips",
+      "Action Logs",
+      "Email Documents",
+      "Employees(360)Upload Form 16",
+      "Employees(360)",
+      "Analyst",
+      "Analyst",
+      "Analyst",
+      "Executive",
+      "Analyst",
+      "Analyst",
+      "Assistant Manager",
+      "Assistant Manager",
+      "Analyst"
+    ],
+    "buttons": [
+      "Upload Form 16",
+      "Submit",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Employee Workspace > Payslips": {
+    "url": "https://www.zimyo.net/payroll/employees/payslips",
+    "tabs": [
+      {
+        "text": "Employee Directory",
+        "href": "/payroll/employees/list"
+      },
+      {
+        "text": "Payslips",
+        "href": "/payroll/employees/payslips"
+      },
+      {
+        "text": "Action Logs",
+        "href": "/payroll/employees/logs"
+      },
+      {
+        "text": "Email Documents",
+        "href": "/payroll/employees/email_docs"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Employee Directory",
+      "Payslips",
+      "Action Logs",
+      "Email Documents",
+      "Payslips",
+      "Payslips"
+    ],
+    "buttons": [
+      "Search",
+      "Unpublish Payslips",
+      "Publish Payslips",
+      "Regenerate Payslips",
+      "Email Payslips",
+      "Download Zip",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "EMPLOYEE",
+          "DEPARTMENT",
+          "DESIGNATION",
+          "Published STATUS",
+          "Generated STATUS",
+          "EMAIL SENT",
+          "Action"
+        ],
+        "rowCount": 2
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      },
+      {
+        "headers": [],
+        "rowCount": 0
+      }
+    ]
+  },
+  "Employee Workspace > Action Logs": {
+    "url": "https://www.zimyo.net/payroll/employees/logs",
+    "tabs": [
+      {
+        "text": "Employee Directory",
+        "href": "/payroll/employees/list"
+      },
+      {
+        "text": "Payslips",
+        "href": "/payroll/employees/payslips"
+      },
+      {
+        "text": "Action Logs",
+        "href": "/payroll/employees/logs"
+      },
+      {
+        "text": "Email Documents",
+        "href": "/payroll/employees/email_docs"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Employee Directory",
+      "Payslips",
+      "Action Logs",
+      "Email Documents",
+      "Action Logs",
+      "Action Logs"
+    ],
+    "buttons": [
+      "Download",
+      "Search",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "Employee Name",
+          "Department",
+          "Action Type",
+          "Action Description",
+          "Action date",
+          "Action time",
+          "Action Taken By",
+          "Action"
+        ],
+        "rowCount": 31
+      }
+    ]
+  },
+  "Employee Workspace > Email Documents": {
+    "url": "https://www.zimyo.net/payroll/employees/email_docs",
+    "tabs": [
+      {
+        "text": "Employee Directory",
+        "href": "/payroll/employees/list"
+      },
+      {
+        "text": "Payslips",
+        "href": "/payroll/employees/payslips"
+      },
+      {
+        "text": "Action Logs",
+        "href": "/payroll/employees/logs"
+      },
+      {
+        "text": "Email Documents",
+        "href": "/payroll/employees/email_docs"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Employee Directory",
+      "Payslips",
+      "Action Logs",
+      "Email Documents",
+      "Employees Report Generation",
+      "Employees Report Generation"
+    ],
+    "buttons": [
+      "Submit",
+      "Reports",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "EMPLOYEE",
+          "Department name",
+          "Designation name",
+          "Email",
+          "Date of birth",
+          "Gender",
+          "location"
+        ],
+        "rowCount": 361
+      }
+    ]
+  },
+  "Compensation & Benefits": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/loans",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "LoansBulk Create Loan",
+      "Loans"
+    ],
+    "buttons": [
+      "Bulk Create Loan",
+      "Search",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "Employee Name",
+          "Department",
+          "Loan ID",
+          "Loan Amount",
+          "Tenure",
+          "Request Date",
+          "Status",
+          "Open/Closed",
+          "Proof",
+          "Actions"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Compensation & Benefits > Loans": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/loans",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "LoansBulk Create Loan",
+      "Loans"
+    ],
+    "buttons": [
+      "Bulk Create Loan",
+      "Search",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "Employee Name",
+          "Department",
+          "Loan ID",
+          "Loan Amount",
+          "Tenure",
+          "Request Date",
+          "Status",
+          "Open/Closed",
+          "Proof",
+          "Actions"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Compensation & Benefits > Advances": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/advance",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "Advance",
+      "Advance"
+    ],
+    "buttons": [
+      "Search",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "Employee Name",
+          "Department",
+          "Loan ID",
+          "Loan Amount",
+          "Tenure",
+          "Request Date",
+          "Status",
+          "Open/Closed",
+          "Proof",
+          "Actions"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Compensation & Benefits > Reimbursements": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/riembursement",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "ReimbursementFreeze ReimbursementUpload Reimbursement",
+      "Reimbursement"
+    ],
+    "buttons": [
+      "Freeze Reimbursement",
+      "Upload Reimbursement",
+      "Search",
+      "Download Zip",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "EMPLOYEE",
+          "SALARY HEAD",
+          "UNCLAIMED AMOUNT",
+          "APPROVED AMOUNT",
+          "CLAIMED AMOUNT",
+          "Reason",
+          "REMARK",
+          "Declared on",
+          "Action taken on",
+          "Invoice Date",
+          "Invoice Number",
+          "PROOF",
+          "STATUS"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Compensation & Benefits > Expenses": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/expense",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      },
+      {
+        "text": "Expense (0/0)",
+        "href": null
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "Expense",
+      "Expense",
+      "Expense (0/0)"
+    ],
+    "buttons": [
+      "Bank Sheet",
+      "Search",
+      "Expense (0/0)",
+      "Pay",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "Employee Code",
+          "Employee Name",
+          "Employee Type",
+          "Expense Number",
+          "Expense Title",
+          "Requested Amount",
+          "Approved Amount",
+          "Request Raised On",
+          "Approved On",
+          "Pay Status",
+          "Action"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Compensation & Benefits > Tax Declarations": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/investment-declaration",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "Tax DeclarationEmail NotificationFreeze Investment DeclarationsConfiguration",
+      "Tax Declaration"
+    ],
+    "buttons": [
+      "Email Notification",
+      "Freeze Investment Declarations",
+      "Configuration",
+      "Search",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "EMPLOYEE",
+          "SECTION NAME",
+          "DEDUCTION HEAD",
+          "REQUESTED DECLARATION",
+          "ACCEPTED DECLARATION",
+          "PROOF",
+          "Remarks",
+          "STATUS",
+          "Action"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Compensation & Benefits > Previous Employer Earnings": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/previous-employer",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "Previous Employer Earnings",
+      "Previous Employer Earnings"
+    ],
+    "buttons": [
+      "Search",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "Employee Code",
+          "Employee Name",
+          "Department",
+          "Designation",
+          "Location",
+          "Last Org Name",
+          "Gross",
+          "Basic",
+          "HRA",
+          "DA",
+          "TDS",
+          "PF",
+          "VPF",
+          "PT",
+          "Reimbursement",
+          "Leave Encashment",
+          "Gratuity",
+          "Home Loan Interest(Let Out Propetry)",
+          "Home Loan Interest(Self Occupied)",
+          "Approval Status",
+          "Action Taken By",
+          "Action Taken On",
+          "Action Remark"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Compensation & Benefits > Other Earnings": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/other-earnings",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "Other Source of Earnings",
+      "Other Source of Earnings"
+    ],
+    "buttons": [
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "Employee",
+          "Declared Amount",
+          "Approved Amount",
+          "Proof",
+          "Status"
+        ],
+        "rowCount": 3
+      }
+    ]
+  },
+  "Compensation & Benefits > Restructure (Salary / Tax / Bonus)": {
+    "url": "https://www.zimyo.net/payroll/benefits-taxation/restructure",
+    "tabs": [
+      {
+        "text": "Loans",
+        "href": "/payroll/benefits-taxation/loans"
+      },
+      {
+        "text": "Advances",
+        "href": "/payroll/benefits-taxation/advance"
+      },
+      {
+        "text": "Reimbursements",
+        "href": "/payroll/benefits-taxation/riembursement"
+      },
+      {
+        "text": "Expenses",
+        "href": "/payroll/benefits-taxation/expense"
+      },
+      {
+        "text": "Tax Declarations",
+        "href": "/payroll/benefits-taxation/investment-declaration"
+      },
+      {
+        "text": "Previous Employer Earnings",
+        "href": "/payroll/benefits-taxation/previous-employer"
+      },
+      {
+        "text": "Other Earnings",
+        "href": "/payroll/benefits-taxation/other-earnings"
+      },
+      {
+        "text": "Restructure (Salary / Tax / Bonus)",
+        "href": "/payroll/benefits-taxation/restructure"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Loans",
+      "Advances",
+      "Reimbursements",
+      "Expenses",
+      "Tax Declarations",
+      "Previous Employer Earnings",
+      "Other Earnings",
+      "Restructure (Salary / Tax / Bonus)",
+      "Restructure",
+      "Restructure"
+    ],
+    "buttons": [
+      "Search",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "",
+          "Employee",
+          "Other Amount",
+          "Head Details",
+          "Status"
+        ],
+        "rowCount": 2
+      }
+    ]
+  },
+  "Data & Insights": {
+    "url": "https://www.zimyo.net/payroll/data-insights/custom-reports/draft",
+    "tabs": [
+      {
+        "text": "Payroll Reports",
+        "href": "/payroll/data-insights/reports"
+      },
+      {
+        "text": "Custom Reports",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "Data Imports",
+        "href": "/payroll/data-insights/bulk-uploads"
+      },
+      {
+        "text": "Draft Custom Report",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "F&F Custom Report",
+        "href": "/payroll/data-insights/custom-reports/fnf"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Payroll Reports",
+      "Custom Reports",
+      "Data Imports",
+      "Draft Custom Report",
+      "F&F Custom Report"
+    ],
+    "buttons": [
+      "Create Draft Custom Report",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "REPORT NAME",
+          "CREATED BY",
+          "CREATED ON",
+          "ACTION"
+        ],
+        "rowCount": 18
+      }
+    ]
+  },
+  "Data & Insights > Payroll Reports": {
+    "url": "https://www.zimyo.net/payroll/data-insights/reports",
+    "tabs": [
+      {
+        "text": "Payroll Reports",
+        "href": "/payroll/data-insights/reports"
+      },
+      {
+        "text": "Custom Reports",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "Data Imports",
+        "href": "/payroll/data-insights/bulk-uploads"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Payroll Reports",
+      "Custom Reports",
+      "Data Imports",
+      "Reports",
+      "Reports"
+    ],
+    "buttons": [
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Data & Insights > Custom Reports": {
+    "url": "https://www.zimyo.net/payroll/data-insights/custom-reports/draft",
+    "tabs": [
+      {
+        "text": "Payroll Reports",
+        "href": "/payroll/data-insights/reports"
+      },
+      {
+        "text": "Custom Reports",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "Data Imports",
+        "href": "/payroll/data-insights/bulk-uploads"
+      },
+      {
+        "text": "Draft Custom Report",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "F&F Custom Report",
+        "href": "/payroll/data-insights/custom-reports/fnf"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Payroll Reports",
+      "Custom Reports",
+      "Data Imports",
+      "Draft Custom Report",
+      "F&F Custom Report"
+    ],
+    "buttons": [
+      "Create Draft Custom Report",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "REPORT NAME",
+          "CREATED BY",
+          "CREATED ON",
+          "ACTION"
+        ],
+        "rowCount": 18
+      }
+    ]
+  },
+  "Data & Insights > Data Imports": {
+    "url": "https://www.zimyo.net/payroll/data-insights/bulk-uploads",
+    "tabs": [
+      {
+        "text": "Payroll Reports",
+        "href": "/payroll/data-insights/reports"
+      },
+      {
+        "text": "Custom Reports",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "Data Imports",
+        "href": "/payroll/data-insights/bulk-uploads"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Payroll Reports",
+      "Custom Reports",
+      "Data Imports",
+      "Bulk UploadsUpload Reversal",
+      "Bulk Uploads"
+    ],
+    "buttons": [
+      "Upload Reversal",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Data & Insights > Draft Custom Report": {
+    "url": "https://www.zimyo.net/payroll/data-insights/custom-reports/draft",
+    "tabs": [
+      {
+        "text": "Payroll Reports",
+        "href": "/payroll/data-insights/reports"
+      },
+      {
+        "text": "Custom Reports",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "Data Imports",
+        "href": "/payroll/data-insights/bulk-uploads"
+      },
+      {
+        "text": "Draft Custom Report",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "F&F Custom Report",
+        "href": "/payroll/data-insights/custom-reports/fnf"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Payroll Reports",
+      "Custom Reports",
+      "Data Imports",
+      "Draft Custom Report",
+      "F&F Custom Report"
+    ],
+    "buttons": [
+      "Create Draft Custom Report",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "REPORT NAME",
+          "CREATED BY",
+          "CREATED ON",
+          "ACTION"
+        ],
+        "rowCount": 18
+      }
+    ]
+  },
+  "Data & Insights > F&F Custom Report": {
+    "url": "https://www.zimyo.net/payroll/data-insights/custom-reports/fnf",
+    "tabs": [
+      {
+        "text": "Payroll Reports",
+        "href": "/payroll/data-insights/reports"
+      },
+      {
+        "text": "Custom Reports",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "Data Imports",
+        "href": "/payroll/data-insights/bulk-uploads"
+      },
+      {
+        "text": "Draft Custom Report",
+        "href": "/payroll/data-insights/custom-reports/draft"
+      },
+      {
+        "text": "F&F Custom Report",
+        "href": "/payroll/data-insights/custom-reports/fnf"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Payroll Reports",
+      "Custom Reports",
+      "Data Imports",
+      "Draft Custom Report",
+      "F&F Custom Report",
+      "Create F&F Custom Report"
+    ],
+    "buttons": [
+      "Create F&F Custom Report",
+      "Logout"
+    ],
+    "tables": [
+      {
+        "headers": [
+          "REPORT NAME",
+          "CREATED BY",
+          "CREATED ON",
+          "Action"
+        ],
+        "rowCount": 6
+      }
+    ]
+  },
+  "Configuration Center": {
+    "url": "https://www.zimyo.net/payroll/configurations/org-setup/org-info",
+    "tabs": [
+      {
+        "text": "Organization Setup",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Framework",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Compliance & Governance",
+        "href": "/payroll/configurations/compliances"
+      },
+      {
+        "text": "Communication Center",
+        "href": "/payroll/configurations/communication-center"
+      },
+      {
+        "text": "Integration Suite",
+        "href": "/payroll/configurations/integration"
+      },
+      {
+        "text": "Company Profile",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Settings",
+        "href": "/payroll/configurations/org-setup/settings"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Organization Setup",
+      "Payroll Framework",
+      "Compliance & Governance",
+      "Communication Center",
+      "Integration Suite",
+      "Company Profile",
+      "Payroll Settings"
+    ],
+    "buttons": [
+      "Manage",
+      "Manage",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Configuration Center > Organization Setup": {
+    "url": "https://www.zimyo.net/payroll/configurations/org-setup/org-info",
+    "tabs": [
+      {
+        "text": "Organization Setup",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Framework",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Compliance & Governance",
+        "href": "/payroll/configurations/compliances"
+      },
+      {
+        "text": "Communication Center",
+        "href": "/payroll/configurations/communication-center"
+      },
+      {
+        "text": "Integration Suite",
+        "href": "/payroll/configurations/integration"
+      },
+      {
+        "text": "Company Profile",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Settings",
+        "href": "/payroll/configurations/org-setup/settings"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Organization Setup",
+      "Payroll Framework",
+      "Compliance & Governance",
+      "Communication Center",
+      "Integration Suite",
+      "Company Profile",
+      "Payroll Settings"
+    ],
+    "buttons": [
+      "Manage",
+      "Manage",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Configuration Center > Payroll Framework": {
+    "url": "https://www.zimyo.net/payroll/configurations/payroll-framework/salary",
+    "tabs": [
+      {
+        "text": "Organization Setup",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Framework",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Compliance & Governance",
+        "href": "/payroll/configurations/compliances"
+      },
+      {
+        "text": "Communication Center",
+        "href": "/payroll/configurations/communication-center"
+      },
+      {
+        "text": "Integration Suite",
+        "href": "/payroll/configurations/integration"
+      },
+      {
+        "text": "Salary Setup",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Payout Management",
+        "href": "/payroll/configurations/payroll-framework/payout-management"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Organization Setup",
+      "Payroll Framework",
+      "Compliance & Governance",
+      "Communication Center",
+      "Integration Suite",
+      "Salary Setup",
+      "Payout Management"
+    ],
+    "buttons": [
+      "Manage",
+      "Manage",
+      "Manage",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Configuration Center > Compliance & Governance": {
+    "url": "https://www.zimyo.net/payroll/configurations/compliances",
+    "tabs": [
+      {
+        "text": "Organization Setup",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Framework",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Compliance & Governance",
+        "href": "/payroll/configurations/compliances"
+      },
+      {
+        "text": "Communication Center",
+        "href": "/payroll/configurations/communication-center"
+      },
+      {
+        "text": "Integration Suite",
+        "href": "/payroll/configurations/integration"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Organization Setup",
+      "Payroll Framework",
+      "Compliance & Governance",
+      "Communication Center",
+      "Integration Suite"
+    ],
+    "buttons": [
+      "Manage",
+      "Manage",
+      "Manage",
+      "Manage",
+      "Manage",
+      "Manage",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Configuration Center > Communication Center": {
+    "url": "https://www.zimyo.net/payroll/configurations/communication-center",
+    "tabs": [
+      {
+        "text": "Organization Setup",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Framework",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Compliance & Governance",
+        "href": "/payroll/configurations/compliances"
+      },
+      {
+        "text": "Communication Center",
+        "href": "/payroll/configurations/communication-center"
+      },
+      {
+        "text": "Integration Suite",
+        "href": "/payroll/configurations/integration"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Organization Setup",
+      "Payroll Framework",
+      "Compliance & Governance",
+      "Communication Center",
+      "Integration Suite"
+    ],
+    "buttons": [
+      "Manage",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Configuration Center > Integration Suite": {
+    "url": "https://www.zimyo.net/payroll/configurations/integration",
+    "tabs": [
+      {
+        "text": "Organization Setup",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Framework",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Compliance & Governance",
+        "href": "/payroll/configurations/compliances"
+      },
+      {
+        "text": "Communication Center",
+        "href": "/payroll/configurations/communication-center"
+      },
+      {
+        "text": "Integration Suite",
+        "href": "/payroll/configurations/integration"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Organization Setup",
+      "Payroll Framework",
+      "Compliance & Governance",
+      "Communication Center",
+      "Integration Suite"
+    ],
+    "buttons": [
+      "Manage",
+      "Manage",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Configuration Center > Company Profile": {
+    "url": "https://www.zimyo.net/payroll/configurations/org-setup/org-info",
+    "tabs": [
+      {
+        "text": "Organization Setup",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Framework",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Compliance & Governance",
+        "href": "/payroll/configurations/compliances"
+      },
+      {
+        "text": "Communication Center",
+        "href": "/payroll/configurations/communication-center"
+      },
+      {
+        "text": "Integration Suite",
+        "href": "/payroll/configurations/integration"
+      },
+      {
+        "text": "Company Profile",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Settings",
+        "href": "/payroll/configurations/org-setup/settings"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Organization Setup",
+      "Payroll Framework",
+      "Compliance & Governance",
+      "Communication Center",
+      "Integration Suite",
+      "Company Profile",
+      "Payroll Settings"
+    ],
+    "buttons": [
+      "Manage",
+      "Manage",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Configuration Center > Payroll Settings": {
+    "url": "https://www.zimyo.net/payroll/configurations/org-setup/settings",
+    "tabs": [
+      {
+        "text": "Organization Setup",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Framework",
+        "href": "/payroll/configurations/payroll-framework/salary"
+      },
+      {
+        "text": "Compliance & Governance",
+        "href": "/payroll/configurations/compliances"
+      },
+      {
+        "text": "Communication Center",
+        "href": "/payroll/configurations/communication-center"
+      },
+      {
+        "text": "Integration Suite",
+        "href": "/payroll/configurations/integration"
+      },
+      {
+        "text": "Company Profile",
+        "href": "/payroll/configurations/org-setup/org-info"
+      },
+      {
+        "text": "Payroll Settings",
+        "href": "/payroll/configurations/org-setup/settings"
+      }
+    ],
+    "subLinks": [
+      {
+        "text": "Home",
+        "href": "/payroll/",
+        "x": 0,
+        "y": 92
+      },
+      {
+        "text": "Payroll Operations",
+        "href": "/payroll/payroll-operations/run-payroll",
+        "x": 0,
+        "y": 157
+      },
+      {
+        "text": "Employee Workspace",
+        "href": "/payroll/employees/list",
+        "x": 0,
+        "y": 246
+      },
+      {
+        "text": "Compensation & Benefits",
+        "href": "/payroll/benefits-taxation/loans",
+        "x": 0,
+        "y": 334
+      },
+      {
+        "text": "Data & Insights",
+        "href": "/payroll/data-insights/custom-reports/draft",
+        "x": 0,
+        "y": 423
+      },
+      {
+        "text": "Configuration Center",
+        "href": "/payroll/configurations/org-setup/org-info",
+        "x": 0,
+        "y": 488
+      }
+    ],
+    "headings": [
+      "Organization Setup",
+      "Payroll Framework",
+      "Compliance & Governance",
+      "Communication Center",
+      "Integration Suite",
+      "Company Profile",
+      "Payroll Settings"
+    ],
+    "buttons": [
+      "Manage",
+      "Manage",
+      "Manage",
+      "Manage",
+      "Manage",
+      "Manage",
+      "Manage",
+      "Logout"
+    ],
+    "tables": []
+  },
+  "Sidebar > Payroll Operations": [],
+  "Sidebar > Employee Workspace": [],
+  "Sidebar > Compensation & Benefits": [],
+  "Sidebar > Data & Insights": [],
+  "Sidebar > Configuration Center": []
+}

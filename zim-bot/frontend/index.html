@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zim — Zimyo Knowledge Assistant</title>
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-brand">
+        <div class="bot-avatar">Z</div>
+        <div>
+          <h1 class="header-title">Zim</h1>
+          <p class="header-subtitle">Zimyo Knowledge Assistant</p>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="status-dot"></span>
+        Online
+      </div>
+    </header>
+
+    <!-- Chat Messages -->
+    <main class="chat-area" id="chatArea">
+      <div class="messages" id="chatMessages">
+        <!-- Welcome message -->
+        <div class="message bot">
+          <div class="message-avatar">Z</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p><strong>Hey! I'm Zim</strong>, your Zimyo knowledge assistant.</p>
+              <p>I know everything about <strong>Core HR</strong>, <strong>Workflows</strong>, and <strong>Payroll</strong> modules. Ask me anything!</p>
+            </div>
+            <span class="message-time">Just now</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic Hints -->
+      <div class="hints-container" id="hintsContainer">
+        <p class="hints-label">Try asking:</p>
+        <div class="hints" id="topicHints"></div>
+      </div>
+    </main>
+
+    <!-- Input Area -->
+    <footer class="input-area">
+      <form id="chatForm" class="chat-form">
+        <input
+          type="text"
+          id="chatInput"
+          class="chat-input"
+          placeholder="Ask Zim about Core HR, Payroll, Workflows..."
+          autocomplete="off"
+          autofocus
+        />
+        <button type="submit" class="send-btn" id="sendBtn" title="Send">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+      <p class="input-hint">Powered by TF-IDF NLP &bull; Knowledge from Zimyo Manuals</p>
+    </footer>
+  </div>
+
+  <script type="module" src="chat.mjs"></script>
+</body>
+</html>

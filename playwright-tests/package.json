@@ -1,0 +1,22 @@
+{
+  "name": "playwright-tests",
+  "version": "1.0.0",
+  "description": "Playwright test suite for demo portal",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:auth": "npx playwright test --project=auth",
+    "test:payroll": "npx playwright test --project=payroll",
+    "test:employee": "npx playwright test --project=employee",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report",
+    "suite": "node run-test-suite.js"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.58.2",
+    "mixpanel": "^0.20.0",
+    "mixpanel-browser": "^2.77.0",
+    "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "^5.5.207"
+  }
+}

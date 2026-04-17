@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay Runs - US Payroll</title>
+  <style>
+    /* ══════════════════════════════════════════════════════════
+       RESET & BASE
+       ══════════════════════════════════════════════════════════ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; color: #333; }
+
+    /* ══════════════════════════════════════════════════════════
+       HEADER / NAV
+       ══════════════════════════════════════════════════════════ */
+    .header {
+      background: #1a2332;
+      color: white;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      height: 56px;
+    }
+    .header-left { display: flex; align-items: center; gap: 32px; }
+    .header h1 { font-size: 18px; font-weight: 600; white-space: nowrap; }
+    .header .subtitle { font-size: 11px; color: #8b95a5; margin-top: 1px; }
+
+    .nav { display: flex; gap: 4px; }
+    .nav a {
+      color: #8b95a5;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav a.active { color: #fff; background: #2563eb; }
+
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .state-select {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .state-select option { background: #1a2332; color: #fff; }
+
+    /* ══════════════════════════════════════════════════════════
+       CONTAINER
+       ══════════════════════════════════════════════════════════ */
+    .container { max-width: 1400px; margin: 0 auto; padding: 28px 24px; }
+
+    /* ══════════════════════════════════════════════════════════
+       PAGE TITLE BAR
+       ══════════════════════════════════════════════════════════ */
+    .page-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .page-title-bar h2 { font-size: 22px; font-weight: 700; color: #1a2332; }
+    .page-title-bar .count-badge {
+      background: #e8f4fd;
+      color: #1565c0;
+      font-size: 12px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       BUTTONS
+       ══════════════════════════════════════════════════════════ */
+    .btn {
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-primary { background: #2563eb; color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: #1d4ed8; }
+    .btn-success { background: #16a34a; color: #fff; }
+    .btn-success:hover:not(:disabled) { background: #15803d; }
+    .btn-amber { background: #d97706; color: #fff; }
+    .btn-amber:hover:not(:disabled) { background: #b45309; }
+    .btn-outline {
+      background: #fff;
+      color: #333;
+      border: 1px solid #d1d5db;
+    }
+    .btn-outline:hover:not(:disabled) { background: #f3f4f6; }
+    .btn-danger { background: #dc2626; color: #fff; }
+    .btn-danger:hover:not(:disabled) { background: #b91c1c; }
+    .btn-sm { padding: 5px 12px; font-size: 12px; }
+
+    /* ══════════════════════════════════════════════════════════
+       CARDS & PANELS
+       ══════════════════════════════════════════════════════════ */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      border: 1px solid #e5e7eb;
+    }
+    .card-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-header h3 { font-size: 15px; font-weight: 600; color: #1a2332; }
+    .card-body { padding: 20px; }
+
+    /* ══════════════════════════════════════════════════════════
+       STATUS BADGES
+       ══════════════════════════════════════════════════════════ */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .badge-draft { background: #f3f4f6; color: #6b7280; }
+    .badge-calculating { background: #fef3c7; color: #92400e; }
+    .badge-review { background: #fef3c7; color: #92400e; }
+    .badge-approved { background: #dbeafe; color: #1e40af; }
+    .badge-finalized { background: #dcfce7; color: #166534; }
+
+    /* ══════════════════════════════════════════════════════════
+       TABLE (LIST VIEW)
+       ══════════════════════════════════════════════════════════ */
+    .data-table { width: 100%; border-collapse: collapse; }
+    .data-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6b7280;
+      padding: 10px 14px;
+      border-bottom: 2px solid #e5e7eb;
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+      vertical-align: middle;
+    }
+    .data-table tr:hover td { background: #f8fafc; }
+    .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+    .data-table .actions { white-space: nowrap; display: flex; gap: 6px; }
+    .empty-state { text-align: center; padding: 60px 20px; color: #9ca3af; font-size: 14px; }
+    .empty-state svg { width: 48px; height: 48px; margin-bottom: 12px; opacity: 0.4; }
+
+    /* ══════════════════════════════════════════════════════════
+       STEPPER
+       ══════════════════════════════════════════════════════════ */
+    .stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 28px;
+    }
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+    }
+    .step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      background: #e5e7eb;
+      color: #6b7280;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .step-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #9ca3af;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .step-connector {
+      width: 60px;
+      height: 2px;
+      background: #e5e7eb;
+      margin: 0 8px;
+      transition: background 0.2s;
+    }
+    .step-item.active .step-num { background: #2563eb; color: #fff; }
+    .step-item.active .step-label { color: #2563eb; font-weight: 600; }
+    .step-item.completed .step-num { background: #16a34a; color: #fff; }
+    .step-item.completed .step-label { color: #16a34a; }
+    .step-connector.completed { background: #16a34a; }
+    .step-connector.active { background: #2563eb; }
+
+    /* ══════════════════════════════════════════════════════════
+       FORM / INPUTS
+       ══════════════════════════════════════════════════════════ */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    .form-group label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #374151;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .form-group input,
+    .form-group select {
+      padding: 8px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       EMPLOYEE SELECTION CHECKLIST
+       ══════════════════════════════════════════════════════════ */
+    .emp-list { max-height: 340px; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 8px; }
+    .emp-row {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      gap: 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+      transition: background 0.1s;
+    }
+    .emp-row:last-child { border-bottom: none; }
+    .emp-row:hover { background: #f8fafc; }
+    .emp-row input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: #2563eb; }
+    .emp-row .emp-name { font-weight: 600; color: #1a2332; min-width: 160px; }
+    .emp-row .emp-meta { color: #6b7280; font-size: 12px; }
+    .emp-select-all { padding: 10px 14px; border-bottom: 2px solid #e5e7eb; display: flex; align-items: center; gap: 12px; background: #f8fafc; }
+    .emp-select-all label { font-size: 12px; font-weight: 600; color: #374151; cursor: pointer; }
+
+    /* ══════════════════════════════════════════════════════════
+       HOURS GRID
+       ══════════════════════════════════════════════════════════ */
+    .hours-table-wrap { overflow-x: auto; }
+    .hours-table { width: 100%; border-collapse: collapse; min-width: 900px; }
+    .hours-table th {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #6b7280;
+      padding: 8px 8px;
+      border-bottom: 2px solid #e5e7eb;
+      text-align: center;
+      white-space: nowrap;
+      background: #f8fafc;
+    }
+    .hours-table th:first-child { text-align: left; min-width: 180px; }
+    .hours-table td {
+      padding: 6px 6px;
+      border-bottom: 1px solid #f0f0f0;
+      text-align: center;
+      font-size: 13px;
+    }
+    .hours-table td:first-child { text-align: left; font-weight: 600; color: #1a2332; padding-left: 8px; }
+    .hours-table input[type="number"] {
+      width: 72px;
+      padding: 5px 6px;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      text-align: right;
+      font-size: 13px;
+      font-family: inherit;
+      font-variant-numeric: tabular-nums;
+    }
+    .hours-table input[type="number"]:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.12);
+    }
+    .hours-table .emp-type-tag {
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .tag-hourly { background: #dbeafe; color: #1e40af; }
+    .tag-salary { background: #f3e8ff; color: #7c3aed; }
+
+    /* ══════════════════════════════════════════════════════════
+       REVIEW TABLE
+       ══════════════════════════════════════════════════════════ */
+    .review-table { width: 100%; border-collapse: collapse; }
+    .review-table th {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #6b7280;
+      padding: 10px 12px;
+      border-bottom: 2px solid #e5e7eb;
+      text-align: right;
+      background: #f8fafc;
+    }
+    .review-table th:first-child { text-align: left; }
+    .review-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .review-table td:first-child { text-align: left; font-weight: 600; color: #1a2332; }
+    .review-table tr.totals-row td {
+      border-top: 2px solid #1a2332;
+      font-weight: 700;
+      font-size: 14px;
+      background: #f8fafc;
+    }
+    .review-table tr.expandable { cursor: pointer; }
+    .review-table tr.expandable:hover td { background: #f0f7ff; }
+    .expand-icon { font-size: 10px; color: #6b7280; margin-right: 4px; transition: transform 0.15s; display: inline-block; }
+    .expand-icon.open { transform: rotate(90deg); }
+
+    .detail-row td { padding: 0 !important; border-bottom: 1px solid #e5e7eb; }
+    .detail-inner {
+      padding: 12px 20px 12px 40px;
+      background: #f8fafc;
+      font-size: 12px;
+      display: none;
+    }
+    .detail-inner.visible { display: block; }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .detail-section h5 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6b7280;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
+    .detail-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 2px 0;
+      font-size: 12px;
+    }
+    .detail-line .dl-label { color: #6b7280; }
+    .detail-line .dl-value { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+    /* ══════════════════════════════════════════════════════════
+       WARNINGS / ERRORS SECTION
+       ══════════════════════════════════════════════════════════ */
+    .warnings-panel {
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 16px;
+    }
+    .warnings-panel.has-errors { background: #fef2f2; border: 1px solid #fecaca; }
+    .warnings-panel.has-warnings { background: #fffbeb; border: 1px solid #fde68a; }
+    .warnings-panel.all-clear { background: #f0fdf4; border: 1px solid #bbf7d0; }
+    .warnings-panel h4 { font-size: 13px; margin-bottom: 8px; }
+    .warning-item { font-size: 12px; padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
+    .warning-item .wi-icon { flex-shrink: 0; }
+
+    /* ══════════════════════════════════════════════════════════
+       FINALIZED CONFIRMATION
+       ══════════════════════════════════════════════════════════ */
+    .confirm-box {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .confirm-box .check-circle {
+      width: 64px;
+      height: 64px;
+      background: #dcfce7;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .confirm-box .check-circle svg { width: 32px; height: 32px; color: #16a34a; }
+    .confirm-box h3 { font-size: 20px; font-weight: 700; color: #1a2332; margin-bottom: 8px; }
+    .confirm-box p { color: #6b7280; font-size: 14px; max-width: 500px; margin: 0 auto 24px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto 28px;
+      text-align: center;
+    }
+    .summary-stat { padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e5e7eb; }
+    .summary-stat .ss-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; margin-bottom: 4px; }
+    .summary-stat .ss-value { font-size: 18px; font-weight: 700; color: #1a2332; font-variant-numeric: tabular-nums; }
+
+    .wizard-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 24px;
+    }
+    .wizard-actions .left-btns { display: flex; gap: 8px; }
+    .wizard-actions .right-btns { display: flex; gap: 8px; }
+
+    /* ══════════════════════════════════════════════════════════
+       LOADING / TOAST
+       ══════════════════════════════════════════════════════════ */
+    .spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1a2332;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      z-index: 9999;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.error { background: #dc2626; }
+
+    /* ── Hide/show ──────────────────────────────────────────── */
+    .hidden { display: none !important; }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .header { padding: 0 16px; flex-wrap: wrap; height: auto; padding-top: 10px; padding-bottom: 10px; }
+      .header-left { flex-wrap: wrap; gap: 12px; }
+      .nav { flex-wrap: wrap; }
+      .container { padding: 16px 12px; }
+      .stepper { flex-wrap: wrap; gap: 4px; }
+      .step-connector { width: 24px; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<script>
+if (window.self !== window.top) {
+  document.documentElement.classList.add('in-iframe');
+  document.addEventListener('DOMContentLoaded', function() {
+    var h = document.querySelector('.header'); if(h) h.style.display='none';
+    document.body.style.paddingTop = '0';
+  });
+}
+</script>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     HEADER
+     ════════════════════════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-left">
+    <div>
+      <h1>US Payroll</h1>
+      <div class="subtitle">Multi-State Payroll Engine</div>
+    </div>
+    <nav class="nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="employees.html">Employees</a>
+      <a href="pay-run.html" class="active">Pay Runs</a>
+      <a href="pay-stubs.html">Pay Stubs</a>
+      <a href="reports.html">Reports</a>
+    </nav>
+  </div>
+  <div class="header-right">
+    <select id="globalState" class="state-select" title="Filter by state">
+      <option value="">All States</option>
+      <option value="CA">California</option>
+      <option value="NY">New York</option>
+      <option value="TX">Texas</option>
+      <option value="FL">Florida</option>
+      <option value="WA">Washington</option>
+      <option value="GA">Georgia</option>
+    </select>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     MAIN CONTAINER
+     ════════════════════════════════════════════════════════════ -->
+<div class="container">
+
+  <!-- ─────────────────────────────────────────────
+       LIST MODE
+       ───────────────────────────────────────────── -->
+  <div id="listMode">
+    <div class="page-title-bar">
+      <div style="display:flex;align-items:center;">
+        <h2>Pay Runs</h2>
+        <span id="runCount" class="count-badge">0</span>
+      </div>
+      <button class="btn btn-primary" onclick="startNewPayRun()">+ New Pay Run</button>
+    </div>
+
+    <div class="card">
+      <div class="card-body" style="padding:0;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>State</th>
+              <th>Period</th>
+              <th>Pay Date</th>
+              <th>Status</th>
+              <th class="num">Employees</th>
+              <th class="num">Gross Total</th>
+              <th class="num">Net Total</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="runTableBody">
+            <tr><td colspan="9" class="empty-state">
+              <div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-3-3v6m-7 4h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <div>No pay runs found. Click <strong>+ New Pay Run</strong> to get started.</div>
+              </div>
+            </td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────
+       WIZARD MODE
+       ───────────────────────────────────────────── -->
+  <div id="wizardMode" class="hidden">
+    <div class="page-title-bar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="btn btn-outline btn-sm" onclick="backToList()" title="Back to list">&larr; Back</button>
+        <h2 id="wizardTitle">New Pay Run</h2>
+      </div>
+      <span id="wizardBadge" class="badge badge-draft">DRAFT</span>
+    </div>
+
+    <!-- STEPPER -->
+    <div class="stepper">
+      <div class="step-item active" id="stepItem1">
+        <span class="step-num">1</span>
+        <span class="step-label">Setup</span>
+      </div>
+      <div class="step-connector" id="stepConn1"></div>
+      <div class="step-item" id="stepItem2">
+        <span class="step-num">2</span>
+        <span class="step-label">Hours &amp; Earnings</span>
+      </div>
+      <div class="step-connector" id="stepConn2"></div>
+      <div class="step-item" id="stepItem3">
+        <span class="step-num">3</span>
+        <span class="step-label">Review</span>
+      </div>
+      <div class="step-connector" id="stepConn3"></div>
+      <div class="step-item" id="stepItem4">
+        <span class="step-num">4</span>
+        <span class="step-label">Finalized</span>
+      </div>
+    </div>
+
+    <!-- ── STEP 1: Setup ──────────────────────────── -->
+    <div id="step1" class="card">
+      <div class="card-header"><h3>Pay Run Setup</h3></div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>State</label>
+            <select id="prState">
+              <option value="">Select State</option>
+              <option value="CA">California</option>
+              <option value="NY">New York</option>
+              <option value="TX">Texas</option>
+              <option value="FL">Florida</option>
+              <option value="WA">Washington</option>
+              <option value="GA">Georgia</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Period Start</label>
+            <input type="date" id="prStart">
+          </div>
+          <div class="form-group">
+            <label>Period End</label>
+            <input type="date" id="prEnd">
+          </div>
+          <div class="form-group">
+            <label>Pay Date</label>
+            <input type="date" id="prPayDate">
+          </div>
+          <div class="form-group">
+            <label>Pay Frequency</label>
+            <select id="prFreq">
+              <option value="weekly">Weekly</option>
+              <option value="bi_weekly" selected>Bi-Weekly</option>
+              <option value="semi_monthly">Semi-Monthly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 style="margin-top:24px;margin-bottom:12px;font-size:14px;font-weight:600;color:#1a2332;">Select Employees</h3>
+        <div id="empSelectWrap">
+          <div class="emp-list" id="empList">
+            <div class="empty-state" style="padding:30px;">Select a state to load employees</div>
+          </div>
+        </div>
+
+        <div class="wizard-actions">
+          <div class="left-btns">
+            <button class="btn btn-outline" onclick="backToList()">Cancel</button>
+          </div>
+          <div class="right-btns">
+            <button class="btn btn-primary" id="btnStep1Next" onclick="submitSetup()">Continue &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 2: Hours & Earnings ──────────────── -->
+    <div id="step2" class="card hidden">
+      <div class="card-header">
+        <h3>Hours &amp; Earnings Entry</h3>
+        <span id="step2EmpCount" style="font-size:12px;color:#6b7280;"></span>
+      </div>
+      <div class="card-body">
+        <div class="hours-table-wrap">
+          <table class="hours-table">
+            <thead id="hoursHead"></thead>
+            <tbody id="hoursBody"></tbody>
+          </table>
+        </div>
+        <div class="wizard-actions">
+          <div class="left-btns">
+            <button class="btn btn-outline" onclick="goToStep(1)"> &larr; Back to Setup</button>
+          </div>
+          <div class="right-btns">
+            <button class="btn btn-primary" id="btnCalc" onclick="calculatePayroll()">Calculate Payroll</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 3: Review ────────────────────────── -->
+    <div id="step3" class="card hidden">
+      <div class="card-header">
+        <h3>Payroll Review</h3>
+        <span id="step3RunId" style="font-size:12px;color:#6b7280;"></span>
+      </div>
+      <div class="card-body">
+        <div style="overflow-x:auto;">
+          <table class="review-table" id="reviewTable">
+            <thead>
+              <tr>
+                <th style="text-align:left;">Employee</th>
+                <th>Gross Pay</th>
+                <th>Pre-Tax Ded.</th>
+                <th>Federal Tax</th>
+                <th>State Tax</th>
+                <th>SS + Medicare</th>
+                <th>Post-Tax Ded.</th>
+                <th>Net Pay</th>
+              </tr>
+            </thead>
+            <tbody id="reviewBody"></tbody>
+          </table>
+        </div>
+        <div id="warningsSection"></div>
+        <div class="wizard-actions">
+          <div class="left-btns">
+            <button class="btn btn-outline" onclick="goToStep(2)">&larr; Back to Edit</button>
+          </div>
+          <div class="right-btns">
+            <button class="btn btn-success" id="btnApprove" onclick="approvePayRun()">Approve Pay Run</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 4: Finalized ─────────────────────── -->
+    <div id="step4" class="card hidden">
+      <div class="card-body">
+        <div class="confirm-box" id="step4Content">
+          <!-- Filled by JS depending on approved vs finalized -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// CONSTANTS & STATE
+// ══════════════════════════════════════════════════════════════
+const API = '/api/us-payroll';
+
+let allPayRuns = [];
+let allEmployees = [];   // employees loaded for the selected state
+let currentRun = null;   // the pay run being created/viewed
+let currentStubs = [];   // stubs returned after calculation
+let wizardStep = 1;
+
+// ══════════════════════════════════════════════════════════════
+// HELPERS
+// ══════════════════════════════════════════════════════════════
+function $(id) { return document.getElementById(id); }
+function fmt(v) { return '$' + Number(v || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+function fmtDate(d) {
+  if (!d) return '-';
+  const dt = new Date(d + 'T00:00:00');
+  return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+function badgeHTML(status) {
+  return `<span class="badge badge-${status}">${status}</span>`;
+}
+
+function showToast(msg, isError) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast' + (isError ? ' error' : '');
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+async function apiFetch(url, opts) {
+  try {
+    const res = await fetch(url, opts);
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error || data.errors?.join(', ') || 'Request failed');
+    return data;
+  } catch (err) {
+    showToast(err.message, true);
+    throw err;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// LIST MODE
+// ══════════════════════════════════════════════════════════════
+async function loadPayRuns() {
+  const state = $('globalState').value;
+  const qs = state ? `?state=${state}` : '';
+  try {
+    const data = await apiFetch(`${API}/pay-runs${qs}`);
+    allPayRuns = data.pay_runs || [];
+    renderPayRunList();
+  } catch { allPayRuns = []; renderPayRunList(); }
+}
+
+function renderPayRunList() {
+  $('runCount').textContent = allPayRuns.length;
+  const tbody = $('runTableBody');
+  if (allPayRuns.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" class="empty-state"><div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;margin-bottom:12px;opacity:0.4;"><path d="M9 12h6m-3-3v6m-7 4h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <div>No pay runs found. Click <strong>+ New Pay Run</strong> to get started.</div>
+    </div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = allPayRuns.map(r => `
+    <tr>
+      <td><strong>${r.pay_run_id}</strong></td>
+      <td>${r.state}</td>
+      <td>${fmtDate(r.pay_period_start)} &ndash; ${fmtDate(r.pay_period_end)}</td>
+      <td>${fmtDate(r.pay_date)}</td>
+      <td>${badgeHTML(r.status)}</td>
+      <td class="num">${(r.employees || []).length}</td>
+      <td class="num">${fmt(r.totals?.total_gross)}</td>
+      <td class="num">${fmt(r.totals?.total_net)}</td>
+      <td>
+        <div class="actions">
+          <button class="btn btn-outline btn-sm" onclick="openPayRun('${r.pay_run_id}')">View</button>
+          ${r.status === 'draft' ? `<button class="btn btn-primary btn-sm" onclick="openPayRun('${r.pay_run_id}')">Edit</button>` : ''}
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+// ══════════════════════════════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════════════════════════════
+function showList() { $('listMode').classList.remove('hidden'); $('wizardMode').classList.add('hidden'); }
+function showWizard() { $('listMode').classList.add('hidden'); $('wizardMode').classList.remove('hidden'); }
+
+function backToList() {
+  currentRun = null;
+  currentStubs = [];
+  showList();
+  loadPayRuns();
+}
+
+function startNewPayRun() {
+  currentRun = null;
+  currentStubs = [];
+  $('wizardTitle').textContent = 'New Pay Run';
+  $('wizardBadge').className = 'badge badge-draft';
+  $('wizardBadge').textContent = 'DRAFT';
+
+  // reset form
+  $('prState').value = $('globalState').value || '';
+  $('prStart').value = '';
+  $('prEnd').value = '';
+  $('prPayDate').value = '';
+  $('prFreq').value = 'bi_weekly';
+  $('empList').innerHTML = '<div class="empty-state" style="padding:30px;">Select a state to load employees</div>';
+  allEmployees = [];
+
+  if ($('prState').value) loadEmployeesForState($('prState').value);
+
+  showWizard();
+  goToStep(1);
+}
+
+async function openPayRun(id) {
+  try {
+    const data = await apiFetch(`${API}/pay-runs/${id}`);
+    currentRun = data.pay_run;
+    currentStubs = data.stubs || [];
+
+    $('wizardTitle').textContent = currentRun.pay_run_id;
+    $('wizardBadge').className = `badge badge-${currentRun.status}`;
+    $('wizardBadge').textContent = currentRun.status.toUpperCase();
+
+    // Load employees for this state
+    await loadEmployeesForState(currentRun.state);
+
+    // Pre-fill form
+    $('prState').value = currentRun.state;
+    $('prStart').value = currentRun.pay_period_start;
+    $('prEnd').value = currentRun.pay_period_end;
+    $('prPayDate').value = currentRun.pay_date;
+    $('prFreq').value = currentRun.pay_frequency;
+
+    // Check the included employees
+    setTimeout(() => {
+      const checkboxes = $('empList').querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(cb => {
+        cb.checked = (currentRun.employees || []).includes(cb.value);
+      });
+    }, 100);
+
+    showWizard();
+
+    // Jump to appropriate step based on status
+    if (currentRun.status === 'draft') {
+      goToStep(1);
+    } else if (currentRun.status === 'review') {
+      buildHoursTable();
+      buildReviewTable();
+      goToStep(3);
+    } else if (currentRun.status === 'approved') {
+      buildReviewTable();
+      goToStep(4);
+      renderStep4('approved');
+    } else if (currentRun.status === 'finalized') {
+      goToStep(4);
+      renderStep4('finalized');
+    } else {
+      goToStep(1);
+    }
+  } catch { /* toast already shown */ }
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEPPER LOGIC
+// ══════════════════════════════════════════════════════════════
+function goToStep(n) {
+  wizardStep = n;
+  [1,2,3,4].forEach(i => {
+    const panel = $('step' + i);
+    const item = $('stepItem' + i);
+    panel.classList.toggle('hidden', i !== n);
+
+    item.classList.remove('active', 'completed');
+    if (i < n) item.classList.add('completed');
+    else if (i === n) item.classList.add('active');
+  });
+  [1,2,3].forEach(i => {
+    const conn = $('stepConn' + i);
+    conn.classList.remove('active', 'completed');
+    if (i < n) conn.classList.add('completed');
+    else if (i === n) conn.classList.add('active');
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 1: SETUP
+// ══════════════════════════════════════════════════════════════
+$('prState').addEventListener('change', function() {
+  if (this.value) loadEmployeesForState(this.value);
+  else {
+    allEmployees = [];
+    $('empList').innerHTML = '<div class="empty-state" style="padding:30px;">Select a state to load employees</div>';
+  }
+});
+
+async function loadEmployeesForState(state) {
+  try {
+    const data = await apiFetch(`${API}/employees?state=${state}&status=active`);
+    allEmployees = data.employees || [];
+    renderEmployeeChecklist();
+  } catch { allEmployees = []; renderEmployeeChecklist(); }
+}
+
+function renderEmployeeChecklist() {
+  if (allEmployees.length === 0) {
+    $('empList').innerHTML = '<div class="empty-state" style="padding:30px;">No active employees found for this state</div>';
+    return;
+  }
+  let html = `<div class="emp-select-all">
+    <input type="checkbox" id="empSelectAll" checked onchange="toggleAllEmployees(this.checked)">
+    <label for="empSelectAll">Select All (${allEmployees.length} employees)</label>
+  </div>`;
+  html += allEmployees.map(e => `
+    <div class="emp-row">
+      <input type="checkbox" value="${e.employee_id}" checked>
+      <span class="emp-name">${e.first_name} ${e.last_name}</span>
+      <span class="emp-meta">${e.employee_id}</span>
+      <span class="emp-meta">${e.job_title || '-'}</span>
+      <span class="emp-meta">${e.department || '-'}</span>
+      <span class="emp-meta emp-type-tag ${e.pay_type === 'salary' ? 'tag-salary' : 'tag-hourly'}">${e.pay_type}</span>
+    </div>
+  `).join('');
+  $('empList').innerHTML = html;
+}
+
+function toggleAllEmployees(checked) {
+  $('empList').querySelectorAll('.emp-row input[type="checkbox"]').forEach(cb => cb.checked = checked);
+}
+
+function getSelectedEmployeeIds() {
+  const cbs = $('empList').querySelectorAll('.emp-row input[type="checkbox"]:checked');
+  return Array.from(cbs).map(cb => cb.value);
+}
+
+async function submitSetup() {
+  const state = $('prState').value;
+  const start = $('prStart').value;
+  const end = $('prEnd').value;
+  const payDate = $('prPayDate').value;
+  const freq = $('prFreq').value;
+  const empIds = getSelectedEmployeeIds();
+
+  if (!state) return showToast('Please select a state', true);
+  if (!start || !end) return showToast('Please enter pay period dates', true);
+  if (!payDate) return showToast('Please enter a pay date', true);
+  if (empIds.length === 0) return showToast('Please select at least one employee', true);
+
+  $('btnStep1Next').disabled = true;
+  $('btnStep1Next').innerHTML = '<span class="spinner"></span> Creating...';
+
+  try {
+    if (!currentRun) {
+      // Create new pay run
+      const data = await apiFetch(`${API}/pay-runs`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ state, pay_period_start: start, pay_period_end: end, pay_date: payDate, pay_frequency: freq, employee_ids: empIds })
+      });
+      currentRun = data.pay_run;
+      $('wizardTitle').textContent = currentRun.pay_run_id;
+      showToast('Pay run created: ' + currentRun.pay_run_id);
+    }
+    buildHoursTable();
+    goToStep(2);
+  } catch { /* toast already shown */ }
+  finally {
+    $('btnStep1Next').disabled = false;
+    $('btnStep1Next').innerHTML = 'Continue &rarr;';
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 2: HOURS & EARNINGS
+// ══════════════════════════════════════════════════════════════
+function buildHoursTable() {
+  if (!currentRun) return;
+
+  const isCA = currentRun.state === 'CA';
+  const empIds = currentRun.employees || [];
+  const employees = empIds.map(id => allEmployees.find(e => e.employee_id === id)).filter(Boolean);
+
+  $('step2EmpCount').textContent = `${employees.length} employee${employees.length !== 1 ? 's' : ''}`;
+
+  // Build header
+  let hCols = `<tr>
+    <th style="text-align:left;">Employee</th>
+    <th>Regular Hrs</th>
+    <th>OT 1.5x Hrs</th>`;
+  if (isCA) hCols += `<th>OT 2x Hrs</th>`;
+  hCols += `<th>Sick Hrs</th>
+    <th>Vacation Hrs</th>
+    <th>Holiday Hrs</th>
+    <th>Bonus ($)</th>
+    <th>Commission ($)</th>
+  </tr>`;
+  $('hoursHead').innerHTML = hCols;
+
+  // Build rows
+  $('hoursBody').innerHTML = employees.map(emp => {
+    const isSalary = emp.pay_type === 'salary';
+    const defReg = isSalary ? 0 : (currentRun.pay_frequency === 'bi_weekly' ? 80 : currentRun.pay_frequency === 'weekly' ? 40 : currentRun.pay_frequency === 'semi_monthly' ? 86.67 : 173.33);
+
+    let row = `<tr data-emp="${emp.employee_id}">
+      <td>${emp.first_name} ${emp.last_name}<span class="emp-type-tag ${isSalary ? 'tag-salary' : 'tag-hourly'}">${emp.pay_type}</span></td>
+      <td><input type="number" name="regular" value="${isSalary ? '0' : defReg.toFixed(2)}" min="0" step="0.25" ${isSalary ? 'title="Salary - hours for record only"' : ''}></td>
+      <td><input type="number" name="overtime_15x" value="0" min="0" step="0.25"></td>`;
+    if (isCA) row += `<td><input type="number" name="overtime_2x" value="0" min="0" step="0.25"></td>`;
+    row += `<td><input type="number" name="sick" value="0" min="0" step="0.25"></td>
+      <td><input type="number" name="vacation" value="0" min="0" step="0.25"></td>
+      <td><input type="number" name="holiday" value="0" min="0" step="0.25"></td>
+      <td><input type="number" name="bonus" value="0" min="0" step="0.01"></td>
+      <td><input type="number" name="commission" value="0" min="0" step="0.01"></td>
+    </tr>`;
+    return row;
+  }).join('');
+}
+
+function collectHoursData() {
+  const hours = {};
+  const adjustments = {};
+  const rows = $('hoursBody').querySelectorAll('tr[data-emp]');
+  rows.forEach(row => {
+    const empId = row.dataset.emp;
+    const val = (name) => parseFloat(row.querySelector(`input[name="${name}"]`)?.value || 0) || 0;
+    hours[empId] = {
+      regular: val('regular'),
+      overtime_15x: val('overtime_15x'),
+      overtime_2x: val('overtime_2x'),
+      sick: val('sick'),
+      vacation: val('vacation'),
+      holiday: val('holiday')
+    };
+    adjustments[empId] = {
+      bonus: val('bonus'),
+      commission: val('commission')
+    };
+  });
+  return { hours, adjustments };
+}
+
+async function calculatePayroll() {
+  if (!currentRun) return;
+  const { hours, adjustments } = collectHoursData();
+
+  $('btnCalc').disabled = true;
+  $('btnCalc').innerHTML = '<span class="spinner"></span> Calculating...';
+
+  try {
+    const data = await apiFetch(`${API}/pay-runs/${currentRun.pay_run_id}/calculate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ hours, adjustments })
+    });
+    currentRun = data.pay_run;
+    currentStubs = data.stubs || [];
+
+    $('wizardBadge').className = `badge badge-${currentRun.status}`;
+    $('wizardBadge').textContent = currentRun.status.toUpperCase();
+
+    buildReviewTable();
+    showToast('Payroll calculated successfully');
+    goToStep(3);
+  } catch { /* toast already shown */ }
+  finally {
+    $('btnCalc').disabled = false;
+    $('btnCalc').innerHTML = 'Calculate Payroll';
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 3: REVIEW
+// ══════════════════════════════════════════════════════════════
+function buildReviewTable() {
+  $('step3RunId').textContent = currentRun ? currentRun.pay_run_id : '';
+
+  if (currentStubs.length === 0) {
+    $('reviewBody').innerHTML = '<tr><td colspan="8" class="empty-state">No results to display</td></tr>';
+    $('warningsSection').innerHTML = '';
+    return;
+  }
+
+  let totals = { gross: 0, preTax: 0, fed: 0, state: 0, fica: 0, postTax: 0, net: 0 };
+  const warnings = [];
+
+  const rows = currentStubs.map((stub, idx) => {
+    const emp = allEmployees.find(e => e.employee_id === stub.employee_id);
+    const name = emp ? `${emp.first_name} ${emp.last_name}` : stub.employee_id;
+
+    const gross = stub.earnings?.gross_pay || 0;
+    const preTaxDed = stub.deductions?.pre_tax_total || 0;
+    const fedTax = stub.taxes?.federal_income || 0;
+    const stateTax = (stub.taxes?.state_income || 0) + (stub.taxes?.local_income || 0);
+    const fica = (stub.taxes?.social_security_employee || 0) + (stub.taxes?.medicare_employee || 0) + (stub.taxes?.additional_medicare || 0);
+    const postTaxDed = stub.deductions?.post_tax_total || 0;
+    const net = stub.net_pay || 0;
+
+    totals.gross += gross;
+    totals.preTax += preTaxDed;
+    totals.fed += fedTax;
+    totals.state += stateTax;
+    totals.fica += fica;
+    totals.postTax += postTaxDed;
+    totals.net += net;
+
+    // Collect any compliance warnings from stubs
+    if (stub.warnings) {
+      stub.warnings.forEach(w => warnings.push({ employee: name, message: w }));
+    }
+    if (stub.compliance_warnings) {
+      stub.compliance_warnings.forEach(w => warnings.push({ employee: name, message: w }));
+    }
+
+    // Build expandable detail
+    const detail = buildStubDetail(stub, emp);
+
+    return `<tr class="expandable" onclick="toggleDetail(${idx})">
+      <td><span class="expand-icon" id="expIcon${idx}">&#9654;</span>${name}</td>
+      <td>${fmt(gross)}</td>
+      <td>${fmt(preTaxDed)}</td>
+      <td>${fmt(fedTax)}</td>
+      <td>${fmt(stateTax)}</td>
+      <td>${fmt(fica)}</td>
+      <td>${fmt(postTaxDed)}</td>
+      <td style="font-weight:600;">${fmt(net)}</td>
+    </tr>
+    <tr class="detail-row"><td colspan="8"><div class="detail-inner" id="detail${idx}">${detail}</div></td></tr>`;
+  }).join('');
+
+  const totalsRow = `<tr class="totals-row">
+    <td>TOTALS (${currentStubs.length} employees)</td>
+    <td>${fmt(totals.gross)}</td>
+    <td>${fmt(totals.preTax)}</td>
+    <td>${fmt(totals.fed)}</td>
+    <td>${fmt(totals.state)}</td>
+    <td>${fmt(totals.fica)}</td>
+    <td>${fmt(totals.postTax)}</td>
+    <td>${fmt(totals.net)}</td>
+  </tr>`;
+
+  $('reviewBody').innerHTML = rows + totalsRow;
+
+  // Warnings section
+  if (warnings.length > 0) {
+    $('warningsSection').innerHTML = `<div class="warnings-panel has-warnings">
+      <h4>&#9888; Compliance Warnings (${warnings.length})</h4>
+      ${warnings.map(w => `<div class="warning-item"><span class="wi-icon">&#9888;</span><span><strong>${w.employee}:</strong> ${w.message}</span></div>`).join('')}
+    </div>`;
+  } else {
+    $('warningsSection').innerHTML = `<div class="warnings-panel all-clear">
+      <h4>&#10003; All Clear</h4>
+      <div style="font-size:12px;color:#166534;">No compliance warnings detected.</div>
+    </div>`;
+  }
+}
+
+function buildStubDetail(stub, emp) {
+  const t = stub.taxes || {};
+  const e = stub.earnings || {};
+  const d = stub.deductions || {};
+  const er = stub.employer_taxes || {};
+  const hrs = stub.hours || {};
+
+  return `<div class="detail-grid">
+    <div class="detail-section">
+      <h5>Earnings</h5>
+      ${dl('Regular Pay', e.regular_pay)}
+      ${dl('Overtime Pay (1.5x)', e.overtime_pay)}
+      ${dl('Double Time Pay (2x)', e.double_time_pay)}
+      ${dl('Sick Pay', e.sick_pay)}
+      ${dl('Vacation Pay', e.vacation_pay)}
+      ${dl('Holiday Pay', e.holiday_pay)}
+      ${dl('Bonus', e.bonus)}
+      ${dl('Commission', e.commission)}
+      ${dl('Gross Pay', e.gross_pay, true)}
+    </div>
+    <div class="detail-section">
+      <h5>Employee Taxes</h5>
+      ${dl('Federal Income', t.federal_income)}
+      ${dl('State Income', t.state_income)}
+      ${dl('Local Income', t.local_income)}
+      ${dl('Social Security', t.social_security_employee)}
+      ${dl('Medicare', t.medicare_employee)}
+      ${dl('Addl. Medicare', t.additional_medicare)}
+      ${t.state_disability ? dl('SDI', t.state_disability) : ''}
+      ${t.state_ui_employee ? dl('State UI (EE)', t.state_ui_employee) : ''}
+      ${t.fli_employee ? dl('FLI (EE)', t.fli_employee) : ''}
+    </div>
+    <div class="detail-section">
+      <h5>Deductions</h5>
+      ${dl('Pre-Tax 401(k)', d.pre_tax_401k)}
+      ${dl('Pre-Tax Health', d.pre_tax_health)}
+      ${dl('Pre-Tax HSA', d.pre_tax_hsa)}
+      ${dl('Pre-Tax FSA', d.pre_tax_fsa)}
+      ${dl('Post-Tax Roth', d.post_tax_roth)}
+      ${dl('Post-Tax Other', d.post_tax_other)}
+    </div>
+    <div class="detail-section">
+      <h5>Employer Taxes</h5>
+      ${dl('SS (Employer)', er.ss_employer)}
+      ${dl('Medicare (Employer)', er.medicare_employer)}
+      ${dl('FUTA', er.futa)}
+      ${dl('SUTA', er.suta)}
+      ${er.state_disability_employer ? dl('SDI (ER)', er.state_disability_employer) : ''}
+      ${dl('Total Employer Cost', er.total_employer_cost, true)}
+    </div>
+  </div>
+  <div style="margin-top:8px;font-size:12px;color:#374151;">
+    <strong>Net Pay: ${fmt(stub.net_pay)}</strong>
+  </div>`;
+}
+
+function dl(label, value, bold) {
+  if (value === undefined || value === null) return '';
+  const v = fmt(value);
+  return `<div class="detail-line"><span class="dl-label">${label}</span><span class="dl-value" ${bold ? 'style="font-weight:700;"' : ''}>${v}</span></div>`;
+}
+
+function toggleDetail(idx) {
+  const el = $('detail' + idx);
+  const icon = $('expIcon' + idx);
+  if (el.classList.contains('visible')) {
+    el.classList.remove('visible');
+    icon.classList.remove('open');
+  } else {
+    el.classList.add('visible');
+    icon.classList.add('open');
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// APPROVE
+// ══════════════════════════════════════════════════════════════
+async function approvePayRun() {
+  if (!currentRun) return;
+  $('btnApprove').disabled = true;
+  $('btnApprove').innerHTML = '<span class="spinner"></span> Approving...';
+  try {
+    const data = await apiFetch(`${API}/pay-runs/${currentRun.pay_run_id}/approve`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    currentRun = data.pay_run;
+    $('wizardBadge').className = `badge badge-${currentRun.status}`;
+    $('wizardBadge').textContent = currentRun.status.toUpperCase();
+    showToast('Pay run approved');
+    goToStep(4);
+    renderStep4('approved');
+  } catch { /* toast already shown */ }
+  finally {
+    $('btnApprove').disabled = false;
+    $('btnApprove').innerHTML = 'Approve Pay Run';
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 4: FINALIZED
+// ══════════════════════════════════════════════════════════════
+function renderStep4(state) {
+  const t = currentRun.totals || {};
+  const empCount = (currentRun.employees || []).length;
+
+  if (state === 'approved') {
+    $('step4Content').innerHTML = `
+      <div class="check-circle" style="background:#dbeafe;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <h3>Pay Run Approved</h3>
+      <p>This pay run has been approved and is ready to be finalized. Finalizing will update all employee YTD totals.</p>
+      <div class="summary-grid">
+        <div class="summary-stat"><div class="ss-label">Employees</div><div class="ss-value">${empCount}</div></div>
+        <div class="summary-stat"><div class="ss-label">Gross Pay</div><div class="ss-value">${fmt(t.total_gross)}</div></div>
+        <div class="summary-stat"><div class="ss-label">Net Pay</div><div class="ss-value">${fmt(t.total_net)}</div></div>
+        <div class="summary-stat"><div class="ss-label">Federal Tax</div><div class="ss-value">${fmt(t.total_federal_tax)}</div></div>
+        <div class="summary-stat"><div class="ss-label">State Tax</div><div class="ss-value">${fmt(t.total_state_tax)}</div></div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-outline" onclick="goToStep(3)">&larr; Back to Review</button>
+        <button class="btn btn-success" id="btnFinalize" onclick="finalizePayRun()">Finalize Pay Run</button>
+      </div>
+    `;
+  } else {
+    $('step4Content').innerHTML = `
+      <div class="check-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h3>Pay Run Finalized</h3>
+      <p><strong>${currentRun.pay_run_id}</strong> has been finalized. Employee YTD totals have been updated.</p>
+      <div class="summary-grid">
+        <div class="summary-stat"><div class="ss-label">Pay Run</div><div class="ss-value">${currentRun.pay_run_id}</div></div>
+        <div class="summary-stat"><div class="ss-label">State</div><div class="ss-value">${currentRun.state}</div></div>
+        <div class="summary-stat"><div class="ss-label">Employees</div><div class="ss-value">${empCount}</div></div>
+        <div class="summary-stat"><div class="ss-label">Pay Date</div><div class="ss-value">${fmtDate(currentRun.pay_date)}</div></div>
+        <div class="summary-stat"><div class="ss-label">Gross Pay</div><div class="ss-value">${fmt(t.total_gross)}</div></div>
+        <div class="summary-stat"><div class="ss-label">Net Pay</div><div class="ss-value">${fmt(t.total_net)}</div></div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-outline" onclick="backToList()">&larr; All Pay Runs</button>
+        <a href="pay-stubs.html?pay_run_id=${currentRun.pay_run_id}" class="btn btn-primary">View Pay Stubs</a>
+      </div>
+    `;
+  }
+}
+
+async function finalizePayRun() {
+  if (!currentRun) return;
+  const btn = $('btnFinalize');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Finalizing...';
+  try {
+    const data = await apiFetch(`${API}/pay-runs/${currentRun.pay_run_id}/finalize`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    currentRun = data.pay_run;
+    $('wizardBadge').className = `badge badge-${currentRun.status}`;
+    $('wizardBadge').textContent = currentRun.status.toUpperCase();
+    showToast('Pay run finalized! YTDs updated.');
+    renderStep4('finalized');
+  } catch { /* toast already shown */ }
+  finally {
+    if (btn) { btn.disabled = false; btn.innerHTML = 'Finalize Pay Run'; }
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// GLOBAL STATE FILTER
+// ══════════════════════════════════════════════════════════════
+$('globalState').addEventListener('change', () => {
+  if (!$('wizardMode').classList.contains('hidden')) return;
+  loadPayRuns();
+});
+
+// ══════════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════════
+loadPayRuns();
+</script>
+</body>
+</html>

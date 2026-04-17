@@ -1,0 +1,248 @@
+[
+  {
+    "stub_id": "STUB-000001",
+    "pay_run_id": "PR-2026-0001",
+    "employee_id": "EMP-001",
+    "pay_period_start": null,
+    "pay_period_end": null,
+    "pay_date": "2026-04-01",
+    "work_state": null,
+    "hours": {
+      "regular": 40,
+      "overtime": 10,
+      "double_time": 2,
+      "holiday": 0,
+      "pto": 0,
+      "sick": 0,
+      "total": 52,
+      "shift_differential": 0,
+      "vacation": 0
+    },
+    "earnings": {
+      "regular_pay": 680,
+      "overtime_pay": 255,
+      "double_time_pay": 68,
+      "holiday_pay": 0,
+      "pto_pay": 0,
+      "sick_pay": 0,
+      "commission": 0,
+      "bonus": 0,
+      "tips": 0,
+      "reimbursement": 0,
+      "other": 0,
+      "gross_pay": 1003,
+      "shift_differential_pay": 0,
+      "vacation_pay": 0,
+      "meal_break_premium": 0,
+      "rest_break_premium": 0,
+      "spread_of_hours_pay": 0,
+      "nondiscretionary_bonus": 0,
+      "regular_rate": 17,
+      "base_rate": 17
+    },
+    "pre_tax_deductions": {
+      "retirement_401k": 0,
+      "roth_401k": 0,
+      "health_insurance": 0,
+      "dental_insurance": 0,
+      "vision_insurance": 0,
+      "hsa": 0,
+      "fsa": 0,
+      "total_pre_tax": 0,
+      "items": [],
+      "total": 0
+    },
+    "taxes": {
+      "federal_income": 111.19,
+      "social_security": 0,
+      "medicare": 0,
+      "additional_medicare": 0,
+      "state_income": 16.13,
+      "state_disability": 0,
+      "state_family_leave": 0,
+      "local_tax": 0,
+      "total_taxes": 0,
+      "social_security_employee": 62.19,
+      "medicare_employee": 14.54,
+      "medicare_additional": 0,
+      "local_income": 0,
+      "state_programs": [
+        {
+          "code": "CA_SDI",
+          "name": "CA State Disability Insurance",
+          "employee_amount": 11.03,
+          "employer_amount": 0
+        }
+      ],
+      "total_employee_taxes": 215.08
+    },
+    "post_tax_deductions": {
+      "garnishments": 0,
+      "roth_ira": 0,
+      "union_dues": 0,
+      "other": 0,
+      "total_post_tax": 0,
+      "items": [],
+      "total": 0
+    },
+    "net_pay": 787.92,
+    "ytd_snapshot": {
+      "gross_pay": 0,
+      "federal_tax": 0,
+      "ss_tax": 0,
+      "ss_wages": 0,
+      "medicare_tax": 0,
+      "state_tax": 0,
+      "local_tax": 0,
+      "net_pay": 0
+    },
+    "employer_taxes": {
+      "ss_employer": 62.19,
+      "medicare_employer": 14.54,
+      "futa": 6.02,
+      "suta": 0,
+      "total_employer": 0,
+      "state_employer_taxes": [
+        {
+          "code": "CA_SUI",
+          "name": "CA State Unemployment Insurance",
+          "amount": 34.1,
+          "taxable_wages": 1003
+        },
+        {
+          "code": "CA_ETT",
+          "name": "CA Employment Training Tax",
+          "amount": 1,
+          "taxable_wages": 1003
+        }
+      ],
+      "state_program_employer": [],
+      "total_employer_taxes": 117.85,
+      "total_employer_cost": 1120.85
+    },
+    "created_at": "2026-04-01T13:49:22.322Z"
+  },
+  {
+    "stub_id": "STUB-000002",
+    "pay_run_id": "PR-2026-0002",
+    "employee_id": "EMP-002",
+    "pay_period_start": null,
+    "pay_period_end": null,
+    "pay_date": "2026-03-30",
+    "work_state": null,
+    "hours": {
+      "regular": 40,
+      "overtime": 20,
+      "double_time": 20,
+      "holiday": 0,
+      "pto": 0,
+      "sick": 0,
+      "total": 80,
+      "shift_differential": 0,
+      "vacation": 0
+    },
+    "earnings": {
+      "regular_pay": 800,
+      "overtime_pay": 600,
+      "double_time_pay": 800,
+      "holiday_pay": 0,
+      "pto_pay": 0,
+      "sick_pay": 0,
+      "commission": 0,
+      "bonus": 0,
+      "tips": 0,
+      "reimbursement": 0,
+      "other": 0,
+      "gross_pay": 2200,
+      "shift_differential_pay": 0,
+      "vacation_pay": 0,
+      "meal_break_premium": 0,
+      "rest_break_premium": 0,
+      "spread_of_hours_pay": 0,
+      "nondiscretionary_bonus": 0,
+      "regular_rate": 20,
+      "base_rate": 20
+    },
+    "pre_tax_deductions": {
+      "retirement_401k": 0,
+      "roth_401k": 0,
+      "health_insurance": 0,
+      "dental_insurance": 0,
+      "vision_insurance": 0,
+      "hsa": 0,
+      "fsa": 0,
+      "total_pre_tax": 0,
+      "items": [],
+      "total": 0
+    },
+    "taxes": {
+      "federal_income": 324.42,
+      "social_security": 0,
+      "medicare": 0,
+      "additional_medicare": 0,
+      "state_income": 137.83,
+      "state_disability": 0,
+      "state_family_leave": 0,
+      "local_tax": 0,
+      "total_taxes": 0,
+      "social_security_employee": 136.4,
+      "medicare_employee": 31.9,
+      "medicare_additional": 0,
+      "local_income": 0,
+      "state_programs": [
+        {
+          "code": "CA_SDI",
+          "name": "CA State Disability Insurance",
+          "employee_amount": 24.2,
+          "employer_amount": 0
+        }
+      ],
+      "total_employee_taxes": 654.75
+    },
+    "post_tax_deductions": {
+      "garnishments": 0,
+      "roth_ira": 0,
+      "union_dues": 0,
+      "other": 0,
+      "total_post_tax": 0,
+      "items": [],
+      "total": 0
+    },
+    "net_pay": 1545.25,
+    "ytd_snapshot": {
+      "gross_pay": 0,
+      "federal_tax": 0,
+      "ss_tax": 0,
+      "ss_wages": 0,
+      "medicare_tax": 0,
+      "state_tax": 0,
+      "local_tax": 0,
+      "net_pay": 0
+    },
+    "employer_taxes": {
+      "ss_employer": 136.4,
+      "medicare_employer": 31.9,
+      "futa": 13.2,
+      "suta": 0,
+      "total_employer": 0,
+      "state_employer_taxes": [
+        {
+          "code": "CA_SUI",
+          "name": "CA State Unemployment Insurance",
+          "amount": 74.8,
+          "taxable_wages": 2200
+        },
+        {
+          "code": "CA_ETT",
+          "name": "CA Employment Training Tax",
+          "amount": 2.2,
+          "taxable_wages": 2200
+        }
+      ],
+      "state_program_employer": [],
+      "total_employer_taxes": 258.5,
+      "total_employer_cost": 2458.5
+    },
+    "created_at": "2026-04-02T06:17:37.108Z"
+  }
+]

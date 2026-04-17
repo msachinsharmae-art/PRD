@@ -1,0 +1,117 @@
+[
+  {
+    "employee_id": "EMP-001",
+    "first_name": "Sachin",
+    "last_name": "Sharma",
+    "ssn_last4": "1234",
+    "date_of_birth": null,
+    "hire_date": "2026-03-01",
+    "termination_date": "2026-04-02",
+    "work_state": "CA",
+    "work_city": "Los Angeles",
+    "department": "Product",
+    "job_title": "BA",
+    "flsa_status": "non_exempt",
+    "pay_type": "hourly",
+    "employment_type": "full_time",
+    "pay_rate": 17,
+    "annual_salary": 35360,
+    "pay_frequency": "bi_weekly",
+    "w4_federal": {
+      "filing_status": "single",
+      "multiple_jobs": false,
+      "dependents_credit": 0,
+      "other_income": 0,
+      "deductions": 0,
+      "extra_withholding": 0
+    },
+    "w4_state": {
+      "filing_status": "single",
+      "allowances": 1,
+      "additional_withholding": 0,
+      "form": "DE-4"
+    },
+    "deductions": {
+      "retirement_401k_pct": 0,
+      "roth_401k_pct": 0,
+      "health_insurance": 0,
+      "dental_insurance": 0,
+      "vision_insurance": 0,
+      "hsa_contribution": 0,
+      "fsa_contribution": 0
+    },
+    "direct_deposit": [],
+    "ytd": {
+      "gross_pay": 0,
+      "federal_tax": 0,
+      "ss_tax": 0,
+      "ss_wages": 0,
+      "medicare_tax": 0,
+      "state_tax": 0,
+      "local_tax": 0,
+      "futa_wages": 0,
+      "suta_wages": 0
+    },
+    "created_at": "2026-04-01T11:40:20.925Z",
+    "updated_at": "2026-04-01T13:53:29.280Z",
+    "status": "inactive"
+  },
+  {
+    "employee_id": "EMP-002",
+    "first_name": "Rahul",
+    "last_name": "Soni",
+    "ssn_last4": "4321",
+    "date_of_birth": null,
+    "hire_date": "2026-04-02",
+    "termination_date": null,
+    "work_state": "CA",
+    "work_city": "",
+    "department": "",
+    "job_title": "",
+    "flsa_status": "non_exempt",
+    "pay_type": "hourly",
+    "employment_type": "full_time",
+    "pay_rate": 20,
+    "annual_salary": 41600,
+    "pay_frequency": "bi_weekly",
+    "w4_federal": {
+      "filing_status": "single",
+      "multiple_jobs": false,
+      "dependents_credit": 0,
+      "other_income": 0,
+      "deductions": 0,
+      "extra_withholding": 0
+    },
+    "w4_state": {
+      "form": "DE-4",
+      "filing_status": "single",
+      "allowances": 1,
+      "additional_withholding": 0
+    },
+    "deductions": {
+      "retirement_401k_pct": 0,
+      "retirement_401k_dollar": 0,
+      "health_insurance": 0,
+      "dental_insurance": 0,
+      "vision_insurance": 0,
+      "hsa_contribution": 0,
+      "fsa_contribution": 0,
+      "roth_401k_pct": 0,
+      "garnishments": []
+    },
+    "direct_deposit": [],
+    "ytd": {
+      "gross_pay": 0,
+      "federal_tax": 0,
+      "ss_tax": 0,
+      "ss_wages": 0,
+      "medicare_tax": 0,
+      "state_tax": 0,
+      "local_tax": 0,
+      "futa_wages": 0,
+      "suta_wages": 0
+    },
+    "created_at": "2026-04-02T04:31:36.145Z",
+    "updated_at": "2026-04-02T06:40:01.329Z"
+  }
+]

@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Test results & artifacts
+test-results/
+playwright-report/
+screenshots/
+blob-report/
+
+# Auth session state
+auth/session.json
+
+# Environment variables
+.env
+.env.*
+
+# Lock files
+package-lock.json
+
+# Binary/large files
+*.png
+*.jpg
+*.mp4
+*.pdf
+
+# Logs
+*.log

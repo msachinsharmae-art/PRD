@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Lock files
+package-lock.json
+
+# Binary/large files
+*.png
+*.jpg
+*.csv
+*.pdf
+
+# Logs
+*.log

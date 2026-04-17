@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payslip Template Gallery</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; color: #333; }
+
+    .header {
+      background: #1a2332;
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .header h1 { font-size: 20px; font-weight: 600; }
+    .header .subtitle { font-size: 12px; color: #8b95a5; margin-top: 2px; }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 32px 24px; }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #1a2332;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title .count {
+      background: #e8f4fd;
+      color: #1565c0;
+      font-size: 12px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
+      border-color: #1565c0;
+    }
+
+    .card-preview {
+      height: 200px;
+      background: #fafbfc;
+      border-bottom: 1px solid #eee;
+      overflow: hidden;
+      position: relative;
+    }
+    .card-preview iframe {
+      width: 200%;
+      height: 200%;
+      border: none;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .card-body { padding: 16px; }
+    .card-body h3 { font-size: 15px; font-weight: 600; color: #1a2332; }
+    .card-body .meta {
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .card-actions {
+      padding: 12px 16px;
+      border-top: 1px solid #f0f0f0;
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .btn-primary {
+      background: #1565c0;
+      color: white;
+    }
+    .btn-primary:hover { background: #0d47a1; }
+    .btn-outline {
+      background: white;
+      color: #555;
+      border: 1px solid #ddd;
+    }
+    .btn-outline:hover { background: #f5f5f5; border-color: #bbb; }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #888;
+    }
+    .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: #888;
+    }
+    .loading .spinner {
+      width: 32px; height: 32px;
+      border: 3px solid #e0e0e0;
+      border-top: 3px solid #1565c0;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .btn-create {
+      background: #2e7d32;
+      color: white;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-create:hover { background: #1b5e20; }
+
+    /* Create Template Modal */
+    .create-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .create-overlay.open { display: flex; }
+    .create-modal {
+      background: white;
+      border-radius: 16px;
+      width: 520px;
+      max-width: 95vw;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .create-modal-header {
+      background: #1a2332;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .create-modal-header h2 { font-size: 18px; font-weight: 600; }
+    .create-modal-close { background: none; border: none; color: #999; font-size: 20px; cursor: pointer; }
+    .create-modal-close:hover { color: white; }
+    .create-modal-body { padding: 24px; }
+    .create-modal-body label { display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px; }
+    .create-modal-body input[type="text"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 18px;
+      outline: none;
+    }
+    .create-modal-body input[type="text"]:focus { border-color: #1565c0; box-shadow: 0 0 0 2px rgba(21,101,192,0.15); }
+    .section-label { font-size: 13px; font-weight: 600; color: #333; margin-bottom: 10px; display: block; }
+    .section-checkboxes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+    .section-checkboxes label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #555;
+      cursor: pointer;
+      padding: 6px 10px;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .section-checkboxes label:hover { background: #f0f4ff; border-color: #1565c0; }
+    .section-checkboxes input[type="checkbox"] { accent-color: #1565c0; }
+    .create-modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .btn-cancel { background: #f5f5f5; color: #555; border: 1px solid #ddd; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+    .btn-cancel:hover { background: #eee; }
+    .btn-create-submit { background: #1565c0; color: white; border: none; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+    .btn-create-submit:hover { background: #0d47a1; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>Payslip Template Manager</h1>
+      <div class="subtitle">AI-Powered Salary Slip Template Customizer</div>
+    </div>
+    <button class="btn btn-create" onclick="openCreateModal()">+ Create New Template</button>
+  </div>
+
+  <div class="container">
+    <div class="section-title">
+      Salary Slip Templates
+      <span class="count" id="template-count">Loading...</span>
+    </div>
+
+    <div id="templates-grid" class="grid">
+      <div class="loading">
+        <div class="spinner"></div>
+        Loading templates...
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CREATE TEMPLATE MODAL ═══ -->
+  <div class="create-overlay" id="createOverlay" onclick="closeCreateModal()">
+    <div class="create-modal" onclick="event.stopPropagation()">
+      <div class="create-modal-header">
+        <h2>Create New Salary Template</h2>
+        <button class="create-modal-close" onclick="closeCreateModal()">&times;</button>
+      </div>
+      <div class="create-modal-body">
+        <label for="createName">Template Name</label>
+        <input type="text" id="createName" placeholder="e.g., Monthly Salary Slip, CTC Breakup..." value="">
+
+        <span class="section-label">Select sections to include:</span>
+        <div class="section-checkboxes">
+          <label><input type="checkbox" value="employee_info" checked> Employee Info</label>
+          <label><input type="checkbox" value="bank"> Bank Details</label>
+          <label><input type="checkbox" value="statutory"> Statutory IDs (PAN, UAN...)</label>
+          <label><input type="checkbox" value="attendance"> Attendance / Days</label>
+          <label><input type="checkbox" value="earnings" checked> Earnings</label>
+          <label><input type="checkbox" value="deductions" checked> Deductions</label>
+        </div>
+      </div>
+      <div class="create-modal-footer">
+        <button class="btn-cancel" onclick="closeCreateModal()">Cancel</button>
+        <button class="btn-create-submit" onclick="createTemplate()">Create &amp; Open Editor</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API = '';
+
+    async function loadTemplates() {
+      try {
+        const res = await fetch(`${API}/api/templates`);
+        const data = await res.json();
+        if (!data.success) throw new Error('Failed to load');
+
+        const grid = document.getElementById('templates-grid');
+        const count = document.getElementById('template-count');
+        count.textContent = `${data.templates.length} templates`;
+
+        if (data.templates.length === 0) {
+          grid.innerHTML = `<div class="empty-state"><div class="icon">📄</div><p>No templates found</p></div>`;
+          return;
+        }
+
+        // Load full template data for previews
+        const fullTemplates = await Promise.all(
+          data.templates.map(t => fetch(`${API}/api/templates/${t.template_id}`).then(r => r.json()))
+        );
+
+        grid.innerHTML = fullTemplates.map((resp, i) => {
+          const t = resp.template;
+          const previewId = `preview-${t.template_id}`;
+          return `
+            <div class="card" onclick="openEditor(${t.template_id})">
+              <div class="card-preview">
+                <iframe id="${previewId}" sandbox="allow-same-origin"></iframe>
+              </div>
+              <div class="card-body">
+                <h3>${t.template_name}</h3>
+                <div class="meta">ID: ${t.template_id} &middot; ${t.template_slug}</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-primary" onclick="event.stopPropagation(); openEditor(${t.template_id})">
+                  Customise Payslip
+                </button>
+                <button class="btn btn-outline" onclick="event.stopPropagation(); duplicateTemplate(${t.template_id})">
+                  Duplicate
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Render previews in iframes
+        fullTemplates.forEach(resp => {
+          const t = resp.template;
+          const iframe = document.getElementById(`preview-${t.template_id}`);
+          if (iframe) {
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+            doc.open();
+            doc.write(t.template_html);
+            doc.close();
+          }
+        });
+      } catch (err) {
+        console.error(err);
+        document.getElementById('templates-grid').innerHTML = `
+          <div class="empty-state">
+            <div class="icon">&#9888;</div>
+            <p>Failed to load templates. Make sure the server is running.</p>
+          </div>
+        `;
+      }
+    }
+
+    function openEditor(templateId) {
+      window.location.href = `/editor?id=${templateId}`;
+    }
+
+    async function duplicateTemplate(templateId) {
+      try {
+        const res = await fetch(`${API}/api/templates/${templateId}/duplicate`, { method: 'POST' });
+        const data = await res.json();
+        if (data.success) {
+          loadTemplates();
+        }
+      } catch (err) {
+        alert('Failed to duplicate template');
+      }
+    }
+
+    function openCreateModal() {
+      document.getElementById('createOverlay').classList.add('open');
+      document.getElementById('createName').focus();
+    }
+
+    function closeCreateModal() {
+      document.getElementById('createOverlay').classList.remove('open');
+    }
+
+    async function createTemplate() {
+      const name = document.getElementById('createName').value.trim() || 'Custom Salary Slip';
+      const checkboxes = document.querySelectorAll('.section-checkboxes input[type="checkbox"]:checked');
+      const sections = Array.from(checkboxes).map(cb => cb.value);
+
+      if (sections.length === 0) {
+        alert('Please select at least one section.');
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API}/api/templates/create`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ template_name: name, sections }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          window.location.href = `/editor?id=${data.template.template_id}`;
+        } else {
+          alert('Failed to create template: ' + (data.error || 'Unknown error'));
+        }
+      } catch (err) {
+        alert('Failed to create template. Make sure the server is running.');
+      }
+    }
+
+    loadTemplates();
+  </script>
+</body>
+</html>
