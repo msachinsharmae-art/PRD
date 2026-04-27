@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "title": "India — The Four Labour Codes vs Legacy Acts",
+    "subtitle": "Consolidating 29 central labour laws into 4 Codes",
+    "status_note": "All four Codes received Presidential assent (Wages Code 2019; IR / SS / OSH Codes 2020). Implementation has been phased — the 'appointed day' under each Code's Section 1(3) activates once Central + State rules are notified. As of 2025-26, most States have pre-published draft rules; Centre has repeatedly signalled a synchronous roll-out. Employers should treat the new wage definition as the most imminent compliance change.",
+    "updated": "2025-04"
+  },
+  "codes": [
+    {
+      "id": "wages",
+      "name": "The Code on Wages, 2019",
+      "short": "Wages Code",
+      "replaces": [
+        "Payment of Wages Act, 1936",
+        "Minimum Wages Act, 1948",
+        "Payment of Bonus Act, 1965",
+        "Equal Remuneration Act, 1976"
+      ],
+      "effective": "Assent: 8 Aug 2019. Appointed day: pending (Sec 1(3)).",
+      "biggest_impact": "Uniform 'wages' definition forces basic to be ≥ 50% of total remuneration — enlarges PF / gratuity / leave-encashment bases.",
+      "key_changes": [
+        {
+          "topic": "Definition of 'Wages'",
+          "section": "Sec 2(y)",
+          "old": "Each statute defined wages separately. Employers typically set Basic + DA at 30–40% of CTC; HRA, special allowance, LTA, bonus kept large to minimise PF/gratuity liability.",
+          "new": "Single definition: 'wages' = basic pay + DA + retaining allowance. Specified exclusions (HRA, conveyance, OT, bonus, commission, employer PF, gratuity) are capped at 50% of total remuneration. If exclusions exceed 50%, the excess is ADDED BACK to wages.",
+          "impact": "PF & gratuity bases rise 30–60%. Employer statutory cost ↑ 4–12%. Take-home ↓ 3–8%. Biggest hit on mid-to-senior salaries where allowances dominated."
+        },
+        {
+          "topic": "National Floor Wage",
+          "section": "Sec 9",
+          "old": "No central floor. States set their own minimum wages under MW Act 1948, with wide variance.",
+          "new": "Centre fixes a national floor wage. State minimum wage cannot fall below it. Revised every 5 years (or sooner).",
+          "impact": "Low-wage states must raise rates. Contract-labour and gig workers benefit most."
+        },
+        {
+          "topic": "Minimum wage applicability",
+          "section": "Sec 5",
+          "old": "Only 'scheduled employments' notified by each government.",
+          "new": "Universal — applies to ALL employment, organised & unorganised. No scheduling required.",
+          "impact": "Previously-uncovered workers (domestic, agri, gig) now entitled."
+        },
+        {
+          "topic": "Overtime",
+          "section": "Sec 14",
+          "old": "Factories Act: 2× ordinary wage rate.",
+          "new": "Same 2× rate retained, but calculated on the broader 'wages' definition above.",
+          "impact": "OT cost ↑ proportional to the new basic."
+        },
+        {
+          "topic": "Payment timelines",
+          "section": "Sec 17",
+          "old": "Payment of Wages Act: 7th of next month (est ≤ 1000 workers) or 10th (larger).",
+          "new": "Daily: end of shift. Weekly: last day of week. Fortnightly: 2 days after end. Monthly: 7th of next month (all sizes).",
+          "impact": "Minor for most monthly payrolls."
+        },
+        {
+          "topic": "Bonus",
+          "section": "Sec 26–31",
+          "old": "Payment of Bonus Act 1965: 8.33% min – 20% max on wages up to ₹21,000.",
+          "new": "Retained at 8.33–20% — but 'wages' now uses Code definition, and ceiling to be re-notified. Disqualifications under Sec 29 tightened (fraud, violent misconduct).",
+          "impact": "Bonus quantum up where wages ceiling is raised; clearer disqualification grounds."
+        },
+        {
+          "topic": "Equal remuneration",
+          "section": "Sec 3",
+          "old": "ER Act 1976: gender only.",
+          "new": "Covers all grounds of discrimination in recruitment, wages, conditions.",
+          "impact": "Broader anti-discrimination cover."
+        }
+      ]
+    },
+    {
+      "id": "ss",
+      "name": "The Code on Social Security, 2020",
+      "short": "Social Security Code",
+      "replaces": [
+        "Employees' Provident Funds & Misc Provisions Act 1952",
+        "Employees' State Insurance Act 1948",
+        "Payment of Gratuity Act 1972",
+        "Maternity Benefit Act 1961",
+        "Employees' Compensation Act 1923",
+        "Unorganised Workers' Social Security Act 2008",
+        "Cine Workers Welfare Fund Act 1981",
+        "Building & Other Construction Workers Welfare Cess Act 1996"
+      ],
+      "effective": "Assent: 28 Sep 2020. Appointed day: pending (Sec 1(3)).",
+      "biggest_impact": "Gratuity eligibility on 1 year for fixed-term employees; gig / platform workers brought into social security net.",
+      "key_changes": [
+        {
+          "topic": "Gratuity eligibility",
+          "section": "Sec 53(2)",
+          "old": "Payment of Gratuity Act: 5 continuous years of service.",
+          "new": "5 years continues for regular employees. Fixed-Term Employees: eligible after 1 year pro-rata. Working journalists: 3 years.",
+          "impact": "FTE contracts now carry gratuity from Year 1 — employer provision accrues earlier."
+        },
+        {
+          "topic": "EPF / EPS base",
+          "section": "Sec 16 + wage defn linkage",
+          "old": "12% of Basic+DA; EPS ceiling ₹15,000 (EPF Scheme 1952 Para 26A).",
+          "new": "12% of 'wages' (Code on Wages definition). EPS ceiling retained ₹15,000 pending notification. International Workers: pro-rata PF retained.",
+          "impact": "PF contributions rise where basic < 50% of CTC previously."
+        },
+        {
+          "topic": "Gig & platform workers",
+          "section": "Sec 2(35) + 2(61) + Ch IX",
+          "old": "Excluded from formal social security.",
+          "new": "Defined; social security schemes (life/disability cover, health, maternity, accident) funded via aggregator contribution 1–2% of annual turnover, capped at 5% of aggregate payment to workers.",
+          "impact": "Swiggy/Ola/Zomato-type platforms owe social security contributions."
+        },
+        {
+          "topic": "ESI coverage",
+          "section": "Sec 4 + Third Schedule",
+          "old": "Applicable to notified establishments with ≥ 10 employees where gross ≤ ₹21,000/month.",
+          "new": "Central Govt may extend ESI to any establishment including hazardous units with <10 workers; all districts. Wage threshold retained ₹21,000 (₹25,000 for persons with disability).",
+          "impact": "More establishments drawn in; premiums unchanged."
+        },
+        {
+          "topic": "Maternity benefit",
+          "section": "Sec 59–70",
+          "old": "Maternity Benefit Act: 26 weeks for 1st two children; 12 weeks thereafter.",
+          "new": "Retained 26 / 12 weeks. Integrated with ESI framework.",
+          "impact": "No change in quantum; simpler enforcement."
+        },
+        {
+          "topic": "Employer liability — accident",
+          "section": "Sec 74–79",
+          "old": "Employee's Compensation Act 1923 — schedule-based, often outdated.",
+          "new": "Retained but subsumed. Computation aligned with 'wages' def.",
+          "impact": "Compensation payouts rise with basic."
+        }
+      ]
+    },
+    {
+      "id": "ir",
+      "name": "The Industrial Relations Code, 2020",
+      "short": "IR Code",
+      "replaces": [
+        "Trade Unions Act, 1926",
+        "Industrial Employment (Standing Orders) Act, 1946",
+        "Industrial Disputes Act, 1947"
+      ],
+      "effective": "Assent: 28 Sep 2020. Appointed day: pending.",
+      "biggest_impact": "Layoff / retrenchment / closure threshold raised from 100 to 300 workers; 'Fixed-Term Employment' formalised with statutory benefits.",
+      "key_changes": [
+        {
+          "topic": "Retrenchment / layoff threshold",
+          "section": "Sec 77 + 81",
+          "old": "Prior Govt permission needed for firms with ≥ 100 workers (ID Act Ch VB).",
+          "new": "Threshold raised to 300 workers. Below 300: notice + compensation only.",
+          "impact": "Large employers gain flexibility; political hot-button."
+        },
+        {
+          "topic": "Fixed-Term Employment",
+          "section": "Sec 2(o) + Sec 32",
+          "old": "Permitted by rules but without statutory parity of benefits.",
+          "new": "Codified: FTE gets SAME wages, benefits and service conditions as permanent employee, plus pro-rata gratuity after 1 year.",
+          "impact": "FTE cost approaches permanent cost; reduces mis-classification risk."
+        },
+        {
+          "topic": "Strike notice",
+          "section": "Sec 62",
+          "old": "Only 'public utility' establishments needed notice (14 days).",
+          "new": "14-day notice mandatory in ALL establishments. Strike during pendency of conciliation/arbitration/tribunal → illegal.",
+          "impact": "Wildcat strikes curtailed."
+        },
+        {
+          "topic": "Standing orders",
+          "section": "Sec 28–30",
+          "old": "Applicable to establishments with ≥ 100 workers.",
+          "new": "Threshold raised to 300 workers. Model standing orders prescribed centrally.",
+          "impact": "Mid-size firms exempt; admin burden eases."
+        },
+        {
+          "topic": "Re-skilling fund",
+          "section": "Sec 83",
+          "old": "Not a concept.",
+          "new": "Employer contributes 15 days' last-drawn wages per retrenched worker to a Re-skilling Fund disbursed to worker within 45 days.",
+          "impact": "Additional exit cost for retrenchment."
+        },
+        {
+          "topic": "Negotiating union",
+          "section": "Sec 14",
+          "old": "No formal criterion — disputes on representation common.",
+          "new": "Sole negotiating union = union with ≥ 51% of workers as members. Otherwise, Negotiating Council of unions with ≥ 20% each.",
+          "impact": "Clear recognition process."
+        }
+      ]
+    },
+    {
+      "id": "osh",
+      "name": "The Occupational Safety, Health & Working Conditions Code, 2020",
+      "short": "OSH Code",
+      "replaces": [
+        "Factories Act, 1948",
+        "Mines Act, 1952",
+        "Contract Labour (R&A) Act, 1970",
+        "Inter-State Migrant Workmen Act, 1979",
+        "Dock Workers Act 1986",
+        "Building & Other Construction Workers Act 1996",
+        "Plantation Labour Act 1951",
+        "Sales Promotion Employees Act 1976",
+        "Working Journalists Acts 1955 & 1958",
+        "Beedi & Cigar Workers Act 1966",
+        "Cine-Workers Act 1981",
+        "Motor Transport Workers Act 1961"
+      ],
+      "effective": "Assent: 28 Sep 2020. Appointed day: pending.",
+      "biggest_impact": "Daily work-hour cap at 12 (with weekly cap 48) — enables 4-day work week; universal appointment letter; one licence-one return-one registration regime.",
+      "key_changes": [
+        {
+          "topic": "Daily / weekly hours & work-week",
+          "section": "Sec 25",
+          "old": "Factories Act: 9 hrs/day, 48 hrs/week. OT beyond 9.",
+          "new": "Max 12 hrs/day (incl rest + OT) retained BUT 48 hrs/week cap preserved — enabling 4-day × 12-hr week by notification. Spread-over 12 hrs.",
+          "impact": "Flex work-week legally possible. Employers may compress workweek if worker consents."
+        },
+        {
+          "topic": "Overtime",
+          "section": "Sec 27 + 28",
+          "old": "Factories Act: OT 2× wage beyond 9 hrs/day or 48/week.",
+          "new": "2× rate retained. OT cap raised — quarterly limit 125 hrs (Factories Act was 50).",
+          "impact": "More OT legally permissible."
+        },
+        {
+          "topic": "Leave with wages",
+          "section": "Sec 32",
+          "old": "Factories Act: 1 day leave per 20 days worked (adult) / 15 (child). Earn leave only after 240 days continuous service in a calendar year.",
+          "new": "Entitlement after 180 days (down from 240). 1 day per 20 retained. Carry-forward cap 30 days; balance above encashable at year-end.",
+          "impact": "Earlier leave accrual; mandatory encashment protects worker."
+        },
+        {
+          "topic": "Appointment letter",
+          "section": "Sec 6",
+          "old": "Not mandated by most acts; HR practice only.",
+          "new": "Statutory: every worker must receive an appointment letter.",
+          "impact": "Reduces informal employment; aids wage-protection enforcement."
+        },
+        {
+          "topic": "Contract labour threshold",
+          "section": "Sec 45",
+          "old": "CLRA Act: ≥ 20 contract workers.",
+          "new": "Raised to ≥ 50 contract workers for licence.",
+          "impact": "Smaller contractors exempt from licencing."
+        },
+        {
+          "topic": "Migrant worker support",
+          "section": "Sec 61–69",
+          "old": "Inter-State Migrant Workmen Act 1979 limited in scope.",
+          "new": "Self-registration via portal; portability of PDS benefits; free annual to/from travel allowance by employer; Helpline.",
+          "impact": "Post-COVID response; employer helpline obligation."
+        },
+        {
+          "topic": "Women in all shifts",
+          "section": "Sec 43",
+          "old": "Factories Act: night-shift restrictions.",
+          "new": "Women permitted in all establishments for all shifts with consent + safety + transport.",
+          "impact": "24×7 operations may employ women."
+        }
+      ]
+    }
+  ],
+  "impact_summary": {
+    "for_employer": [
+      "Statutory cost ↑ 4–12% (PF, gratuity, bonus, leave-encashment all on broader wage base).",
+      "Fixed-Term Employment viable with full parity + 1-yr gratuity.",
+      "Compliance simpler: one registration, one licence, one return per code (vs 29 acts earlier).",
+      "Flex working time possible (4×12 week)."
+    ],
+    "for_employee": [
+      "Take-home ↓ 3–8% in first year of implementation; retirement corpus grows.",
+      "Gratuity accessible to FTE after 1 year.",
+      "Universal minimum wage; universal appointment letter.",
+      "Gig / platform workers enter social-security net."
+    ],
+    "for_payroll_tech": [
+      "Wage-definition engine must recompute basic = max(declared basic, 50% of total remuneration net of exclusions).",
+      "Two parallel runs during transition: old-act compliance until State appointed day, new-code compliance thereafter.",
+      "Audit trails must show both treatments for arrears."
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "country": "JP",
+  "lastUpdated": "2025-01-01",
+  "topics": [
+    {
+      "title": "Kakutei Shinkoku (Final Tax Return)",
+      "summary": "Individual final return filed between 16 Feb – 15 Mar for the prior calendar year. Most salaried employees do not need to file — year-end adjustment (nenmatsu-chōsei) handles it.",
+      "source": "https://www.nta.go.jp/"
+    },
+    {
+      "title": "National + Inhabitant Tax",
+      "summary": "National income tax 5–45% progressive with deduction formula. Inhabitant tax ≈10% (prefectural 4% + municipal 6%) billed by local authority based on prior-year income.",
+      "source": "https://www.nta.go.jp/"
+    },
+    {
+      "title": "Reconstruction Surtax",
+      "summary": "2.1% surtax on national income tax amount, applicable until 2037 for post-earthquake reconstruction funding.",
+      "source": "https://www.nta.go.jp/"
+    },
+    {
+      "title": "Consumption Tax",
+      "summary": "Standard 10%; reduced 8% on food and newspapers. Qualified Invoice System (tekikaku seikyūsho) required from Oct 2023 for input tax credit.",
+      "source": "https://www.nta.go.jp/"
+    },
+    {
+      "title": "Social Insurance (Shakai hoken)",
+      "summary": "Health + nursing + welfare pension + employment — combined employee share ≈15% (split roughly 50/50 with employer). Monthly withholding via payroll.",
+      "source": "https://www.nenkin.go.jp/"
+    }
+  ]
+}

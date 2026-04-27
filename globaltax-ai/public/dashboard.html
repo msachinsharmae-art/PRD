@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard — Payroll & Compliance · GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/dashboard.css">
+<script type="module" src="/js/shell.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">GlobalTax<span class="dot">.</span>AI</div>
+    <a class="link" href="/">Home</a>
+    <a class="link" href="/calculator">Calculator</a>
+    <a class="link active" href="/dashboard">Dashboard</a>
+    <a class="link" href="/labour-code">Labour Code</a>
+    <a class="link" href="/upload">Upload Data</a>
+    <a class="link" href="/compliance">Compliance</a>
+    <a class="link" href="/updates">Updates</a>
+    <a class="link" href="/compare">Compare</a>
+    <div class="spacer"></div>
+    <span class="badge new">v0.8 • 4 countries</span>
+  </nav>
+
+  <div class="container wide">
+    <header class="dash-header">
+      <div>
+        <h1 style="margin:0">Payroll & Compliance Dashboard</h1>
+        <p class="muted"><span id="companyLabel">Acme Technologies</span> · <span id="countryLabel">India</span> · <span id="fyLabel">FY 2025-26</span> · <span id="monthLabel">Apr 2026</span> · <span id="dataSourceLabel" class="badge">seeded</span></p>
+      </div>
+      <div class="dash-filters">
+        <div class="filter-row" style="margin-bottom:0">
+          <label class="muted" style="margin-right:6px" id="wageCodeLabel">Wage regime (India only)</label>
+          <div class="seg" id="wageSeg">
+            <button class="seg-btn active" data-wage="legacy">Legacy Acts</button>
+            <button class="seg-btn" data-wage="new">New Labour Codes</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="impactBanner" class="impact-banner">Loading wage-code impact…</div>
+
+    <!-- AI query box -->
+    <div class="card ai-card">
+      <div class="ai-row">
+        <span class="ai-icon">🤖</span>
+        <input id="aiInput" class="ai-input" placeholder='Ask e.g. "show Q1 PF outflow trend", "filter March", "compare head of finance"' />
+        <button class="btn" id="aiSend">Ask</button>
+      </div>
+      <div id="aiReply" class="ai-reply"></div>
+    </div>
+
+    <!-- KPI grid -->
+    <div class="kpi-grid" id="kpiGrid"></div>
+
+    <!-- Charts row -->
+    <div class="grid cols-2" style="margin-top:18px">
+      <div class="card">
+        <h3>6-Month Trend — Gross · Statutory · Net Pay</h3>
+        <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Statutory Outflow Breakdown</h3>
+        <div class="chart-wrap"><canvas id="breakdownChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="grid cols-2" style="margin-top:18px">
+      <div class="card">
+        <h3>Upcoming Statutory Deadlines</h3>
+        <ul class="calendar-list" id="upcoming"></ul>
+      </div>
+      <div class="card">
+        <h3>Department Cost Mix</h3>
+        <div class="chart-wrap"><canvas id="deptChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 style="margin:0">Employee Payroll — <span id="tableMonthLabel">Apr 2026</span></h3>
+        <div class="muted" id="tableMeta"></div>
+      </div>
+      <div style="overflow-x:auto;margin-top:10px">
+        <table id="empTable">
+          <thead id="empTableHead"></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="disclaimer" id="footnote"></p>
+  </div>
+
+  <script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>

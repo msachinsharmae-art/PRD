@@ -1,0 +1,31 @@
+{
+  "country": "SA",
+  "lastUpdated": "2025-01-01",
+  "topics": [
+    {
+      "title": "No personal income tax",
+      "summary": "Saudi Arabia levies no personal income tax on salaries for residents, whether Saudi nationals or expats.",
+      "source": "https://zatca.gov.sa"
+    },
+    {
+      "title": "GOSI social insurance",
+      "summary": "Saudi nationals: 9% pension + 1% unemployment (SANED) = 10% employee share; matched by employer. Expats: employer pays 2% occupational hazards only.",
+      "source": "https://www.gosi.gov.sa"
+    },
+    {
+      "title": "Zakat",
+      "summary": "2.5% religious levy on zakatable wealth. Legally binding for Saudi/GCC companies; individual Zakat is self-assessed.",
+      "source": "https://zatca.gov.sa"
+    },
+    {
+      "title": "VAT",
+      "summary": "15% standard VAT (raised from 5% in July 2020). Registration threshold SAR 375,000 in taxable supplies.",
+      "source": "https://zatca.gov.sa"
+    },
+    {
+      "title": "Withholding tax (WHT)",
+      "summary": "Payments to non-residents: 5% (services), 15% (royalties), 20% (management fees). Treaty reductions may apply.",
+      "source": "https://zatca.gov.sa"
+    }
+  ]
+}

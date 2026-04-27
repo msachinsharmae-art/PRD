@@ -1,0 +1,500 @@
+{
+  "meta": {
+    "title": "Multi-layer jurisdictional compliance",
+    "updated": "2026-04-24",
+    "note": "Federal / State / County / City level rules for payroll, tax, and labour. Each item cites authority, legal basis, formula, frequency, penalty."
+  },
+  "US": {
+    "label": "United States",
+    "currency": "USD",
+    "federal": {
+      "authority": "IRS · SSA · DOL · USCIS",
+      "heads": [
+        {
+          "id": "federal_income_tax",
+          "title": "Federal Income Tax Withholding (TY 2026)",
+          "authority": "Internal Revenue Service (IRS)",
+          "legal": "IRC §3402; Publication 15-T (percentage method); OBBBA 2026 adjustments",
+          "form": "W-4 (2020 redesign: Step 1 filing status, Step 2 multiple jobs, Step 3 dependents, Step 4a/4b/4c)",
+          "who_pays": "Employee (withheld by employer)",
+          "wage_base": "Gross wages less pre-tax (401k, §125 health premiums, HSA)",
+          "rates_2026_single": [
+            { "bracket": "$0 – $12,400",      "rate": "10%", "base_tax": "10% of taxable income" },
+            { "bracket": "$12,401 – $50,400",  "rate": "12%", "base_tax": "$1,240.00 + 12% over $12,400" },
+            { "bracket": "$50,401 – $105,700", "rate": "22%", "base_tax": "$5,800.00 + 22% over $50,400" },
+            { "bracket": "$105,701 – $201,775","rate": "24%", "base_tax": "$17,966.00 + 24% over $105,700" },
+            { "bracket": "$201,776 – $256,225","rate": "32%", "base_tax": "$41,024.00 + 32% over $201,775" },
+            { "bracket": "$256,226 – $640,600","rate": "35%", "base_tax": "$58,448.00 + 35% over $256,225" },
+            { "bracket": "Over $640,600",      "rate": "37%", "base_tax": "$192,979.25 + 37% over $640,600" }
+          ],
+          "rates_2026_mfj": [
+            { "bracket": "$0 – $24,800",      "rate": "10%" },
+            { "bracket": "$24,801 – $100,800",  "rate": "12%" },
+            { "bracket": "$100,801 – $211,400", "rate": "22%" },
+            { "bracket": "$211,401 – $403,550", "rate": "24%" },
+            { "bracket": "$403,551 – $512,450", "rate": "32%" },
+            { "bracket": "$512,451 – $768,700", "rate": "35%" },
+            { "bracket": "Over $768,700",       "rate": "37%" }
+          ],
+          "rates_2026_hoh": [
+            { "bracket": "$0 – $17,700",      "rate": "10%" },
+            { "bracket": "$17,701 – $67,450",   "rate": "12%" },
+            { "bracket": "$67,451 – $105,700",  "rate": "22%" },
+            { "bracket": "$105,701 – $201,750", "rate": "24%" },
+            { "bracket": "$201,751 – $256,200", "rate": "32%" },
+            { "bracket": "$256,201 – $640,600", "rate": "35%" },
+            { "bracket": "Over $640,600",       "rate": "37%" }
+          ],
+          "std_deduction_2026": { "single": 16100, "mfj": 32200, "hoh": 24150, "mfs": 16100, "senior_single_bonus": 2000, "senior_married_bonus_per_person": 1600 },
+          "supplemental_wages": { "flat_rate": "22%", "flat_rate_over_1M": "37%", "note": "Applies to bonuses/commissions paid separately" },
+          "filing_schedule": "Per paycheck",
+          "deposit_schedules": {
+            "monthly": "Liability < $50k in lookback period → 15th of following month",
+            "semi_weekly": "Liability ≥ $50k → Wed/Fri after payday",
+            "next_day": "Accumulated ≥ $100k → next business day"
+          },
+          "penalties": "Underpayment penalty + interest; employer trust-fund recovery penalty for non-remittance"
+        },
+        {
+          "id": "obbba",
+          "title": "OBBBA 2026 — One Big Beautiful Bill Act provisions",
+          "authority": "IRS",
+          "note": "New tax provisions for TY 2026 targeting specific worker groups and expenses.",
+          "provisions": [
+            { "title": "SALT Cap Increase", "value": "$40,400", "prior": "$10,000", "note": "State + local tax deduction cap raised 4x. Itemizers only." },
+            { "title": "Senior Deduction Bonus", "value": "$6,000 (single) / $12,000 (couples)", "note": "Additional federal deduction for taxpayers age 65+. Phase-out at $75,000 AGI." },
+            { "title": "Overtime Pay Deduction", "value": "Up to $12,500", "note": "Nonexempt employees may deduct qualified overtime pay on personal return." },
+            { "title": "Tips Deduction", "value": "Up to $25,000", "note": "Tipped workers may deduct qualified tip income on personal return." },
+            { "title": "Car Loan Interest Deduction", "value": "Up to $10,000", "note": "New, US-assembled vehicles under 14,000 lbs." },
+            { "title": "Roth Catch-Up Rule (age 50+)", "threshold": "$150,000 prior-year income", "note": "High earners must make all catch-up contributions on Roth (after-tax) basis. Applies to 401(k), 403(b), governmental 457(b)." }
+          ]
+        },
+        {
+          "id": "fica_ss",
+          "title": "FICA — Social Security (OASDI)",
+          "authority": "SSA · IRS",
+          "legal": "IRC §3101(a) / §3111(a)",
+          "employee_rate": "6.2%",
+          "employer_rate": "6.2%",
+          "wage_base_2026": 176100,
+          "calc": "Both sides pay 6.2% up to wage base; stops for the year once YTD gross SS wages hit $176,100",
+          "form": "Form 941 (quarterly)"
+        },
+        {
+          "id": "fica_medicare",
+          "title": "FICA — Medicare",
+          "authority": "IRS",
+          "legal": "IRC §3101(b) / §3111(b) / §3101(b)(2) Additional Medicare",
+          "employee_rate": "1.45%",
+          "employer_rate": "1.45%",
+          "additional_employee_rate": "0.9% above $200k (single) / $250k (MFJ)",
+          "wage_base": "No cap (uncapped)",
+          "form": "Form 941"
+        },
+        {
+          "id": "futa",
+          "title": "FUTA — Federal Unemployment Tax",
+          "authority": "IRS",
+          "legal": "IRC §3301",
+          "rate": "6.0% nominal; 0.6% effective after full state SUI credit",
+          "wage_base": "First $7,000 per employee per year",
+          "who_pays": "Employer only — NOT deducted from employee",
+          "form": "Form 940 (annual)"
+        },
+        {
+          "id": "flsa_overtime",
+          "title": "FLSA — Fair Labor Standards Act (Overtime)",
+          "authority": "US Department of Labor",
+          "legal": "29 USC §207",
+          "rule": "Non-exempt employees receive 1.5× regular rate for hours over 40 in a workweek",
+          "exemptions": "Executive, Administrative, Professional, Computer Employee (≥$684/week salary threshold; higher in some states)",
+          "state_override": "Some states have daily overtime (CA: 1.5× over 8 hrs/day; 2× over 12 hrs/day)"
+        },
+        {
+          "id": "fed_min_wage",
+          "title": "Federal Minimum Wage",
+          "authority": "DOL",
+          "rate": "$7.25/hour (unchanged since 2009)",
+          "tipped_min": "$2.13/hour (if tips bring to $7.25)",
+          "note": "29 states + DC have higher state minimums; employee paid the higher of federal/state/local"
+        },
+        {
+          "id": "aca_health",
+          "title": "Affordable Care Act (ACA) Employer Mandate",
+          "authority": "IRS",
+          "rule": "Applicable Large Employers (ALE, 50+ FTE) must offer affordable minimum-value health coverage to full-time employees",
+          "reporting": "Forms 1094-C + 1095-C annually (due Jan 31 furnish, Feb 28 paper / Mar 31 e-file)",
+          "penalties": "§4980H(a): $2,970/year per FTE (2026); §4980H(b): $4,460/year per non-compliant FTE"
+        },
+        {
+          "id": "erisa",
+          "title": "ERISA — Employee Retirement Income Security Act",
+          "authority": "DOL + IRS",
+          "scope": "Regulates 401(k), pensions, health plans",
+          "reporting": "Form 5500 (annual) for plans with >100 participants"
+        },
+        {
+          "id": "fed_holidays",
+          "title": "Federal Holidays",
+          "authority": "OPM (for federal employees); private sector voluntary",
+          "list": ["New Year's Day", "MLK Day", "Presidents Day", "Memorial Day", "Juneteenth", "Independence Day", "Labor Day", "Columbus Day", "Veterans Day", "Thanksgiving", "Christmas"],
+          "count": 11
+        }
+      ]
+    },
+    "states": [
+      {
+        "code": "CA", "name": "California",
+        "authority": "FTB (income tax) · EDD (SDI/SUI/ETT) · DIR / DLSE (labour)",
+        "heads": [
+          {
+            "id": "ca_pit", "title": "CA Personal Income Tax",
+            "form": "DE-4",
+            "brackets_single_2026": [
+              { "from": 0, "to": 10756, "rate": "1%" },
+              { "from": 10757, "to": 25499, "rate": "2%" },
+              { "from": 25500, "to": 40245, "rate": "4%" },
+              { "from": 40246, "to": 55866, "rate": "6%" },
+              { "from": 55867, "to": 70606, "rate": "8%" },
+              { "from": 70607, "to": 360659, "rate": "9.3%" },
+              { "from": 360660, "to": 432787, "rate": "10.3%" },
+              { "from": 432788, "to": 721314, "rate": "11.3%" },
+              { "from": 721315, "to": null, "rate": "12.3%" },
+              { "from": 1000001, "to": null, "rate": "+1% mental health tax (total 13.3%)" }
+            ]
+          },
+          {
+            "id": "ca_sdi", "title": "CA State Disability Insurance (SDI)",
+            "rate": "1.1% (2026)",
+            "wage_base": "No cap from 2024 onwards (SB 951 removed cap)",
+            "who_pays": "Employee only",
+            "note": "Funds Disability Insurance (DI) + Paid Family Leave (PFL)"
+          },
+          {
+            "id": "ca_sui", "title": "CA State Unemployment Insurance (SUI)",
+            "rate": "3.4% new-employer; experience-rated up to 6.2%",
+            "wage_base": "$7,000",
+            "who_pays": "Employer only"
+          },
+          {
+            "id": "ca_ett", "title": "CA Employment Training Tax (ETT)",
+            "rate": "0.1%",
+            "wage_base": "$7,000",
+            "who_pays": "Employer only",
+            "note": "Funds workforce training"
+          },
+          {
+            "id": "ca_min_wage", "title": "CA Minimum Wage",
+            "rate_2026": "$16.90/hour statewide",
+            "industry_specific": [
+              { "industry": "Fast food (AB 1228)", "rate": "$20.00/hour" },
+              { "industry": "Healthcare workers (SB 525)", "rate": "$21.00–$25.00/hour by facility type" }
+            ],
+            "exempt_threshold": "$70,304/year (2×16.90×2080 hours)"
+          },
+          {
+            "id": "ca_overtime", "title": "CA Overtime (stricter than federal)",
+            "rules": [
+              "1.5× over 8 hrs/day or 40 hrs/week",
+              "1.5× first 8 hrs on 7th consecutive workday",
+              "2.0× (double-time) over 12 hrs/day, and over 8 hrs on 7th consecutive day"
+            ]
+          },
+          {
+            "id": "ca_ab5", "title": "AB5 — Contractor Classification",
+            "rule": "ABC test: worker is 1099 only if (A) free from control, (B) outside usual course of business, (C) customarily engaged in independent trade",
+            "impact": "Misclassification risk — reclassify to W-2 if any test fails"
+          },
+          {
+            "id": "ca_final_pay", "title": "CA Final Pay Rules",
+            "rule": "Termination: pay immediately. Voluntary quit w/ ≥72hr notice: last day. Without notice: within 72 hours. Waiting-time penalty: 1 day wages/day late up to 30 days."
+          },
+          {
+            "id": "ca_meal_rest", "title": "CA Meal & Rest Breaks",
+            "meal": "30-min unpaid after 5 hrs; second break after 10 hrs",
+            "rest": "10-min paid per 4 hrs",
+            "premium": "1 hour of pay at regular rate per missed break"
+          }
+        ],
+        "local_min_wages_2026": [
+          { "city": "Los Angeles (city)", "rate": 17.28 },
+          { "city": "Los Angeles County (unincorporated)", "rate": 17.27 },
+          { "city": "San Francisco", "rate": 18.67 },
+          { "city": "Sunnyvale", "rate": 19.65 },
+          { "city": "Berkeley", "rate": 18.67 },
+          { "city": "Santa Monica", "rate": 17.27 },
+          { "city": "West Hollywood", "rate": 19.65 },
+          { "city": "Emeryville", "rate": 19.36 },
+          { "city": "Mountain View", "rate": 19.20 }
+        ]
+      },
+      {
+        "code": "NY", "name": "New York",
+        "authority": "NY DTF · DOL",
+        "heads": [
+          {
+            "id": "ny_pit", "title": "NY State Income Tax",
+            "brackets_single_2026": [
+              { "from": 0, "to": 8500, "rate": "4%" },
+              { "from": 8501, "to": 11700, "rate": "4.5%" },
+              { "from": 11701, "to": 13900, "rate": "5.25%" },
+              { "from": 13901, "to": 80650, "rate": "5.5%" },
+              { "from": 80651, "to": 215400, "rate": "6%" },
+              { "from": 215401, "to": 1077550, "rate": "6.85%" },
+              { "from": 1077551, "to": 5000000, "rate": "9.65%" },
+              { "from": 5000001, "to": 25000000, "rate": "10.3%" },
+              { "from": 25000001, "to": null, "rate": "10.9%" }
+            ]
+          },
+          { "id": "ny_city_tax", "title": "NYC Income Tax (city resident only)", "rate": "3.078% – 3.876% progressive" },
+          { "id": "yonkers_tax", "title": "Yonkers Income Tax", "rate": "16.75% surcharge on state tax (residents) / 0.5% on wages (non-resident commuter)" },
+          { "id": "ny_sui", "title": "NY SUI", "rate": "0.6% – 7.9% (new employer 3.0%)", "wage_base": "$12,500" },
+          { "id": "ny_sdi", "title": "NY SDI", "employee_rate": "0.5% up to $0.60/week max", "employer": "balance if insured" },
+          { "id": "ny_pfl", "title": "NY Paid Family Leave (PFL)", "rate": "0.388% (2026), capped at ~$354/year employee", "employer": "can pay or deduct" },
+          { "id": "ny_min_wage", "title": "NY Minimum Wage", "rate_2026": "NYC/LI/Westchester $16.50/hr; rest of state $15.50/hr" }
+        ]
+      },
+      {
+        "code": "TX", "name": "Texas",
+        "authority": "TX Workforce Commission · Comptroller",
+        "heads": [
+          { "id": "tx_pit", "title": "Texas State Income Tax", "rate": "0% — NO state personal income tax" },
+          { "id": "tx_sui", "title": "TX SUI", "rate": "0.25% – 6.25% (new employer 2.7%)", "wage_base": "$9,000" },
+          { "id": "tx_min_wage", "title": "TX Minimum Wage", "rate": "$7.25/hour (matches federal)" },
+          { "id": "tx_final_pay", "title": "TX Final Pay", "rule": "Discharge: within 6 days. Quit: next regular payday." },
+          { "id": "tx_franchise_tax", "title": "TX Franchise Tax (corporate)", "rate": "0.375% retail/wholesale; 0.75% others; no-tax threshold $2.47M revenue (2024)" }
+        ]
+      },
+      {
+        "code": "FL", "name": "Florida",
+        "authority": "FL DOR · FL DEO",
+        "heads": [
+          { "id": "fl_pit", "title": "FL State Income Tax", "rate": "0% — NO state personal income tax" },
+          { "id": "fl_sui", "title": "FL Reemployment Assistance Tax", "rate": "2.7% new employer; 0.1% – 5.4% experienced", "wage_base": "$7,000" },
+          { "id": "fl_min_wage", "title": "FL Minimum Wage", "rate_2026": "$14.00/hour (stepping to $15 by Sept 2026)", "amendment": "Amendment 2 phased increases to $15 by 2026" },
+          { "id": "fl_final_pay", "title": "FL Final Pay", "rule": "No state-specific rule; federal FLSA applies — next regular payday" }
+        ]
+      },
+      {
+        "code": "WA", "name": "Washington",
+        "authority": "WA Dept of Revenue · ESD · L&I",
+        "heads": [
+          { "id": "wa_pit", "title": "WA State Income Tax", "rate": "0% — NO broad personal income tax (7% capital gains tax on gains >$262k)" },
+          { "id": "wa_sui", "title": "WA SUI", "rate": "0.27% – 6.03% (new employer ~1.8%)", "wage_base": "$68,500 (highest in the US)" },
+          { "id": "wa_pfml", "title": "WA Paid Family & Medical Leave", "rate": "0.92% total (employee 0.73% + employer 0.27%)", "wage_base": "$176,100 (matches SS)" },
+          { "id": "wa_ltc", "title": "WA Cares (Long-Term Care Trust)", "rate": "0.58% employee-only", "wage_base": "No cap; opt-out if private LTC purchased before 2021" },
+          { "id": "wa_min_wage", "title": "WA Minimum Wage", "rate_2026": "$16.66/hour statewide (highest state minimum)" },
+          { "id": "seattle_min_wage", "title": "Seattle Minimum Wage", "rate_2026": "$20.76/hour (large employers)" }
+        ]
+      },
+      {
+        "code": "IN", "name": "Indiana",
+        "authority": "Indiana Department of Revenue (in.gov/dor)",
+        "heads": [
+          { "id": "in_pit", "title": "Indiana State Income Tax (2026)", "rate": "2.90% flat", "form": "WH-4", "history": "3.15% (2023) → 3.05% (2024) → 3.00% (2025) → 2.90% (2026, accelerated under SB 451/2025)", "savings": "≈$101/year for an employee with $2,596 bi-weekly taxable wages" },
+          { "id": "in_county_tax", "title": "Indiana County Tax — 92 counties (2026 rates)", "note": "All 92 counties levy additional local income tax based on employee's COUNTY OF RESIDENCE (not work location). Range: 0.50% (Porter) to 3.3725% (Pulaski).", "changes_2026": [
+            { "county": "Hamilton", "old": "1.00%", "new": "1.10%", "delta": "+0.10%", "cities": "Carmel, Fishers" },
+            { "county": "Monroe", "old": "1.345%", "new": "2.035%", "delta": "+0.69% (51% increase)", "cities": "Bloomington" },
+            { "county": "Tippecanoe", "old": "1.34%", "new": "1.28%", "delta": "-0.06%", "cities": "Lafayette" }
+          ] },
+          { "id": "in_sui", "title": "IN SUI", "rate": "2.5% new employer; 0.5% – 7.4% experienced", "wage_base": "$9,500" },
+          { "id": "in_min_wage", "title": "IN Minimum Wage", "rate": "$7.25/hour (matches federal)" },
+          { "id": "in_dependent", "title": "IN Dependent Exemption (2026)", "value": "$3,000 per qualifying child (first year of eligibility)" },
+          { "id": "in_reciprocity", "title": "IN Reciprocity Agreements", "states": ["Kentucky", "Michigan", "Ohio", "Pennsylvania", "Wisconsin"], "note": "Residents of reciprocal states working in IN don't pay IN/county tax" },
+          { "id": "in_forms", "title": "IN Withholding Forms", "wh1": "Monthly/quarterly withholding report", "wh3": "Annual reconciliation (Jan 31)", "wh4": "Employee withholding exemption certificate" }
+        ]
+      },
+      {
+        "code": "GA", "name": "Georgia",
+        "authority": "GA DOR · GA DOL",
+        "heads": [
+          { "id": "ga_pit", "title": "GA State Income Tax", "rate_2026": "5.39% flat (moving to 5.19% by 2027; eventually 4.99%)", "form": "G-4" },
+          { "id": "ga_sui", "title": "GA SUI", "rate": "2.7% new employer; 0.04% – 5.4% experienced", "wage_base": "$9,500" },
+          { "id": "ga_min_wage", "title": "GA Minimum Wage", "rate": "$5.15/hour (state, but federal $7.25 preempts)" }
+        ]
+      }
+    ],
+    "indiana_counties_2024": {
+      "source": "Indiana DOR, effective 2024",
+      "range": { "min": 0.0050, "max": 0.033725 },
+      "note": "Employee's COUNTY OF RESIDENCE (not work location). Tax reported via Form WH-1 + WH-3.",
+      "list": [
+        { "county": "Adams", "rate": 0.0182 }, { "county": "Allen", "rate": 0.0148 },
+        { "county": "Bartholomew", "rate": 0.0075 }, { "county": "Benton", "rate": 0.0239 },
+        { "county": "Blackford", "rate": 0.025 }, { "county": "Boone", "rate": 0.015 },
+        { "county": "Brown", "rate": 0.022573 }, { "county": "Carroll", "rate": 0.0216 },
+        { "county": "Cass", "rate": 0.0275 }, { "county": "Clark", "rate": 0.01 },
+        { "county": "Clay", "rate": 0.0225 }, { "county": "Clinton", "rate": 0.02 },
+        { "county": "Crawford", "rate": 0.01 }, { "county": "Daviess", "rate": 0.015 },
+        { "county": "Dearborn", "rate": 0.008 }, { "county": "Decatur", "rate": 0.017 },
+        { "county": "DeKalb", "rate": 0.0175 }, { "county": "Delaware", "rate": 0.0175 },
+        { "county": "Dubois", "rate": 0.01 }, { "county": "Elkhart", "rate": 0.02 },
+        { "county": "Fayette", "rate": 0.0264 }, { "county": "Floyd", "rate": 0.01 },
+        { "county": "Fountain", "rate": 0.0211 }, { "county": "Franklin", "rate": 0.0125 },
+        { "county": "Fulton", "rate": 0.0234 }, { "county": "Gibson", "rate": 0.01 },
+        { "county": "Grant", "rate": 0.0275 }, { "county": "Greene", "rate": 0.02125 },
+        { "county": "Hamilton", "rate": 0.011, "cities": "Carmel, Fishers", "change_2026": "+0.10%" }, { "county": "Hancock", "rate": 0.014 },
+        { "county": "Harrison", "rate": 0.01 }, { "county": "Hendricks", "rate": 0.015 },
+        { "county": "Henry", "rate": 0.022 }, { "county": "Howard", "rate": 0.0225 },
+        { "county": "Huntington", "rate": 0.02 }, { "county": "Jackson", "rate": 0.0175 },
+        { "county": "Jasper", "rate": 0.023729 }, { "county": "Jay", "rate": 0.026 },
+        { "county": "Jefferson", "rate": 0.0065 }, { "county": "Jennings", "rate": 0.02 },
+        { "county": "Johnson", "rate": 0.011 }, { "county": "Knox", "rate": 0.0125 },
+        { "county": "Kosciusko", "rate": 0.01 }, { "county": "LaGrange", "rate": 0.016 },
+        { "county": "Lake", "rate": 0.015 }, { "county": "LaPorte", "rate": 0.0125 },
+        { "county": "Lawrence", "rate": 0.02 }, { "county": "Madison", "rate": 0.02 },
+        { "county": "Marion", "rate": 0.0202 }, { "county": "Marshall", "rate": 0.0125 },
+        { "county": "Martin", "rate": 0.02 }, { "county": "Miami", "rate": 0.0256 },
+        { "county": "Monroe", "rate": 0.02035, "cities": "Bloomington", "change_2026": "+0.69% (51% increase)" }, { "county": "Montgomery", "rate": 0.0225 },
+        { "county": "Morgan", "rate": 0.0272 }, { "county": "Newton", "rate": 0.0175 },
+        { "county": "Noble", "rate": 0.015 }, { "county": "Ohio", "rate": 0.01 },
+        { "county": "Orange", "rate": 0.0225 }, { "county": "Owen", "rate": 0.0175 },
+        { "county": "Parke", "rate": 0.0215 }, { "county": "Perry", "rate": 0.0125 },
+        { "county": "Pike", "rate": 0.015 }, { "county": "Porter", "rate": 0.005 },
+        { "county": "Posey", "rate": 0.01 }, { "county": "Pulaski", "rate": 0.033725 },
+        { "county": "Putnam", "rate": 0.016 }, { "county": "Randolph", "rate": 0.0251 },
+        { "county": "Ripley", "rate": 0.015 }, { "county": "Rush", "rate": 0.02 },
+        { "county": "Scott", "rate": 0.02 }, { "county": "Shelby", "rate": 0.02 },
+        { "county": "Spencer", "rate": 0.015 }, { "county": "St. Joseph", "rate": 0.0175 },
+        { "county": "Starke", "rate": 0.02 }, { "county": "Steuben", "rate": 0.0165 },
+        { "county": "Sullivan", "rate": 0.0075 }, { "county": "Switzerland", "rate": 0.01 },
+        { "county": "Tippecanoe", "rate": 0.0128, "cities": "Lafayette", "change_2026": "-0.06%" }, { "county": "Tipton", "rate": 0.02 },
+        { "county": "Union", "rate": 0.01 }, { "county": "Vanderburgh", "rate": 0.0135 },
+        { "county": "Vermillion", "rate": 0.01 }, { "county": "Vigo", "rate": 0.015 },
+        { "county": "Wabash", "rate": 0.025 }, { "county": "Warren", "rate": 0.0216 },
+        { "county": "Warrick", "rate": 0.0075 }, { "county": "Washington", "rate": 0.015 },
+        { "county": "Wayne", "rate": 0.0175 }, { "county": "Wells", "rate": 0.0185 },
+        { "county": "White", "rate": 0.02 }, { "county": "Whitley", "rate": 0.0142 }
+      ]
+    }
+  },
+  "IN": {
+    "label": "India",
+    "currency": "INR",
+    "central": {
+      "authority": "CBDT · EPFO · ESIC · MCA · GSTN",
+      "heads": [
+        { "id": "epf", "title": "Employees' Provident Fund (EPF)", "legal": "EPF & MP Act 1952; Code on Social Security 2020 Ch III", "employee": "12% of wages", "employer": "12% (split into 8.33% EPS + 3.67% EPF)", "wage_ceiling": "₹15,000/month (EPF Scheme Para 26A)", "frequency": "15th of following month", "penalty": "12% interest u/s 7Q + damages 5-25% u/s 14B" },
+        { "id": "esi", "title": "Employees' State Insurance (ESI)", "legal": "ESI Act 1948", "employee": "0.75%", "employer": "3.25%", "applicability": "Gross ≤ ₹21,000/mo (₹25,000 PwD)", "frequency": "15th of following month" },
+        { "id": "tds_salary", "title": "TDS on Salary (§192)", "legal": "Income-tax Act §192", "rate": "Per slab; calculated on projected annual income", "frequency": "Monthly; Form 24Q quarterly; Form 16 annual by 15 Jun" },
+        { "id": "gratuity", "title": "Gratuity", "legal": "Payment of Gratuity Act 1972 + Code on Social Security 2020 §53", "formula": "(15 × last drawn wages × years) / 26", "eligibility": "5 years regular / 1 year for FTE (new Code)", "cap": "₹20,00,000 tax-exempt u/s 10(10)" },
+        { "id": "bonus", "title": "Statutory Bonus", "legal": "Payment of Bonus Act 1965 + Code on Wages §26-31", "min": "8.33%", "max": "20%", "wage_ceiling": "₹21,000/mo for eligibility; bonus calculated on ₹7,000 or min wage whichever higher", "timing": "Within 8 months of FY end" },
+        { "id": "income_tax", "title": "Personal Income Tax (Individuals)", "legal": "Income-tax Act 1961 → Income-tax Act 2025 from 1 Apr 2026", "new_regime_slabs_fy2526": "0-4L: 0% · 4-8L: 5% · 8-12L: 10% · 12-16L: 15% · 16-20L: 20% · 20-24L: 25% · >24L: 30%", "rebate_87A_new": "Income ≤ ₹12L → zero tax (new regime)" },
+        { "id": "gst", "title": "Goods & Services Tax (GST)", "legal": "CGST/SGST/IGST Acts 2017", "rates": "0% / 5% / 12% / 18% / 28%", "filings": "GSTR-1 (11th), GSTR-3B (20th), GSTR-9 annual (31 Dec)" },
+        { "id": "corp_tax", "title": "Corporate Income Tax", "rate_domestic": "22% (§115BAA, no deductions) / 15% new mfg (§115BAB) / 30% default", "rate_foreign": "40% + surcharge", "legal": "Income-tax Act" }
+      ]
+    },
+    "states": [
+      { "code": "KA", "name": "Karnataka", "heads": [
+        { "id": "ka_pt", "title": "Professional Tax (KA)", "slabs": "≤₹25,000: Nil · >₹25,000: ₹200/mo", "cap_annual": 2500, "act": "KA Tax on Professions Act 1976", "frequency": "Monthly, by 20th" },
+        { "id": "ka_lwf", "title": "Labour Welfare Fund (KA)", "employee": 20, "employer": 40, "frequency": "Annual by 15 Jan" },
+        { "id": "ka_min_wage", "title": "KA Minimum Wages", "unskilled_monthly": 14400, "note": "Area-dependent (Zone I/II/III)" },
+        { "id": "ka_shops", "title": "Karnataka Shops & Commercial Establishments Act", "daily_hours": 9, "weekly_hours": 48, "overtime": "2× base rate" }
+      ]},
+      { "code": "MH", "name": "Maharashtra", "heads": [
+        { "id": "mh_pt", "title": "Professional Tax (MH)", "slabs": "≤₹7,500: Nil · ₹7,501-10,000: ₹175 · >₹10,000: ₹200 (₹300 in Feb)", "cap_annual": 2500, "act": "MH State Tax on Professions Act 1975" },
+        { "id": "mh_lwf", "title": "Labour Welfare Fund (MH)", "employee": 25, "employer": 75, "frequency": "Half-yearly (Jun / Dec)" },
+        { "id": "mh_min_wage", "title": "MH Minimum Wages (Zone I)", "unskilled_monthly": 13635 },
+        { "id": "mh_shops", "title": "MH S&E Act 2017", "daily": 9, "weekly": 48, "female_night_shift": "Permitted with consent + transport + safety" }
+      ]},
+      { "code": "TN", "name": "Tamil Nadu", "heads": [
+        { "id": "tn_pt", "title": "Professional Tax (TN)", "slabs": "Half-yearly: up to ₹1,250/half-year (depending on salary tier)", "cap_annual": 2500 },
+        { "id": "tn_lwf", "title": "LWF (TN)", "employee": 20, "employer": 40, "frequency": "Yearly" },
+        { "id": "tn_min_wage", "title": "TN Minimum Wages", "unskilled_monthly": 11244 }
+      ]},
+      { "code": "TS", "name": "Telangana", "heads": [
+        { "id": "ts_pt", "title": "Professional Tax (TS)", "slabs": "≤₹15,000: Nil · ₹15,001-20,000: ₹150 · >₹20,000: ₹200", "cap_annual": 2500 },
+        { "id": "ts_lwf", "title": "LWF (TS)", "employee": 2, "employer": 5, "frequency": "Yearly" }
+      ]},
+      { "code": "WB", "name": "West Bengal", "heads": [
+        { "id": "wb_pt", "title": "Professional Tax (WB)", "slabs": "≤₹10,000: Nil; graded up to ₹200", "cap_annual": 2500 },
+        { "id": "wb_min_wage", "title": "WB Minimum Wages", "note": "Area-specific" }
+      ]},
+      { "code": "DL", "name": "Delhi", "heads": [
+        { "id": "dl_no_pt", "title": "Professional Tax (DL)", "rate": "NO PT in Delhi" },
+        { "id": "dl_lwf", "title": "Delhi Labour Welfare Fund", "employee": 0.75, "employer": 2.25, "frequency": "Half-yearly" },
+        { "id": "dl_min_wage", "title": "Delhi Minimum Wages", "unskilled_monthly": 18456, "semi_skilled_monthly": 20371, "skilled_monthly": 22411, "graduate_monthly": 24356, "revised": "Apr 2025" }
+      ]},
+      { "code": "GJ", "name": "Gujarat", "heads": [
+        { "id": "gj_pt", "title": "Professional Tax (GJ)", "slabs": "≤₹12,000: Nil · >₹12,000: ₹200/mo", "cap_annual": 2500 },
+        { "id": "gj_lwf", "title": "Gujarat LWF", "employee": 6, "employer": 12, "frequency": "Half-yearly" }
+      ]},
+      { "code": "UP", "name": "Uttar Pradesh", "heads": [
+        { "id": "up_no_pt", "title": "Professional Tax (UP)", "rate": "NO PT in Uttar Pradesh" }
+      ]},
+      { "code": "HR", "name": "Haryana", "heads": [
+        { "id": "hr_no_pt", "title": "Professional Tax (HR)", "rate": "NO PT in Haryana" },
+        { "id": "hr_lwf", "title": "Haryana LWF", "employee": 31, "employer": 62, "frequency": "Yearly" }
+      ]},
+      { "code": "KL", "name": "Kerala", "heads": [
+        { "id": "kl_pt", "title": "Professional Tax (KL)", "slabs": "Half-yearly up to ₹1,250", "cap_annual": 2500 },
+        { "id": "kl_lwf", "title": "Kerala LWF (Shops)", "employee": 20, "employer": 45, "frequency": "Monthly" }
+      ]}
+    ]
+  },
+  "AE": {
+    "label": "United Arab Emirates",
+    "currency": "AED",
+    "federal": {
+      "authority": "FTA · MOHRE · GPSSA · Ministry of Finance",
+      "heads": [
+        { "id": "ae_pit", "title": "Personal Income Tax", "rate": "0%" },
+        { "id": "ae_ct", "title": "Corporate Tax", "legal": "Federal Decree-Law 47/2022", "rate": "0% on first AED 375,000; 9% above; 15% multinationals under Pillar Two (2025+)", "filing": "Within 9 months of FY end" },
+        { "id": "ae_vat", "title": "VAT", "legal": "Federal Decree-Law 8/2017", "rate": "5% standard · 0% exports / healthcare / education · exempt financial services", "filing": "Quarterly/monthly by 28th" },
+        { "id": "ae_gpssa", "title": "GPSSA Pension (UAE/GCC nationals only)", "employee": "11%", "employer": "12.5% (private) / 15% (public)", "applies_to": "UAE nationals + GCC nationals under unified scheme", "expats": "No pension" },
+        { "id": "ae_eos", "title": "End-of-Service Gratuity (Art. 51)", "formula": "21 days basic/year first 5 years + 30 days/year thereafter", "cap": "2 years' basic salary" },
+        { "id": "ae_wps", "title": "Wage Protection System", "legal": "Min. Decision 788/2009", "requirement": "Electronic salary transfer via approved banks monthly" }
+      ]
+    },
+    "free_zones": [
+      { "name": "DIFC", "note": "Financial free zone — common-law courts; DIFC Employment Law 2019" },
+      { "name": "ADGM", "note": "Abu Dhabi financial free zone — common-law" },
+      { "name": "JAFZA / Dubai mainland", "note": "Standard federal labour law applies" }
+    ]
+  },
+  "SA": {
+    "label": "Saudi Arabia",
+    "currency": "SAR",
+    "federal": {
+      "authority": "ZATCA (tax) · GOSI (social insurance) · MHRSD (labour) · Qiwa (contracts) · Mudad (WPS)",
+      "heads": [
+        { "id": "sa_pit", "title": "Personal Income Tax", "rate": "0% on individuals" },
+        { "id": "sa_gosi_saudi_emp", "title": "GOSI — Saudi employee (July 2025 update)", "breakdown": [
+          { "component": "Annuities", "rate": "9.5%" },
+          { "component": "SANED (unemployment)", "rate": "0.75%" },
+          { "component": "OHAN (occ hazards)", "rate": "0%" }
+        ], "total": "10.25%", "stepup": "Annuities +0.5%/yr until 11% by 2028" },
+        { "id": "sa_gosi_saudi_er", "title": "GOSI — Saudi employer", "breakdown": [
+          { "component": "Annuities", "rate": "9.5%" },
+          { "component": "SANED", "rate": "0.75%" },
+          { "component": "OHAN", "rate": "2%" }
+        ], "total": "12.25%" },
+        { "id": "sa_gosi_expat", "title": "GOSI — Expat", "employee": "0%", "employer": "2% (OHAN only)" },
+        { "id": "sa_gosi_ceiling", "title": "GOSI wage base", "max": "SAR 45,000/mo", "min": "SAR 1,500/mo", "nitaqat_min": "SAR 4,000 for Saudi count" },
+        { "id": "sa_eos", "title": "End-of-Service (Art. 84)", "formula": "0.5 month basic/year first 5 years + 1 month/year thereafter", "resignation_factors": "1/3 (2-5 yrs), 2/3 (5-10), 100% (>10)" },
+        { "id": "sa_nitaqat", "title": "Nitaqat (Saudization)", "bands": ["Platinum (white)", "Green High/Mid/Low", "Yellow", "Red"], "penalty_red": "No new visas; no renewals" },
+        { "id": "sa_vat", "title": "VAT", "rate": "15% standard (since July 2020)", "zatca_filing": "Monthly if turnover >40M SAR; else quarterly" },
+        { "id": "sa_zakat_ct", "title": "Zakat / Corporate Tax", "zakat_rate": "2.5% of zakatable base (GCC-owned)", "ct_rate": "20% on foreign-owned entities; 85% for oil/gas" },
+        { "id": "sa_wps", "title": "Wage Protection System (WPS)", "platform": "Mudad", "deadline": "Within 7 days of salary due date" },
+        { "id": "sa_overtime", "title": "Overtime", "rate": "150% of hourly" },
+        { "id": "sa_hours", "title": "Working Hours", "standard": "8 hrs/day, 48 hrs/week", "ramadan": "6 hrs/day, 36 hrs/week (Muslims)" }
+      ]
+    }
+  },
+  "EG": {
+    "label": "Egypt",
+    "currency": "EGP",
+    "federal": {
+      "authority": "ETA (tax) · NOSI (social insurance) · MoM (labour)",
+      "heads": [
+        { "id": "eg_si_emp", "title": "Social Insurance — Employee", "rate": "11%", "legal": "Law 148/2019" },
+        { "id": "eg_si_er", "title": "Social Insurance — Employer", "rate": "18.75%" },
+        { "id": "eg_si_ceiling", "title": "SI Ceiling", "value": "EGP 16,700/month (2026; +15%/yr)" },
+        { "id": "eg_mart", "title": "Martyrs & Victims Fund", "rate": "0.05% of gross (Law 4/2021)" },
+        { "id": "eg_pit", "title": "Personal Income Tax", "brackets": "0-27.5% progressive", "personal_exemption": "EGP 20,000/yr" },
+        { "id": "eg_vat", "title": "VAT", "rate": "14% standard" },
+        { "id": "eg_ct", "title": "Corporate Tax", "rate": "22.5% standard; 40.55% Suez Canal / oil" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "country": "SG",
+  "lastUpdated": "2025-01-01",
+  "topics": [
+    {
+      "title": "Individual Income Tax Filing",
+      "summary": "YA 2025 filing deadline 18 April (e-filing) or 15 April (paper). Top marginal rate 24% on income >S$1m.",
+      "source": "https://www.iras.gov.sg/taxes/individual-income-tax"
+    },
+    {
+      "title": "CPF Contributions",
+      "summary": "Employee 20% + Employer 17% (under 55). Ordinary Wage ceiling S$7,400/month (2025). Only Singapore citizens and PRs contribute.",
+      "source": "https://www.cpf.gov.sg"
+    },
+    {
+      "title": "GST",
+      "summary": "GST 9% standard rate (raised from 8% on 1 Jan 2024). Compulsory registration for turnover >S$1m. Quarterly GST returns.",
+      "source": "https://www.iras.gov.sg/taxes/goods-services-tax-(gst)"
+    },
+    {
+      "title": "Corporate Income Tax",
+      "summary": "Headline 17%. Partial tax exemption on first S$200,000. Estimated Chargeable Income (ECI) due within 3 months of year-end; Form C-S/C by 30 November.",
+      "source": "https://www.iras.gov.sg/taxes/corporate-income-tax"
+    },
+    {
+      "title": "Auto-Inclusion Scheme (AIS)",
+      "summary": "Employers with ≥5 employees must submit IR8A data electronically to IRAS by 1 March.",
+      "source": "https://www.iras.gov.sg/taxes/individual-income-tax/employers"
+    }
+  ]
+}

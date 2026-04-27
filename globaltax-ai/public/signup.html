@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create account — Multi Country Payroll, Taxation and Compliance</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+</head>
+<body class="auth-page">
+
+<div class="auth-shell">
+  <div class="auth-card">
+    <div class="brand-row">
+      <svg viewBox="0 0 40 40" width="28" height="28"><rect width="40" height="40" rx="4" fill="#2563EB"/><path d="M20 10 L26 22 L20 19 L14 22 Z" fill="#FFFFFF"/><circle cx="20" cy="26" r="2" fill="#FFFFFF"/><path d="M10 30 L30 30" stroke="#93B4F5" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Multi Country Payroll, Taxation and Compliance</span>
+    </div>
+    <h1>Create your account</h1>
+    <p class="lede">Free for evaluation. Your data stays in this browser — no server-side storage in this build.</p>
+
+    <form id="signupForm" autocomplete="on">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input id="name" type="text" required autocomplete="name" placeholder="Jane Doe">
+      </div>
+      <div class="field">
+        <label for="email">Work email</label>
+        <input id="email" type="email" required autocomplete="email" placeholder="you@company.com">
+      </div>
+      <div class="field">
+        <label for="password">Password (≥ 6 characters)</label>
+        <input id="password" type="password" required minlength="6" autocomplete="new-password" placeholder="••••••••">
+      </div>
+      <button class="btn" type="submit">Create account</button>
+      <p id="msg" class="auth-msg"></p>
+    </form>
+
+    <div class="auth-foot">
+      Already have an account? <a href="/login">Sign in</a>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  function ready(fn) {
+    if (window.GTAuth) return fn();
+    setTimeout(() => ready(fn), 30);
+  }
+
+  ready(() => {
+    const { getUsers, saveUsers, saveSession, hashPassword, logActivity, isAdmin } = window.GTAuth;
+    const form = document.getElementById("signupForm");
+    const msg  = document.getElementById("msg");
+
+    if (window.GTAuth.getSession()) {
+      location.replace("/");
+      return;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      msg.className = "auth-msg"; msg.textContent = "";
+      const name  = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const pwd   = document.getElementById("password").value;
+      if (!name || !email || !pwd) return;
+      if (pwd.length < 6) {
+        msg.className = "auth-msg err";
+        msg.textContent = "Password must be at least 6 characters.";
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, pwd })
+        });
+        const data = await res.json();
+        
+        if (!res.ok) {
+          msg.className = "auth-msg err";
+          msg.textContent = data.error || "An error occurred during signup.";
+          return;
+        }
+
+        const user = data.user;
+        const session = { userId: user.id, email: user.email, name: user.name, role: user.role, loginAt: new Date().toISOString() };
+      saveSession(session);
+      logActivity("signup");
+      logActivity("login");
+
+      msg.className = "auth-msg ok";
+      msg.textContent = "Account created — taking you in…";
+      setTimeout(() => location.replace("/"), 400);
+      } catch (err) {
+        msg.className = "auth-msg err";
+        msg.textContent = "Network error. Please try again.";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

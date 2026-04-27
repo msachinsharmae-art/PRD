@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>India Labour Codes — Old vs New · GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+<link rel="stylesheet" href="/css/labour-code.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">GlobalTax<span class="dot">.</span>AI</div>
+    <a class="link" href="/">Home</a>
+    <a class="link" href="/calculator">Calculator</a>
+    <a class="link" href="/dashboard">Dashboard</a>
+    <a class="link active" href="/labour-code">Labour Code</a>
+    <a class="link" href="/compliance">Compliance</a>
+    <a class="link" href="/updates">Updates</a>
+    <a class="link" href="/compare">Compare</a>
+    <div class="spacer"></div>
+    <span class="badge new">29 Acts → 4 Codes</span>
+  </nav>
+
+  <div class="container wide">
+    <header class="lc-header">
+      <h1>India's Four Labour Codes <span class="muted" style="font-weight:400">— what's changing</span></h1>
+      <p class="muted" id="lcStatus">Loading status…</p>
+    </header>
+
+    <!-- Impact Calculator -->
+    <div class="card calc-panel">
+      <h3>Impact Calculator — your CTC under Old Acts vs New Codes</h3>
+      <div class="calc-form">
+        <div class="field">
+          <label>Annual CTC (₹)</label>
+          <input type="number" id="ctcInput" value="2400000" min="180000" step="10000">
+        </div>
+        <div class="field">
+          <label>Location</label>
+          <select id="metroSel">
+            <option value="true">Metro (Mumbai/Delhi/Kolkata/Chennai/Bengaluru)</option>
+            <option value="false">Non-metro</option>
+          </select>
+        </div>
+        <button class="btn" id="calcBtn">Compare</button>
+      </div>
+      <div id="calcResult" class="calc-result"></div>
+    </div>
+
+    <!-- Codes navigator -->
+    <div class="code-tabs" id="codeTabs"></div>
+    <div id="codeDetail"></div>
+
+    <!-- Summary strip -->
+    <div class="grid cols-3" style="margin-top:20px" id="impactStrip"></div>
+
+    <p class="disclaimer">
+      Informational. Not legal advice. Status of the codes is dynamic — confirm with the Ministry of Labour & Employment gazette notifications and your State's labour rules before changing payroll practice. Citations include the code section numbers for audit trail.
+    </p>
+  </div>
+
+  <script type="module" src="/js/labour-code.js"></script>
+</body>
+</html>

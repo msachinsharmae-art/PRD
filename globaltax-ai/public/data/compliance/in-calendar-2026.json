@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "country": "IN",
+    "year": 2026,
+    "note": "Statutory payroll / tax / corporate compliance calendar for India FY 2025-26 & FY 2026-27. Due dates follow current CBDT/EPFO/ESIC/GSTN/MCA notifications. State PT and LWF dates are indicative for major states."
+  },
+  "events": [
+    { "date": "2026-01-07", "title": "TDS / TCS deposit for December 2025", "category": "tds", "act": "Income-tax Rules 1962, Rule 30", "penalty": "Interest 1.5%/month u/s 201(1A)" },
+    { "date": "2026-01-11", "title": "GSTR-1 for December 2025 (monthly filers)", "category": "gst", "act": "CGST Rules 59(1)" },
+    { "date": "2026-01-13", "title": "GSTR-1 Q3 (Oct-Dec) for QRMP filers", "category": "gst", "act": "CGST Rule 59(2)" },
+    { "date": "2026-01-15", "title": "EPF ECR upload & payment — Dec 2025", "category": "pf", "act": "EPF Scheme 1952, Para 38", "penalty": "Damages 5–25% u/s 14B + Interest 12% u/s 7Q" },
+    { "date": "2026-01-15", "title": "ESI contribution — Dec 2025", "category": "esi", "act": "ESI Act 1948, Sec 39", "penalty": "Interest 12% u/s 39(5)" },
+    { "date": "2026-01-15", "title": "PF return (Form 5, 10, 12A consolidated in ECR)", "category": "pf" },
+    { "date": "2026-01-20", "title": "GSTR-3B — Dec 2025 (monthly filers)", "category": "gst", "act": "CGST Rule 61" },
+    { "date": "2026-01-20", "title": "Professional Tax — Karnataka / Maharashtra / WB monthly", "category": "pt", "act": "State PT Acts" },
+    { "date": "2026-01-30", "title": "TDS quarterly certificate Form 16A — Q3 FY25-26", "category": "tds", "act": "Rule 31(3)(b)" },
+    { "date": "2026-01-31", "title": "Form 24Q / 26Q / 27Q — TDS return Q3 FY25-26", "category": "tds", "act": "Rule 31A", "penalty": "Late fee ₹200/day u/s 234E" },
+
+    { "date": "2026-02-07", "title": "TDS deposit for January 2026", "category": "tds" },
+    { "date": "2026-02-11", "title": "GSTR-1 — January 2026", "category": "gst" },
+    { "date": "2026-02-15", "title": "EPF ECR & ESI — January 2026", "category": "pf" },
+    { "date": "2026-02-20", "title": "GSTR-3B — January 2026", "category": "gst" },
+    { "date": "2026-02-28", "title": "PT Maharashtra — annual enrolment fee (PTEC)", "category": "pt" },
+
+    { "date": "2026-03-07", "title": "TDS deposit for February 2026", "category": "tds" },
+    { "date": "2026-03-11", "title": "GSTR-1 — February 2026", "category": "gst" },
+    { "date": "2026-03-15", "title": "EPF ECR & ESI — February 2026", "category": "pf" },
+    { "date": "2026-03-15", "title": "Advance tax — 4th instalment (100%) FY 25-26", "category": "tds", "act": "Sec 211" },
+    { "date": "2026-03-20", "title": "GSTR-3B — February 2026", "category": "gst" },
+    { "date": "2026-03-31", "title": "FY 2025-26 year-end — books close, Form 12BB finalisation", "category": "corporate" },
+
+    { "date": "2026-04-07", "title": "TDS deposit — March 2026 (note: 30 Apr for salary TDS)", "category": "tds" },
+    { "date": "2026-04-11", "title": "GSTR-1 — March 2026", "category": "gst" },
+    { "date": "2026-04-15", "title": "EPF ECR & ESI — March 2026", "category": "pf" },
+    { "date": "2026-04-20", "title": "GSTR-3B — March 2026", "category": "gst" },
+    { "date": "2026-04-25", "title": "ESI half-yearly return (Oct-Mar)", "category": "esi", "act": "ESI Regulations 26" },
+    { "date": "2026-04-30", "title": "TDS deposit — salary TDS for March 2026", "category": "tds", "act": "Rule 30(2)" },
+    { "date": "2026-04-30", "title": "Form 27A + Challan-cum-statement u/s 194-IA/IB (March)", "category": "tds" },
+
+    { "date": "2026-05-15", "title": "EPF ECR & ESI — April 2026", "category": "pf" },
+    { "date": "2026-05-31", "title": "Form 24Q Q4 FY25-26 — Annual salary TDS return", "category": "tds", "act": "Rule 31A", "penalty": "₹200/day u/s 234E" },
+    { "date": "2026-05-31", "title": "Form 61A — Statement of Financial Transactions", "category": "corporate", "act": "Rule 114E" },
+
+    { "date": "2026-06-15", "title": "Form 16 issuance to employees — FY 25-26", "category": "tds", "act": "Rule 31(1)(a)" },
+    { "date": "2026-06-15", "title": "Advance tax — 1st instalment (15%) FY 26-27", "category": "tds" },
+    { "date": "2026-06-30", "title": "LWF Karnataka (annual)", "category": "lwf", "act": "KA Labour Welfare Fund Act 1965" },
+    { "date": "2026-06-30", "title": "LWF Maharashtra H1 (June)", "category": "lwf", "act": "MH Labour Welfare Fund Act 1953" },
+
+    { "date": "2026-07-15", "title": "EPF ECR & ESI — June 2026", "category": "pf" },
+    { "date": "2026-07-31", "title": "ITR filing — non-audit individual assessees FY25-26", "category": "tds", "act": "Sec 139(1)" },
+    { "date": "2026-07-31", "title": "TDS return Q1 FY26-27 (Form 24Q / 26Q)", "category": "tds" },
+
+    { "date": "2026-09-15", "title": "Advance tax — 2nd instalment (45%) FY 26-27", "category": "tds" },
+    { "date": "2026-09-30", "title": "Tax audit report u/s 44AB for FY 25-26", "category": "corporate" },
+
+    { "date": "2026-10-29", "title": "MCA AOC-4 — Annual financial statements (listed Co: 30 days of AGM)", "category": "corporate", "act": "Companies Act Sec 137" },
+    { "date": "2026-10-31", "title": "ITR filing — audit-case assessees FY25-26", "category": "tds" },
+    { "date": "2026-10-31", "title": "TDS return Q2 FY26-27", "category": "tds" },
+    { "date": "2026-10-31", "title": "ESI half-yearly return (Apr-Sep)", "category": "esi" },
+
+    { "date": "2026-11-28", "title": "MCA MGT-7 — Annual return (OPC: MGT-7A)", "category": "corporate", "act": "Companies Act Sec 92" },
+
+    { "date": "2026-12-15", "title": "Advance tax — 3rd instalment (75%) FY 26-27", "category": "tds" },
+    { "date": "2026-12-31", "title": "GSTR-9 / 9C — Annual return FY 25-26", "category": "gst", "act": "CGST Sec 44" },
+    { "date": "2026-12-31", "title": "LWF Maharashtra H2 (December)", "category": "lwf" }
+  ]
+}

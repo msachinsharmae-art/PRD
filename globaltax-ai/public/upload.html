@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upload Payroll CSV — GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+<link rel="stylesheet" href="/css/dashboard.css">
+<style>
+  .drop { border: 2px dashed var(--border); border-radius: 12px; padding: 36px; text-align: center; cursor: pointer; transition: .2s; }
+  .drop.drag { border-color: var(--accent); background: rgba(124,92,255,.06); }
+  .step { counter-increment: step; position: relative; padding-left: 44px; margin-bottom: 20px; }
+  .step::before { content: counter(step); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+  .steps { counter-reset: step; }
+  .preview-table { font-size: 12px; max-height: 240px; overflow: auto; margin-top: 10px; border: 1px solid var(--border); border-radius: 8px; }
+  .preview-table th, .preview-table td { padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  .field-map { display: grid; grid-template-columns: 1fr 30px 1fr; gap: 10px; align-items: center; margin-top: 6px; }
+  .ok { color: var(--ok); } .bad { color: var(--danger); }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">GlobalTax<span class="dot">.</span>AI</div>
+    <a class="link" href="/">Home</a>
+    <a class="link" href="/dashboard">Dashboard</a>
+    <a class="link" href="/labour-code">Labour Code</a>
+    <a class="link active" href="/upload">Upload Data</a>
+    <a class="link" href="/calculator">Calculator</a>
+    <a class="link" href="/compliance">Compliance</a>
+    <a class="link" href="/compare">Compare</a>
+    <div class="spacer"></div>
+    <span class="badge new">BYO data</span>
+  </nav>
+
+  <div class="container wide">
+    <h1 style="margin-top:24px">Upload your payroll CSV</h1>
+    <p class="muted">Paste or drop <code>employees.csv</code> and <code>runs.csv</code>. We validate headers, map fields, and persist to your browser (localStorage). The dashboard reads your data automatically — nothing leaves this machine.</p>
+
+    <div class="card" style="margin-top:16px">
+      <div class="filter-row" style="margin-bottom:14px">
+        <label class="muted">Target country:</label>
+        <button class="chip active" data-country="IN">🇮🇳 India</button>
+        <button class="chip" data-country="US">🇺🇸 US</button>
+        <button class="chip" data-country="AE">🇦🇪 UAE</button>
+        <button class="chip" data-country="SA">🇸🇦 KSA</button>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Upload employees.csv</h3>
+          <p class="muted" id="empSchemaHint"></p>
+          <div class="drop" id="empDrop">
+            <input type="file" accept=".csv,.tsv" id="empFile" style="display:none">
+            Drop employees.csv here or <u>click to pick</u>
+          </div>
+          <div id="empPreview"></div>
+        </div>
+
+        <div class="step">
+          <h3>Upload runs.csv (monthly attendance / bonus)</h3>
+          <p class="muted">Headers: <code>month,id,lop,bonus,reimburse</code>. month = <code>YYYY-MM</code>.</p>
+          <div class="drop" id="runDrop">
+            <input type="file" accept=".csv,.tsv" id="runFile" style="display:none">
+            Drop runs.csv here or <u>click to pick</u>
+          </div>
+          <div id="runPreview"></div>
+        </div>
+
+        <div class="step">
+          <h3>Persist & open dashboard</h3>
+          <div style="display:flex;gap:10px;margin-top:8px">
+            <button class="btn" id="saveBtn" disabled>Save & open dashboard</button>
+            <button class="btn ghost" id="clearBtn">Clear stored data</button>
+          </div>
+          <p class="muted" id="saveStatus"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>Sample template</h3>
+      <p class="muted">Download the seed files as a starting point — edit in Excel/Numbers, re-upload here.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn secondary" data-sample="IN">Download India template</button>
+        <button class="btn secondary" data-sample="US">Download US template</button>
+        <button class="btn secondary" data-sample="AE">Download UAE template</button>
+        <button class="btn secondary" data-sample="SA">Download KSA template</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/js/upload.js"></script>
+</body>
+</html>

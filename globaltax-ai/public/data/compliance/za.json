@@ -1,0 +1,31 @@
+{
+  "country": "ZA",
+  "lastUpdated": "2025-03-01",
+  "topics": [
+    {
+      "title": "ITR12 Personal Income Tax",
+      "summary": "Tax year 1 March – end February. ITR12 filing season typically Jul–Oct for non-provisional taxpayers via eFiling; provisional taxpayers until Jan.",
+      "source": "https://www.sars.gov.za/individuals/filing-season/"
+    },
+    {
+      "title": "PAYE + UIF + SDL",
+      "summary": "Employers withhold PAYE monthly (EMP201 by 7th). UIF 1% employee + 1% employer, capped. Skills Development Levy 1% for employers with payroll >R500k/yr.",
+      "source": "https://www.sars.gov.za/businesses-and-employers/"
+    },
+    {
+      "title": "VAT",
+      "summary": "Standard 15%. Compulsory registration turnover >R1m; voluntary >R50k. Bi-monthly returns on VAT201.",
+      "source": "https://www.sars.gov.za/businesses-and-employers/vat/"
+    },
+    {
+      "title": "Corporate Income Tax",
+      "summary": "Standard 27% (year of assessment ending on or after 31 March 2023). Provisional tax paid twice a year; ITR14 due 12 months after year-end.",
+      "source": "https://www.sars.gov.za/businesses-and-employers/companies/"
+    },
+    {
+      "title": "Two-Pot Retirement System",
+      "summary": "From 1 Sep 2024: contributions split one-third Savings component (accessible annually) and two-thirds Retirement component (preserved). Major change for payroll-admin and retirement funds.",
+      "source": "https://www.sars.gov.za/"
+    }
+  ]
+}

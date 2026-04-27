@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask Anything — GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">GlobalTax<span class="dot">.</span>AI</div>
+    <a class="link" href="/">Home</a>
+    <a class="link active" href="/ask">Ask AI</a>
+    <a class="link" href="/calculator">Calculator</a>
+    <a class="link" href="/compliance">Compliance</a>
+    <a class="link" href="/calendar">Calendar</a>
+    <a class="link" href="/updates">Updates</a>
+    <a class="link" href="/compare">Compare</a>
+    <a class="link" href="/dashboard">Dashboard</a>
+    <a class="link" href="/labour-code">Labour Code</a>
+  </nav>
+
+  <div class="container">
+    <h2>Ask anything about tax or compliance <span class="badge new">15 countries</span></h2>
+    <p style="color:var(--muted)">One box. Any country. Personal, corporate, VAT/GST, payroll, filing deadlines. The Orchestrator routes your question to the right agent and returns a cited answer — or walks you straight into the calculator.</p>
+
+    <div class="card">
+      <div class="field">
+        <label>Your question</label>
+        <textarea id="q" rows="2" placeholder="e.g. Tax on 200k in Singapore, or: When is Form 11 due in Ireland?"></textarea>
+      </div>
+      <button class="btn" id="askBtn">Ask</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <span class="chip" data-sample="Tax on 18 lakh in India new regime">Tax on ₹18L India</span>
+        <span class="chip" data-sample="What is the standard VAT rate in Germany?">Germany VAT</span>
+        <span class="chip" data-sample="When is the corporate tax return due in Singapore?">SG corp deadline</span>
+        <span class="chip" data-sample="Tax on 120k in the UK">UK tax on £120k</span>
+        <span class="chip" data-sample="Compare take home on 80000 USD">Compare USD 80k</span>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div id="answer" class="card" style="display:none">
+      <div id="answerBody"></div>
+      <div id="answerAction" style="margin-top:12px"></div>
+    </div>
+
+    <p class="disclaimer">Each question is routed by the Orchestrator Agent. Numerical answers always come from the deterministic rule engine — never the LLM.</p>
+  </div>
+
+  <button id="voiceFab" class="voice-fab">🎙️</button>
+  <div id="voicePanel" class="voice-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <strong>Ask the AI</strong>
+      <button class="btn ghost" id="voiceClose">✕</button>
+    </div>
+    <div id="voiceLog" class="voice-log"></div>
+  </div>
+
+  <script type="module" src="/js/ask.js"></script>
+  <script type="module" src="/js/voice.js"></script>
+</body>
+</html>

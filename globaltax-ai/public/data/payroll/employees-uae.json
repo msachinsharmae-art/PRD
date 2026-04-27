@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "company": "Acme Technologies FZ-LLC",
+    "country": "AE",
+    "currency": "AED",
+    "fy": "2026",
+    "note": "UAE payroll. Salaries annual gross AED. Basic 60% / Housing 25% / Other 15% (typical free-zone structure). Nationality drives GPSSA eligibility."
+  },
+  "employees": [
+    { "id": "A001", "name": "Omar Al-Maktoum",     "designation": "Engineering Manager",  "dept": "Engineering", "emirate": "Dubai",    "doj": "2017-04-10", "salary": 600000, "nationality": "UAE",  "basicPct": 0.60, "housingPct": 0.25, "passport": "AE-*****" },
+    { "id": "A002", "name": "Fatima Al-Suwaidi",   "designation": "HR Director",          "dept": "People",      "emirate": "Abu Dhabi","doj": "2015-09-22", "salary": 540000, "nationality": "UAE",  "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "A003", "name": "Rahul Mehta",         "designation": "Senior SWE",           "dept": "Engineering", "emirate": "Dubai",    "doj": "2020-11-01", "salary": 360000, "nationality": "IN",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "A004", "name": "Ahmed Al-Thani",      "designation": "Solutions Architect",  "dept": "Engineering", "emirate": "Dubai",    "doj": "2019-06-14", "salary": 420000, "nationality": "GCC",  "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "A005", "name": "Priya Krishnan",      "designation": "Product Designer",     "dept": "Product",     "emirate": "Dubai",    "doj": "2022-03-08", "salary": 264000, "nationality": "IN",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "A006", "name": "Mohammed Al-Farsi",   "designation": "Finance Controller",   "dept": "Finance",     "emirate": "Abu Dhabi","doj": "2018-02-18", "salary": 480000, "nationality": "UAE",  "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "A007", "name": "John Whitfield",      "designation": "VP Sales",             "dept": "Sales",       "emirate": "Dubai",    "doj": "2014-08-03", "salary": 780000, "nationality": "UK",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "A008", "name": "Layla Hassan",        "designation": "QA Lead",              "dept": "Engineering", "emirate": "Sharjah",  "doj": "2021-05-30", "salary": 228000, "nationality": "EG",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "A009", "name": "David Chen",          "designation": "Data Analyst",         "dept": "Analytics",   "emirate": "Dubai",    "doj": "2023-09-17", "salary": 192000, "nationality": "CN",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "A010", "name": "Noura Al-Zaabi",      "designation": "Chief Executive",      "dept": "Executive",   "emirate": "Abu Dhabi","doj": "2013-01-05", "salary": 1200000,"nationality": "UAE",  "basicPct": 0.60, "housingPct": 0.25 }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "country": "AU",
+  "lastUpdated": "2024-07-01",
+  "topics": [
+    {
+      "title": "Individual Tax Return",
+      "summary": "Tax year runs 1 July – 30 June. Return due 31 October if self-lodging; later deadlines via registered tax agent. Medicare Levy 2% for most taxpayers.",
+      "source": "https://www.ato.gov.au/individuals-and-families/your-tax-return"
+    },
+    {
+      "title": "PAYG Withholding & STP",
+      "summary": "Employers withhold PAYG and report salaries via Single Touch Payroll each pay run. Monthly IAS or BAS lodgements.",
+      "source": "https://www.ato.gov.au/business/stp"
+    },
+    {
+      "title": "Superannuation Guarantee",
+      "summary": "Employer super contribution rate rising to 12% from 1 July 2025. Maximum contribution base A$65,070 per quarter (2024-25).",
+      "source": "https://www.ato.gov.au/business/super-for-employers"
+    },
+    {
+      "title": "GST",
+      "summary": "GST 10% standard. Compulsory registration for turnover ≥ A$75,000 (A$150,000 for non-profits). BAS lodged monthly or quarterly.",
+      "source": "https://www.ato.gov.au/business/gst"
+    },
+    {
+      "title": "Company Tax",
+      "summary": "Base-rate entities (turnover <A$50m passive-income test) 25%; otherwise 30%. Return due 28 February following year end for standard balancers.",
+      "source": "https://www.ato.gov.au/business/company-tax"
+    }
+  ]
+}

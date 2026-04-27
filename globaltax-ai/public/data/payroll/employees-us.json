@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "company": "Acme Technologies Inc",
+    "country": "US",
+    "currency": "USD",
+    "fy": "2025",
+    "note": "Seeded US payroll. Salaries annual gross. State codes CA/NY/TX/FL/WA. Filing status drives federal withholding."
+  },
+  "employees": [
+    { "id": "U001", "name": "Emma Johnson",   "designation": "Senior Software Engineer", "dept": "Engineering", "state": "CA", "location": "San Francisco", "doj": "2020-06-15", "salary": 185000, "filing": "single",       "ssn": "***-**-1234" },
+    { "id": "U002", "name": "Liam Smith",     "designation": "Engineering Manager",      "dept": "Engineering", "state": "CA", "location": "San Jose",      "doj": "2017-09-08", "salary": 245000, "filing": "marriedJoint", "ssn": "***-**-2345" },
+    { "id": "U003", "name": "Olivia Brown",   "designation": "Software Engineer",        "dept": "Engineering", "state": "WA", "location": "Seattle",       "doj": "2022-11-21", "salary": 140000, "filing": "single",       "ssn": "***-**-3456" },
+    { "id": "U004", "name": "Noah Davis",     "designation": "Staff Engineer",           "dept": "Engineering", "state": "NY", "location": "New York",      "doj": "2015-04-04", "salary": 285000, "filing": "marriedJoint", "ssn": "***-**-4567" },
+    { "id": "U005", "name": "Ava Martinez",   "designation": "Data Scientist",           "dept": "Analytics",   "state": "CA", "location": "San Francisco", "doj": "2021-08-30", "salary": 175000, "filing": "single",       "ssn": "***-**-5678" },
+    { "id": "U006", "name": "Mason Wilson",   "designation": "Product Manager",          "dept": "Product",     "state": "NY", "location": "New York",      "doj": "2019-02-11", "salary": 210000, "filing": "single",       "ssn": "***-**-6789" },
+    { "id": "U007", "name": "Sophia Taylor",  "designation": "UX Designer",              "dept": "Product",     "state": "CA", "location": "Los Angeles",   "doj": "2020-10-05", "salary": 145000, "filing": "marriedJoint", "ssn": "***-**-7890" },
+    { "id": "U008", "name": "Ethan Anderson", "designation": "Director of Engineering",  "dept": "Engineering", "state": "CA", "location": "San Francisco", "doj": "2014-07-01", "salary": 380000, "filing": "marriedJoint", "ssn": "***-**-8901" },
+    { "id": "U009", "name": "Isabella Garcia","designation": "Account Executive",        "dept": "Sales",       "state": "TX", "location": "Austin",        "doj": "2021-03-17", "salary": 115000, "filing": "single",       "ssn": "***-**-9012" },
+    { "id": "U010", "name": "James Rodriguez","designation": "Sales Director",           "dept": "Sales",       "state": "NY", "location": "New York",      "doj": "2016-11-14", "salary": 260000, "filing": "marriedJoint", "ssn": "***-**-0123" },
+    { "id": "U011", "name": "Mia Hernandez",  "designation": "HR Business Partner",      "dept": "People",      "state": "FL", "location": "Miami",         "doj": "2022-05-20", "salary": 95000,  "filing": "single",       "ssn": "***-**-1122" },
+    { "id": "U012", "name": "Benjamin Lee",   "designation": "Financial Analyst",        "dept": "Finance",     "state": "TX", "location": "Dallas",        "doj": "2023-02-01", "salary": 78000,  "filing": "single",       "ssn": "***-**-2233" },
+    { "id": "U013", "name": "Charlotte Walker","designation": "Customer Success Mgr",    "dept": "Sales",       "state": "WA", "location": "Seattle",       "doj": "2020-01-09", "salary": 105000, "filing": "marriedJoint", "ssn": "***-**-3344" },
+    { "id": "U014", "name": "Lucas Hall",     "designation": "Support Engineer",         "dept": "Support",     "state": "FL", "location": "Orlando",       "doj": "2023-08-22", "salary": 62000,  "filing": "single",       "ssn": "***-**-4455" },
+    { "id": "U015", "name": "Amelia Young",   "designation": "Chief Technology Officer", "dept": "Executive",   "state": "CA", "location": "San Francisco", "doj": "2013-01-15", "salary": 495000, "filing": "marriedJoint", "ssn": "***-**-5566" }
+  ]
+}

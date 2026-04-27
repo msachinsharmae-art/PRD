@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "country": "IN",
+    "title": "India — Perquisite rules: FY 2025-26 (old) vs FY 2026-27 (new)",
+    "legal_basis": "Income-tax Rules 2026 notified by CBDT on 20 March 2026, under Income-tax Act 2025. Rule 15 replaces Rule 3 of IT Rules 1962. Effective 1 April 2026.",
+    "sources": [
+      { "label": "CBDT Notification — IT Rules 2026", "url": "gov.in / TaxGuru summary" },
+      { "label": "Finance Act 2025 (operationalising IT Act 2025)", "url": "incometaxindia.gov.in" },
+      { "label": "Flash alerts — KPMG, ClearTax, TaxGuru", "url": "April 2026" }
+    ],
+    "updated": "2026-04-23"
+  },
+  "perquisites": [
+    {
+      "id": "motor_car_small",
+      "title": "Motor car — ≤1.6L engine (or EV)",
+      "old_rule": { "ref": "Rule 3(2), IT Rules 1962", "employer_paid_fuel_mo": 1800, "employee_paid_fuel_mo": 600, "note": "Fixed monthly perquisite" },
+      "new_rule": { "ref": "Rule 15(2), IT Rules 2026", "employer_paid_fuel_mo": 5000, "employee_paid_fuel_mo": 2000, "note": "2.77× increase" },
+      "driver_old_mo": 900,
+      "driver_new_mo": 3000,
+      "impact": "Salaried employees with company cars will see perquisite tax rise ~2.8×.",
+      "regime": "both"
+    },
+    {
+      "id": "motor_car_large",
+      "title": "Motor car — >1.6L engine",
+      "old_rule": { "ref": "Rule 3(2), IT Rules 1962", "employer_paid_fuel_mo": 2400, "employee_paid_fuel_mo": 900 },
+      "new_rule": { "ref": "Rule 15(2), IT Rules 2026", "employer_paid_fuel_mo": 7000, "employee_paid_fuel_mo": 3000 },
+      "driver_old_mo": 900,
+      "driver_new_mo": 3000,
+      "impact": "Luxury car perq nearly 3× higher.",
+      "regime": "both"
+    },
+    {
+      "id": "gift_vouchers",
+      "title": "Gifts / vouchers",
+      "old_rule": { "ref": "Rule 3(7)(iv)", "threshold": 5000, "type": "cliff", "note": "If aggregate > ₹5,000/yr, FULL amount taxable" },
+      "new_rule": { "ref": "Rule 15(5)(a) Table IV", "threshold": 15000, "type": "cliff", "note": "Threshold raised 3× to ₹15,000/yr" },
+      "impact": "Companies can give ~3× higher tax-free gifts. Cash gifts always fully taxable.",
+      "regime": "both"
+    },
+    {
+      "id": "loan",
+      "title": "Interest-free or concessional loan",
+      "old_rule": { "ref": "Rule 3(7)(i)", "threshold": 20000, "type": "cliff", "formula": "(SBI MCLR − Employee Rate) × Outstanding ÷ 12" },
+      "new_rule": { "ref": "Rule 15(5)(d)", "threshold": 200000, "type": "cliff", "formula": "(SBI MCLR − Employee Rate) × Outstanding ÷ 12" },
+      "special_exempt": "Medical loans always 100% exempt",
+      "impact": "10× higher exempt threshold — most mid-size personal loans no longer a perquisite.",
+      "regime": "both"
+    },
+    {
+      "id": "meal",
+      "title": "Meal / food allowance",
+      "old_rule": { "ref": "Rule 3(7)(iii)", "exempt_per_meal": 50, "type": "excess", "note": "Restricted in new tax regime" },
+      "new_rule": { "ref": "Rule 15(5)(c)", "exempt_per_meal": 200, "type": "excess", "note": "NOW eligible in BOTH regimes" },
+      "impact": "4× higher exempt limit + restored in new regime.",
+      "regime": "both"
+    },
+    {
+      "id": "children_edu",
+      "title": "Children Education Allowance",
+      "old_rule": { "ref": "Rule 3(5)", "exempt_per_child_mo": 100, "max_children": 2 },
+      "new_rule": { "ref": "Rule 15(5)(b)", "exempt_per_child_mo": 3000, "max_children": 2 },
+      "impact": "30× higher. Finally matches actual school-fee reality.",
+      "regime": "old_only"
+    },
+    {
+      "id": "hostel",
+      "title": "Hostel Allowance",
+      "old_rule": { "exempt_per_child_mo": 300, "max_children": 2 },
+      "new_rule": { "exempt_per_child_mo": 9000, "max_children": 2 },
+      "impact": "30× higher. Relevant for employees with boarding-school children.",
+      "regime": "old_only"
+    },
+    {
+      "id": "hra_metro",
+      "title": "HRA 50% Metro tier",
+      "old_rule": { "cities_50pct": ["Mumbai","Delhi","Kolkata","Chennai"], "other_cities_pct": 40 },
+      "new_rule": { "cities_50pct": ["Mumbai","Delhi","Kolkata","Chennai","Bengaluru","Hyderabad","Pune","Ahmedabad"], "other_cities_pct": 40, "note": "Four new metros added" },
+      "impact": "Bangalore / Hyderabad / Pune / Ahmedabad HRA exemption jumps from 40% of basic to 50%.",
+      "regime": "old_only"
+    },
+    {
+      "id": "rfa",
+      "title": "Rent-Free Accommodation (RFA)",
+      "old_rule": {
+        "ref": "Rule 3(1), IT Rules 1962",
+        "metro_pct": 15,
+        "non_metro_pct": 10,
+        "below_nonmetro_pct": 7.5,
+        "note": "Previously 15/10/7.5"
+      },
+      "new_rule": {
+        "ref": "Rule 15(1), IT Rules 2026",
+        "metro_pct": 10,
+        "non_metro_pct": 7.5,
+        "below_nonmetro_pct": 5,
+        "note": "All slabs reduced by ~33%"
+      },
+      "formulas": {
+        "owned": "perq = (city% × salary) − employee_recovery",
+        "leased": "perq = MIN(city% × salary, actual_lease) − employee_recovery",
+        "furnished_add_on": "+ 10% of furniture cost OR actual hire charges"
+      },
+      "impact": "Lower % slabs = lower RFA perquisite across the board.",
+      "regime": "both"
+    },
+    {
+      "id": "esop",
+      "title": "ESOP / Sweat Equity",
+      "old_rule": { "ref": "Rule 3(8), IT Rules 1962", "formula": "(FMV on exercise − exercise price) × shares" },
+      "new_rule": { "ref": "Rule 15(6), IT Rules 2026", "formula": "Same; no threshold — full spread taxable" },
+      "startup_deferral": "DPIIT-registered start-ups may defer TDS to earliest of: sale, exit, or 5 years from exercise.",
+      "impact": "Formula unchanged; clearer treatment.",
+      "regime": "both"
+    },
+    {
+      "id": "domestic",
+      "title": "Domestic servants (Sweeper / Gardener / Watchman / Personal Attendant)",
+      "old_rule": { "ref": "Rule 3(3)", "formula": "Employer cost − employee recovery" },
+      "new_rule": { "ref": "Rule 15(3)", "formula": "Employer cost − employee recovery" },
+      "impact": "Formula unchanged.",
+      "regime": "both"
+    },
+    {
+      "id": "utilities",
+      "title": "Gas / Electricity / Water",
+      "old_rule": { "ref": "Rule 3(4)", "formula": "Employer payment − employee recovery" },
+      "new_rule": { "ref": "Rule 15(4)", "formula": "Employer payment − employee recovery" },
+      "impact": "Formula unchanged.",
+      "regime": "both"
+    }
+  ]
+}

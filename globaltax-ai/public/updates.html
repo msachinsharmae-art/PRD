@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latest Updates — GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">GlobalTax<span class="dot">.</span>AI</div>
+    <a class="link" href="/">Home</a>
+    <a class="link" href="/ask">Ask AI</a>
+    <a class="link" href="/calculator">Calculator</a>
+    <a class="link" href="/compliance">Compliance</a>
+    <a class="link" href="/calendar">Calendar</a>
+    <a class="link active" href="/updates">Updates</a>
+    <a class="link" href="/compare">Compare</a>
+    <a class="link" href="/dashboard">Dashboard</a>
+    <a class="link" href="/labour-code">Labour Code</a>
+  </nav>
+
+  <div class="container">
+    <h2>Latest Updates <span class="badge new">live</span></h2>
+    <p style="color:var(--muted)">The <strong>Updates Agent</strong> fetches real compliance changes and summarizes them, with source links. Filter by country.</p>
+
+    <div class="filter-row" style="flex-wrap:wrap">
+      <span style="color:var(--muted)">Filter:</span>
+      <span class="chip active" data-country="ALL">🌐 All</span>
+      <span class="chip" data-country="IN">🇮🇳 IN</span>
+      <span class="chip" data-country="US">🇺🇸 US</span>
+      <span class="chip" data-country="GB">🇬🇧 UK</span>
+      <span class="chip" data-country="CA">🇨🇦 CA</span>
+      <span class="chip" data-country="AU">🇦🇺 AU</span>
+      <span class="chip" data-country="DE">🇩🇪 DE</span>
+      <span class="chip" data-country="SG">🇸🇬 SG</span>
+      <span class="chip" data-country="IE">🇮🇪 IE</span>
+      <span class="chip" data-country="NL">🇳🇱 NL</span>
+      <span class="chip" data-country="JP">🇯🇵 JP</span>
+      <span class="chip" data-country="BR">🇧🇷 BR</span>
+      <span class="chip" data-country="ZA">🇿🇦 ZA</span>
+      <span class="chip" data-country="AE">🇦🇪 AE</span>
+      <span class="chip" data-country="SA">🇸🇦 SA</span>
+      <span class="chip" data-country="EG">🇪🇬 EG</span>
+      <button class="btn secondary" id="refreshBtn" style="margin-left:auto">↻ Refresh from sources</button>
+    </div>
+
+    <div class="card">
+      <div id="feed" class="loading">Loading feed…</div>
+    </div>
+
+    <p class="disclaimer">Each item is an AI summary of a source document. Click the source link to read the original notification.</p>
+  </div>
+
+  <button id="voiceFab" class="voice-fab">🎙️</button>
+  <div id="voicePanel" class="voice-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <strong>Ask the AI</strong>
+      <button class="btn ghost" id="voiceClose">✕</button>
+    </div>
+    <div id="voiceLog" class="voice-log"></div>
+  </div>
+
+  <script type="module" src="/js/updates.js"></script>
+  <script type="module" src="/js/voice.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "meta": { "note": "Egypt payroll monthly inputs", "months": ["2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04"] },
+  "runs": {
+    "2025-11": [
+      { "id": "G001", "lop": 0, "bonus": 0, "reimburse": 800 }, { "id": "G002", "lop": 0, "bonus": 0, "reimburse": 400 },
+      { "id": "G003", "lop": 2, "bonus": 0, "reimburse": 250 }, { "id": "G004", "lop": 0, "bonus": 0, "reimburse": 300 },
+      { "id": "G005", "lop": 0, "bonus": 0, "reimburse": 500 }, { "id": "G006", "lop": 0, "bonus": 0, "reimburse": 200 },
+      { "id": "G007", "lop": 0, "bonus": 5000, "reimburse": 180 }, { "id": "G008", "lop": 1, "bonus": 0, "reimburse": 150 },
+      { "id": "G009", "lop": 0, "bonus": 0, "reimburse": 280 }, { "id": "G010", "lop": 0, "bonus": 0, "reimburse": 120 }
+    ],
+    "2025-12": [
+      { "id": "G001", "lop": 0, "bonus": 80000, "reimburse": 800 }, { "id": "G002", "lop": 0, "bonus": 25000, "reimburse": 400 },
+      { "id": "G003", "lop": 0, "bonus": 12000, "reimburse": 250 }, { "id": "G004", "lop": 0, "bonus": 18000, "reimburse": 300 },
+      { "id": "G005", "lop": 0, "bonus": 35000, "reimburse": 500 }, { "id": "G006", "lop": 0, "bonus": 10000, "reimburse": 200 },
+      { "id": "G007", "lop": 0, "bonus": 20000, "reimburse": 180 }, { "id": "G008", "lop": 0, "bonus": 6000, "reimburse": 150 },
+      { "id": "G009", "lop": 0, "bonus": 15000, "reimburse": 280 }, { "id": "G010", "lop": 0, "bonus": 4000, "reimburse": 120 }
+    ],
+    "2026-01": [
+      { "id": "G001", "lop": 0, "bonus": 0, "reimburse": 800 }, { "id": "G002", "lop": 0, "bonus": 0, "reimburse": 400 },
+      { "id": "G003", "lop": 0, "bonus": 0, "reimburse": 250 }, { "id": "G004", "lop": 0, "bonus": 0, "reimburse": 300 },
+      { "id": "G005", "lop": 0, "bonus": 0, "reimburse": 500 }, { "id": "G006", "lop": 3, "bonus": 0, "reimburse": 200 },
+      { "id": "G007", "lop": 0, "bonus": 0, "reimburse": 180 }, { "id": "G008", "lop": 0, "bonus": 0, "reimburse": 150 },
+      { "id": "G009", "lop": 0, "bonus": 0, "reimburse": 280 }, { "id": "G010", "lop": 0, "bonus": 0, "reimburse": 120 }
+    ],
+    "2026-02": [
+      { "id": "G001", "lop": 0, "bonus": 0, "reimburse": 800 }, { "id": "G002", "lop": 0, "bonus": 0, "reimburse": 400 },
+      { "id": "G003", "lop": 0, "bonus": 0, "reimburse": 250 }, { "id": "G004", "lop": 0, "bonus": 0, "reimburse": 300 },
+      { "id": "G005", "lop": 0, "bonus": 0, "reimburse": 500 }, { "id": "G006", "lop": 0, "bonus": 0, "reimburse": 200 },
+      { "id": "G007", "lop": 0, "bonus": 0, "reimburse": 180 }, { "id": "G008", "lop": 0, "bonus": 0, "reimburse": 150 },
+      { "id": "G009", "lop": 0, "bonus": 0, "reimburse": 280 }, { "id": "G010", "lop": 0, "bonus": 0, "reimburse": 120 }
+    ],
+    "2026-03": [
+      { "id": "G001", "lop": 0, "bonus": 120000,"reimburse": 800 }, { "id": "G002", "lop": 0, "bonus": 40000, "reimburse": 400 },
+      { "id": "G003", "lop": 0, "bonus": 18000, "reimburse": 250 }, { "id": "G004", "lop": 0, "bonus": 25000, "reimburse": 300 },
+      { "id": "G005", "lop": 0, "bonus": 50000, "reimburse": 500 }, { "id": "G006", "lop": 0, "bonus": 15000, "reimburse": 200 },
+      { "id": "G007", "lop": 0, "bonus": 30000, "reimburse": 180 }, { "id": "G008", "lop": 0, "bonus": 8000, "reimburse": 150 },
+      { "id": "G009", "lop": 0, "bonus": 22000, "reimburse": 280 }, { "id": "G010", "lop": 0, "bonus": 5000, "reimburse": 120 }
+    ],
+    "2026-04": [
+      { "id": "G001", "lop": 0, "bonus": 0, "reimburse": 800 }, { "id": "G002", "lop": 0, "bonus": 0, "reimburse": 400 },
+      { "id": "G003", "lop": 0, "bonus": 0, "reimburse": 250 }, { "id": "G004", "lop": 0, "bonus": 0, "reimburse": 300 },
+      { "id": "G005", "lop": 0, "bonus": 0, "reimburse": 500 }, { "id": "G006", "lop": 0, "bonus": 0, "reimburse": 200 },
+      { "id": "G007", "lop": 0, "bonus": 0, "reimburse": 180 }, { "id": "G008", "lop": 0, "bonus": 0, "reimburse": 150 },
+      { "id": "G009", "lop": 0, "bonus": 0, "reimburse": 280 }, { "id": "G010", "lop": 0, "bonus": 0, "reimburse": 120 }
+    ]
+  }
+}

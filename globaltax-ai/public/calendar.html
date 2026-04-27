@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compliance Calendar + Payroll Burn — GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/dashboard.css">
+<script type="module" src="/js/shell.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  .cal-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 18px; }
+  @media (max-width: 1100px) { .cal-layout { grid-template-columns: 1fr; } }
+  .burn-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  @media (max-width: 700px) { .burn-kpis { grid-template-columns: repeat(2, 1fr); } }
+  .kpi-mini { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .kpi-mini .l { font-size: 10.5px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; }
+  .kpi-mini .v { font-size: 20px; font-weight: 700; color: var(--text); margin-top: 3px; }
+  .kpi-mini .s { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+  .cat-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .cat-chips .chip { font-size: 11.5px; padding: 4px 10px; }
+
+  .deadline-item { display: grid; grid-template-columns: 56px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--divider); font-size: 13px; }
+  .deadline-item:last-child { border-bottom: 0; }
+  .deadline-date { background: var(--surface-2); border-radius: 8px; padding: 4px 0; text-align: center; border: 1px solid var(--border); }
+  .deadline-date .d { font-size: 16px; font-weight: 700; display: block; line-height: 1.1; }
+  .deadline-date .m { font-size: 10.5px; color: var(--muted); text-transform: uppercase; }
+  .deadline-body .cat { display: inline-block; font-size: 10px; padding: 1px 7px; border-radius: 4px; background: var(--surface-2); margin-right: 5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 700; }
+  .deadline-body .cat.pf   { background: rgba(99, 91, 255, 0.14); color: var(--accent); }
+  .deadline-body .cat.tds  { background: rgba(16, 185, 129, 0.14); color: var(--success); }
+  .deadline-body .cat.gst  { background: rgba(245, 158, 11, 0.14); color: var(--warning); }
+  .deadline-body .cat.esi  { background: rgba(239, 68, 68, 0.14); color: var(--danger); }
+  .deadline-body .act      { font-size: 11.5px; color: var(--muted); margin-top: 2px; font-style: italic; }
+  .deadline-body .penalty  { font-size: 11px; color: #EF4444; margin-top: 3px; }
+  .deadline-body .countdown { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 4px; margin-left: 6px; }
+  .countdown.urgent  { background: #FEE2E2; color: #B91C1C; }
+  .countdown.soon    { background: #FEF3C7; color: #92400E; }
+  .countdown.ok      { background: #D1FAE5; color: #065F46; }
+  .countdown.past    { background: #F1F3F8; color: #64748B; }
+
+  /* Month-grid calendar */
+  .month-cal-card { padding: 18px; }
+  .month-cal-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .month-cal-nav { display: inline-flex; align-items: center; gap: 8px; }
+  .month-cal-nav .btn { padding: 6px 12px; font-size: 14px; }
+  .month-cal-scope { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+  .month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-top: 6px;
+  }
+  .month-grid .dow {
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 0;
+  }
+  .month-grid .day {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    min-height: 84px;
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, transform 0.05s;
+    display: flex; flex-direction: column;
+  }
+  .month-grid .day:hover { border-color: var(--accent); background: var(--surface); }
+  .month-grid .day.today { background: var(--accent-soft); border-color: var(--accent); }
+  .month-grid .day.other-month { opacity: 0.35; }
+  .month-grid .day.has-events { background: var(--surface); border-color: var(--accent); }
+  .month-grid .day.selected { box-shadow: inset 0 0 0 2px var(--accent); background: var(--surface); }
+  .month-grid .day .num { font-size: 12px; font-weight: 700; color: var(--text); }
+  .month-grid .day .count { margin-left: auto; font-size: 10px; color: var(--muted); font-weight: 600; }
+  .month-grid .day .top { display: flex; align-items: baseline; gap: 6px; }
+  .month-grid .day .dots { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+  .month-grid .day i.dot, .month-cal-legend i.dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .month-grid .day .flag { font-size: 9px; padding: 1px 4px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); margin-right: 2px; font-weight: 600; }
+
+  i.dot.pf  { background: #635BFF; }
+  i.dot.esi { background: #EF4444; }
+  i.dot.tds { background: #10B981; }
+  i.dot.gst { background: #F59E0B; }
+  i.dot.pt  { background: #64748B; }
+  i.dot.corporate { background: #8B5CF6; }
+  i.dot.gosi, i.dot.eos, i.dot.gpssa, i.dot.si, i.dot.wps, i.dot.vat { background: #0891B2; }
+
+  .month-cal-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--divider); font-size: 11.5px; color: var(--muted); }
+  .month-cal-legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* Day detail card */
+  #dayCard { margin-top: 12px; }
+  .day-card-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+  .day-card-head h3 { margin: 0; font-size: 16px; }
+  .day-card-head .muted { font-size: 12.5px; }
+  .day-event {
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: var(--surface-2);
+  }
+  .day-event .head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+  .day-event .head .cat { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; background: var(--accent-soft); color: var(--accent); }
+  .day-event .head .ctry { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-weight: 600; }
+  .day-event .title { font-size: 13.5px; font-weight: 600; color: var(--text); }
+  .day-event .act { font-size: 11.5px; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .day-event .penalty { font-size: 11.5px; color: var(--danger); margin-top: 4px; }
+
+  @media (max-width: 700px) {
+    .month-grid .day { min-height: 60px; padding: 4px 6px; }
+    .month-grid .day .num { font-size: 11px; }
+    .month-grid .day i.dot { width: 6px; height: 6px; }
+    .month-cal-bar h3 { font-size: 14px; min-width: 100px !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container wide">
+  <div class="page-title-row">
+    <div>
+      <h1>Compliance Calendar</h1>
+      <p class="muted">Month-wise statutory filing schedule for <b id="countryName">India</b>. Click any date with a marker to see what's pending. Toggle the scope to see all countries on a single grid.</p>
+    </div>
+  </div>
+
+  <!-- ── Month-grid calendar ─────────────────────────────────────────── -->
+  <div class="card month-cal-card">
+    <div class="month-cal-bar">
+      <div class="month-cal-nav">
+        <button class="btn ghost" id="calPrev" title="Previous month">‹</button>
+        <h3 id="calMonthTitle" style="margin:0;min-width:120px;max-width:200px;text-align:center;flex:1"></h3>
+        <button class="btn ghost" id="calNext" title="Next month">›</button>
+        <button class="btn secondary" id="calToday" title="Jump to today">Today</button>
+      </div>
+      <div class="month-cal-scope">
+        <span class="muted text-small">Scope:</span>
+        <button class="chip active" data-scope="current">Current country</button>
+        <button class="chip" data-scope="all">All countries</button>
+      </div>
+    </div>
+
+    <div class="cat-chips" id="calCatChips">
+      <span class="chip active" data-cat="all">All categories</span>
+      <span class="chip" data-cat="pf">PF / Pension</span>
+      <span class="chip" data-cat="esi">ESI / Health</span>
+      <span class="chip" data-cat="tds">TDS / Income Tax</span>
+      <span class="chip" data-cat="gst">GST / VAT</span>
+      <span class="chip" data-cat="pt">PT / LWF</span>
+      <span class="chip" data-cat="corporate">Corporate</span>
+    </div>
+
+    <div class="month-grid" id="monthGrid"></div>
+    <div class="month-cal-legend">
+      <span><i class="dot pf"></i>PF / Pension</span>
+      <span><i class="dot esi"></i>ESI / Health</span>
+      <span><i class="dot tds"></i>TDS / Income Tax</span>
+      <span><i class="dot gst"></i>GST / VAT</span>
+      <span><i class="dot pt"></i>PT / LWF</span>
+      <span><i class="dot corporate"></i>Corporate</span>
+    </div>
+  </div>
+
+  <!-- Day detail card — populated when user clicks a date -->
+  <div class="card" id="dayCard">
+    <div id="dayCardBody">
+      <p class="muted">Tap a highlighted date on the calendar to see all filings, acts, and penalties due that day.</p>
+    </div>
+  </div>
+
+  <!-- ── Burn analytics + 90-day list (existing) ─────────────────────── -->
+  <div class="page-title-row" style="margin-top:24px">
+    <h2 style="margin:0;font-size:18px">Payroll burn + 90-day filings</h2>
+    <div class="filter-row" style="margin:0">
+      <button class="chip active" data-range="3">Last 3 months</button>
+      <button class="chip" data-range="6">Last 6 months</button>
+      <button class="chip" data-range="12">Last 12 months</button>
+    </div>
+  </div>
+
+  <div class="burn-kpis" id="burnKpis"></div>
+
+  <div class="cal-layout">
+    <div class="card">
+      <h3>Payroll burn — component level</h3>
+      <div class="chart-wrap"><canvas id="burnChart"></canvas></div>
+      <p class="muted text-small" style="margin-top:10px">Stacked bars show each month's employer-side outlay by component: gross wages, PF/FICA/GPSSA/GOSI/SI (employer share), gratuity accrual, income-tax withholding remittance.</p>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 style="margin:0">Filing deadlines — next 90 days</h3>
+        <span class="muted text-small" id="deadlineCount"></span>
+      </div>
+      <div class="cat-chips" id="catChips">
+        <span class="chip active" data-cat="all">All</span>
+        <span class="chip" data-cat="pf">PF</span>
+        <span class="chip" data-cat="esi">ESI</span>
+        <span class="chip" data-cat="tds">TDS / Income Tax</span>
+        <span class="chip" data-cat="gst">GST / VAT</span>
+        <span class="chip" data-cat="pt">PT / LWF</span>
+        <span class="chip" data-cat="corporate">Corporate</span>
+      </div>
+      <div id="deadlineList"></div>
+    </div>
+  </div>
+
+  <p class="disclaimer">Dates are indicative. Always verify with the relevant revenue authority (EPFO/ESIC/GSTN/CBDT/MCA/IRS/ZATCA/FTA/MHRSD/NOSI). Payroll burn is computed deterministically from the seeded employee + runs dataset using the country's rule engine.</p>
+</div>
+
+<script type="module" src="/js/calendar.js"></script>
+</body>
+</html>

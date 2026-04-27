@@ -1,0 +1,31 @@
+{
+  "country": "IE",
+  "lastUpdated": "2025-01-01",
+  "topics": [
+    {
+      "title": "Form 11 / Pay and File",
+      "summary": "Self-assessed individuals file Form 11 and pay preliminary tax by 31 October (mid-Nov for ROS filers). Late-filing surcharge 5% (10% after 2 months).",
+      "source": "https://www.revenue.ie/en/self-assessment-and-self-employment/"
+    },
+    {
+      "title": "PAYE Modernisation",
+      "summary": "Employers report pay & deductions to Revenue on or before each payday via ROS. Standard rate cut-off €44,000 (single, 2025).",
+      "source": "https://www.revenue.ie/en/employing-people/paye-modernisation/"
+    },
+    {
+      "title": "USC — Universal Social Charge",
+      "summary": "2025 bands: 0.5% to €12,012; 2% to €27,382; 3% to €70,044; 8% above. Self-employed >€100k extra 3%.",
+      "source": "https://www.revenue.ie/en/jobs-and-pensions/usc/"
+    },
+    {
+      "title": "VAT",
+      "summary": "Standard 23%, reduced 13.5% / 9%, zero rating for certain supplies. Registration threshold €85,000 (goods) or €42,500 (services).",
+      "source": "https://www.revenue.ie/en/vat/"
+    },
+    {
+      "title": "Corporation Tax",
+      "summary": "12.5% trading income; 25% non-trading/passive. Top-Up Tax for MNEs under Pillar Two effective for periods starting on or after 31 Dec 2023.",
+      "source": "https://www.revenue.ie/en/companies-and-charities/corporation-tax-for-companies/"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — Multi Country Payroll, Taxation and Compliance</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+</head>
+<body class="auth-page">
+
+<div class="auth-shell">
+  <div class="auth-card">
+    <div class="brand-row">
+      <svg viewBox="0 0 40 40" width="28" height="28"><rect width="40" height="40" rx="4" fill="#2563EB"/><path d="M20 10 L26 22 L20 19 L14 22 Z" fill="#FFFFFF"/><circle cx="20" cy="26" r="2" fill="#FFFFFF"/><path d="M10 30 L30 30" stroke="#93B4F5" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Multi Country Payroll, Taxation and Compliance</span>
+    </div>
+    <h1>Welcome back</h1>
+    <p class="lede">Sign in to access dashboards, calculators, and the compliance library.</p>
+
+    <form id="loginForm" autocomplete="on">
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" required minlength="6" autocomplete="current-password" placeholder="••••••••">
+      </div>
+      <button class="btn" type="submit">Sign in</button>
+      <p id="msg" class="auth-msg"></p>
+    </form>
+
+    <div class="auth-foot">
+      Don't have an account? <a href="/signup">Create one</a>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  // Wait for shell.js to expose GTAuth (loaded as module, runs after this).
+  function ready(fn) {
+    if (window.GTAuth) return fn();
+    setTimeout(() => ready(fn), 30);
+  }
+
+  ready(() => {
+    const { getUsers, saveSession, verifyPassword, logActivity, isAdmin } = window.GTAuth;
+    const form = document.getElementById("loginForm");
+    const msg  = document.getElementById("msg");
+
+    // Already signed in? Hop forward to ?next= or home.
+    if (window.GTAuth.getSession()) {
+      const next = new URLSearchParams(location.search).get("next") || "/";
+      location.replace(next);
+      return;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      msg.className = "auth-msg";
+      msg.textContent = "";
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const pwd   = document.getElementById("password").value;
+      if (!email || !pwd) return;
+
+      try {
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, pwd })
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          msg.className = "auth-msg err";
+          msg.textContent = data.error || "Email or password is incorrect.";
+          // Log a failed attempt under the email tried (no session yet)
+          const log = window.GTAuth.getActivity();
+          log.push({ ts: new Date().toISOString(), userId: null, email, name: null, type: "failed_login", page: location.pathname, detail: null, ua: navigator.userAgent.slice(0, 140) });
+          window.GTAuth.saveActivity(log);
+          return;
+        }
+
+        const user = data.user;
+        const session = {
+          userId: user.id,
+          email: user.email,
+          name: user.name,
+          role: isAdmin({ email: user.email, role: user.role }) ? "admin" : "user",
+          loginAt: new Date().toISOString()
+        };
+      saveSession(session);
+      logActivity("login");
+
+      const next = new URLSearchParams(location.search).get("next") || "/";
+      location.replace(next);
+      } catch (err) {
+        msg.className = "auth-msg err";
+        msg.textContent = "Network error. Please try again.";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

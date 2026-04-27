@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "company": "Acme Technologies Pvt Ltd",
+    "country": "IN",
+    "currency": "INR",
+    "fy": "2025-26",
+    "structure": "OLD (Basic 40% of CTC; HRA 40% of basic; remainder Special Allowance). Toggle to NEW in dashboard to see Code-on-Wages impact.",
+    "note": "Seeded dataset. All calculations derive from rule-engine/india-payroll at runtime."
+  },
+  "employees": [
+    { "id": "E001", "name": "Aarav Sharma",      "designation": "Senior Software Engineer", "dept": "Engineering", "state": "KA", "location": "Bengaluru",  "doj": "2021-03-15", "ctc": 2400000, "pan": "AAAPS1234X", "uan": "100200300401", "regime": "new",  "metro": true  },
+    { "id": "E002", "name": "Priya Iyer",         "designation": "Engineering Manager",      "dept": "Engineering", "state": "KA", "location": "Bengaluru",  "doj": "2018-07-02", "ctc": 4200000, "pan": "AAAPI2345Y", "uan": "100200300402", "regime": "new",  "metro": true  },
+    { "id": "E003", "name": "Rohan Deshmukh",     "designation": "Software Engineer",        "dept": "Engineering", "state": "MH", "location": "Mumbai",     "doj": "2023-01-09", "ctc": 1200000, "pan": "AAAPD3456Z", "uan": "100200300403", "regime": "new",  "metro": true  },
+    { "id": "E004", "name": "Ananya Reddy",       "designation": "Principal Engineer",       "dept": "Engineering", "state": "TS", "location": "Hyderabad",  "doj": "2016-11-21", "ctc": 6000000, "pan": "AAAPR4567A", "uan": "100200300404", "regime": "old",  "metro": true  },
+    { "id": "E005", "name": "Vikram Chatterjee",  "designation": "Senior Software Engineer", "dept": "Engineering", "state": "WB", "location": "Kolkata",    "doj": "2020-05-18", "ctc": 2200000, "pan": "AAAPC5678B", "uan": "100200300405", "regime": "new",  "metro": true  },
+    { "id": "E006", "name": "Sneha Pillai",       "designation": "QA Engineer",              "dept": "Engineering", "state": "TN", "location": "Chennai",    "doj": "2022-08-04", "ctc": 900000,  "pan": "AAAPP6789C", "uan": "100200300406", "regime": "new",  "metro": true  },
+    { "id": "E007", "name": "Kunal Mehta",        "designation": "DevOps Engineer",          "dept": "Engineering", "state": "GJ", "location": "Ahmedabad",  "doj": "2021-11-30", "ctc": 1800000, "pan": "AAAPM7890D", "uan": "100200300407", "regime": "new",  "metro": false },
+    { "id": "E008", "name": "Divya Krishnan",     "designation": "Product Manager",          "dept": "Product",     "state": "KA", "location": "Bengaluru",  "doj": "2019-04-12", "ctc": 3600000, "pan": "AAAPK8901E", "uan": "100200300408", "regime": "new",  "metro": true  },
+    { "id": "E009", "name": "Arjun Patel",        "designation": "UX Designer",              "dept": "Product",     "state": "MH", "location": "Mumbai",     "doj": "2020-10-05", "ctc": 1500000, "pan": "AAAPP9012F", "uan": "100200300409", "regime": "new",  "metro": true  },
+    { "id": "E010", "name": "Megha Rao",          "designation": "Director of Product",      "dept": "Product",     "state": "KA", "location": "Bengaluru",  "doj": "2015-06-22", "ctc": 7500000, "pan": "AAAPR0123G", "uan": "100200300410", "regime": "old",  "metro": true  },
+    { "id": "E011", "name": "Rahul Verma",        "designation": "Data Analyst",             "dept": "Analytics",   "state": "HR", "location": "Gurugram",   "doj": "2022-02-14", "ctc": 1100000, "pan": "AAAPV1234H", "uan": "100200300411", "regime": "new",  "metro": true  },
+    { "id": "E012", "name": "Ishita Banerjee",    "designation": "Senior Data Scientist",    "dept": "Analytics",   "state": "DL", "location": "New Delhi",  "doj": "2019-09-03", "ctc": 2800000, "pan": "AAAPB2345I", "uan": "100200300412", "regime": "new",  "metro": true  },
+    { "id": "E013", "name": "Karthik Nair",       "designation": "Finance Controller",       "dept": "Finance",     "state": "KA", "location": "Bengaluru",  "doj": "2017-12-01", "ctc": 3000000, "pan": "AAAPN3456J", "uan": "100200300413", "regime": "old",  "metro": true  },
+    { "id": "E014", "name": "Pooja Singh",        "designation": "Accountant",               "dept": "Finance",     "state": "UP", "location": "Noida",      "doj": "2023-03-20", "ctc": 600000,  "pan": "AAAPS4567K", "uan": "100200300414", "regime": "new",  "metro": false },
+    { "id": "E015", "name": "Sameer Joshi",       "designation": "HR Business Partner",      "dept": "People",      "state": "MH", "location": "Pune",       "doj": "2020-07-15", "ctc": 1600000, "pan": "AAAPJ5678L", "uan": "100200300415", "regime": "new",  "metro": false },
+    { "id": "E016", "name": "Nisha Gupta",        "designation": "Talent Acquisition Lead",  "dept": "People",      "state": "KA", "location": "Bengaluru",  "doj": "2021-05-28", "ctc": 1300000, "pan": "AAAPG6789M", "uan": "100200300416", "regime": "new",  "metro": true  },
+    { "id": "E017", "name": "Harsh Agarwal",      "designation": "Enterprise Sales",         "dept": "Sales",       "state": "DL", "location": "New Delhi",  "doj": "2019-01-11", "ctc": 2500000, "pan": "AAAPA7890N", "uan": "100200300417", "regime": "old",  "metro": true  },
+    { "id": "E018", "name": "Tanvi Kulkarni",     "designation": "Customer Success Manager", "dept": "Sales",       "state": "MH", "location": "Mumbai",     "doj": "2022-06-08", "ctc": 1400000, "pan": "AAAPK8901O", "uan": "100200300418", "regime": "new",  "metro": true  },
+    { "id": "E019", "name": "Devendra Rao",       "designation": "Chief Technology Officer", "dept": "Executive",   "state": "KA", "location": "Bengaluru",  "doj": "2014-02-10", "ctc": 12000000,"pan": "AAAPR9012P", "uan": "100200300419", "regime": "old",  "metro": true  },
+    { "id": "E020", "name": "Lakshmi Menon",      "designation": "Support Associate",        "dept": "Support",     "state": "TN", "location": "Chennai",    "doj": "2023-08-17", "ctc": 420000,  "pan": "AAAPM0123Q", "uan": "100200300420", "regime": "new",  "metro": true  }
+  ]
+}

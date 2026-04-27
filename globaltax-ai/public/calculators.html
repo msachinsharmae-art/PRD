@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculators Hub — GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+<style>
+  .calc-layout { display: grid; grid-template-columns: 240px 1fr; gap: 18px; align-items: flex-start; }
+  @media (max-width: 900px) { .calc-layout { grid-template-columns: 1fr; } }
+  .calc-picker { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 8px; position: sticky; top: calc(var(--topbar-h) + 16px); }
+  .calc-picker-item { padding: 9px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 10px; }
+  .calc-picker-item:hover { background: var(--surface-2); }
+  .calc-picker-item.active { background: var(--accent-soft); color: var(--accent); }
+  .calc-picker-item .ico { width: 18px; height: 18px; display: inline-flex; color: inherit; }
+
+  .calc-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 900px) { .calc-panel { grid-template-columns: 1fr; } }
+  .calc-io { display: flex; flex-direction: column; gap: 14px; }
+  .output-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--divider); font-size: 14px; }
+  .output-row:last-child { border-bottom: 0; }
+  .output-row b { font-variant-numeric: tabular-nums; }
+  .output-row.total { border-top: 2px solid var(--text); border-bottom: 0; padding-top: 10px; margin-top: 4px; font-size: 15px; font-weight: 700; }
+  .output-row.total b { color: var(--accent); font-size: 18px; }
+  .output-row .muted { color: var(--muted); font-size: 12px; }
+
+  .formula { background: var(--surface-2); border-radius: 10px; padding: 14px; font-family: "SF Mono", Consolas, Monaco, monospace; font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; color: var(--text); border: 1px solid var(--border); }
+  .formula .step { margin-bottom: 8px; }
+  .formula .step-label { color: var(--accent); font-weight: 700; display: inline-block; min-width: 80px; }
+
+  .regime-toggle { display: flex; gap: 8px; align-items: center; padding: 10px 12px; background: var(--surface-2); border-radius: 8px; margin-bottom: 14px; font-size: 12.5px; }
+  .regime-toggle .seg-btn { padding: 4px 10px; font-size: 11.5px; }
+
+  .explain-list { padding-left: 18px; font-size: 13px; color: var(--text); line-height: 1.55; }
+  .explain-list li { margin-bottom: 6px; }
+
+  .cite-box { margin-top: 14px; padding: 10px 12px; background: #FEF9E7; border-left: 3px solid #F59E0B; border-radius: 6px; font-size: 12px; color: #78350F; }
+  .cite-box b { color: #78350F; }
+</style>
+</head>
+<body>
+
+<div class="container wide">
+  <div class="page-title-row">
+    <div>
+      <h1>Calculators Hub</h1>
+      <p class="muted">Every calculator shows the exact formula used. Numbers come from deterministic rule files — the AI only explains.</p>
+    </div>
+  </div>
+
+  <div class="calc-layout">
+    <div class="calc-picker" id="calcPicker"></div>
+    <div id="calcPanel"></div>
+  </div>
+</div>
+
+<script type="module" src="/js/calculators.js"></script>
+</body>
+</html>

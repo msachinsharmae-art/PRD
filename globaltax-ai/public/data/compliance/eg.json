@@ -1,0 +1,26 @@
+{
+  "country": "EG",
+  "lastUpdated": "2024-08-01",
+  "topics": [
+    {
+      "title": "Personal Income Tax",
+      "summary": "Progressive slabs 0% to 27.5%. Personal exemption EGP 20,000 annually. Individual Income Tax Law 91/2005 as amended.",
+      "source": "https://www.eta.gov.eg"
+    },
+    {
+      "title": "Social Insurance",
+      "summary": "Employees contribute 11% of insurable salary; employers 18.75%. Caps updated annually by NOSI.",
+      "source": "https://www.nosi.gov.eg"
+    },
+    {
+      "title": "VAT",
+      "summary": "14% standard rate. Mandatory registration above EGP 500,000 annual turnover. Schedule tax applies to specific goods/services.",
+      "source": "https://www.eta.gov.eg"
+    },
+    {
+      "title": "Annual tax return",
+      "summary": "Individuals file by 31 March following year-end. Employers file monthly payroll withholding on the 15th.",
+      "source": "https://www.eta.gov.eg"
+    }
+  ]
+}

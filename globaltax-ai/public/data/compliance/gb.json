@@ -1,0 +1,31 @@
+{
+  "country": "GB",
+  "lastUpdated": "2025-04-06",
+  "topics": [
+    {
+      "title": "Income Tax Self-Assessment",
+      "summary": "Online SA return deadline is 31 January following the tax year end (5 April). Paper returns due 31 October. Late filing penalty £100 plus daily charges after 3 months.",
+      "source": "https://www.gov.uk/self-assessment-tax-returns"
+    },
+    {
+      "title": "PAYE + National Insurance",
+      "summary": "Employers report payroll to HMRC via RTI on or before each payday. Primary Class 1 NIC rate 8% between PT and UEL, 2% above. Employer secondary 13.8%.",
+      "source": "https://www.gov.uk/paye-for-employers"
+    },
+    {
+      "title": "Corporation Tax",
+      "summary": "Main rate 25% (profits >£250k). Small profits rate 19% (≤£50k) with marginal relief in between. CT return due 12 months after accounting period end; tax due 9 months + 1 day.",
+      "source": "https://www.gov.uk/corporation-tax"
+    },
+    {
+      "title": "VAT",
+      "summary": "Standard rate 20%, reduced 5%, zero 0%. Registration threshold £90,000 (from Apr 2024). Returns quarterly via Making Tax Digital.",
+      "source": "https://www.gov.uk/vat-registration-thresholds"
+    },
+    {
+      "title": "Making Tax Digital for ITSA",
+      "summary": "From April 2026 self-employed and landlords with income >£50k must keep digital records and file quarterly updates to HMRC.",
+      "source": "https://www.gov.uk/government/publications/making-tax-digital"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "country": "IN",
+  "lastUpdated": "2025-02-01",
+  "topics": [
+    {
+      "title": "Income Tax filing (ITR)",
+      "summary": "Individuals must file ITR by 31 July following the end of the financial year (FY) ending 31 March. Belated returns allowed up to 31 Dec with penalty under Section 234F.",
+      "source": "https://www.incometax.gov.in"
+    },
+    {
+      "title": "New Tax Regime — FY 2025-26",
+      "summary": "Revised slabs announced in Budget 2025: 0% up to ₹4L, 5% to ₹8L, 10% to ₹12L, 15% to ₹16L, 20% to ₹20L, 25% to ₹24L, 30% above. Standard deduction ₹75,000. 87A rebate covers taxable income up to ₹12L.",
+      "source": "https://www.indiabudget.gov.in"
+    },
+    {
+      "title": "Section 80C deductions (Old regime only)",
+      "summary": "Up to ₹1.5L on EPF, PPF, ELSS, LIC, home-loan principal, tuition fees etc. Does not apply to the new regime.",
+      "source": "https://www.incometax.gov.in"
+    },
+    {
+      "title": "TDS & Form 16",
+      "summary": "Employers deduct TDS monthly and issue Form 16 by 15 June. Mismatch with Form 26AS is the most common ITR rejection cause.",
+      "source": "https://www.tdscpc.gov.in"
+    },
+    {
+      "title": "GST",
+      "summary": "Consumption tax on goods & services. Standard rates: 5%, 12%, 18%, 28%. Mandatory registration above ₹40L turnover (services: ₹20L).",
+      "source": "https://www.gst.gov.in"
+    }
+  ]
+}

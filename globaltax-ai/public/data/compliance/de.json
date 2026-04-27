@@ -1,0 +1,31 @@
+{
+  "country": "DE",
+  "lastUpdated": "2025-01-01",
+  "topics": [
+    {
+      "title": "Einkommensteuererklärung",
+      "summary": "Einkommensteuer return typically due 31 July following tax year; extension to end of Feb if filed via Steuerberater. Grundfreibetrag (basic allowance) €12,096 in 2025.",
+      "source": "https://www.bundesfinanzministerium.de"
+    },
+    {
+      "title": "Lohnsteuer & social security",
+      "summary": "Employers withhold Lohnsteuer monthly based on tax class. Employee social security ≈20.65% (pension 9.3%, health 7.35%, unemployment 1.3%, long-term care 1.8%) up to contribution ceilings.",
+      "source": "https://www.deutsche-rentenversicherung.de"
+    },
+    {
+      "title": "Solidaritätszuschlag",
+      "summary": "Soli 5.5% on income tax, levied only above €19,950 income tax (single) in 2025 — phased out for most individuals but still applies to higher earners.",
+      "source": "https://www.bundesfinanzministerium.de"
+    },
+    {
+      "title": "Umsatzsteuer (VAT)",
+      "summary": "Standard 19%, reduced 7%. Small-business exemption (Kleinunternehmer) turnover ≤€25,000 prior year and ≤€100,000 current (from 2025). Monthly/quarterly returns.",
+      "source": "https://www.bzst.de"
+    },
+    {
+      "title": "Körperschaftsteuer (Corporate Tax)",
+      "summary": "Corporate tax 15% + Soli 5.5% of CT + local Gewerbesteuer (trade tax) ≈14%, combined effective rate ≈30%.",
+      "source": "https://www.bundesfinanzministerium.de"
+    }
+  ]
+}

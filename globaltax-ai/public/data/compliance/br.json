@@ -1,0 +1,31 @@
+{
+  "country": "BR",
+  "lastUpdated": "2025-02-01",
+  "topics": [
+    {
+      "title": "Declaração de Ajuste Anual (DAA)",
+      "summary": "Annual IRPF return due end of May (typically 31 May). Mandatory when taxable income >R$30,639.90 or specific asset/share conditions met.",
+      "source": "https://www.gov.br/receitafederal/"
+    },
+    {
+      "title": "IRPF withholding + INSS",
+      "summary": "Employers withhold IRPF (0–27.5%) and INSS (7.5–14% progressive) monthly from payroll. eSocial is the unified reporting system.",
+      "source": "https://www.gov.br/esocial/"
+    },
+    {
+      "title": "FGTS",
+      "summary": "Employers deposit 8% of salary monthly to the worker's FGTS account (severance fund). In termination without cause, 40% fine on accumulated balance.",
+      "source": "https://www.fgts.gov.br/"
+    },
+    {
+      "title": "ICMS / IPI / PIS / COFINS",
+      "summary": "ICMS state-level VAT on goods (4–18% typical); IPI federal excise; PIS/COFINS federal social contributions. Tax-reform unifies these into CBS/IBS gradually from 2026.",
+      "source": "https://www.gov.br/receitafederal/"
+    },
+    {
+      "title": "Lucro Real vs Lucro Presumido",
+      "summary": "Corporate tax options: Lucro Real (actual profit) mandatory above R$78m turnover; Lucro Presumido (presumed profit) below threshold — simpler calc. IRPJ 15% + 10% over R$240k/yr + CSLL 9%.",
+      "source": "https://www.gov.br/receitafederal/"
+    }
+  ]
+}

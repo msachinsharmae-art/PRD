@@ -1,0 +1,18 @@
+{
+  "meta": { "country": "AE", "year": 2026, "note": "UAE VAT (FTA) + Corporate Tax + GPSSA + WPS." },
+  "events": [
+    { "date": "2026-01-15", "title": "GPSSA contribution — Dec 2025 (nationals only)", "category": "pf",  "act": "Federal Law 7/1999" },
+    { "date": "2026-01-28", "title": "VAT Return Q4 2025 — file & pay",                  "category": "gst", "act": "Federal Decree-Law 8/2017" },
+    { "date": "2026-01-31", "title": "WPS salary transfer for January 2026",             "category": "pf",  "act": "Min. Decision 788/2009" },
+    { "date": "2026-02-15", "title": "GPSSA — Jan 2026",                                  "category": "pf" },
+    { "date": "2026-02-28", "title": "WPS Feb + economic-substance notification",        "category": "corporate" },
+    { "date": "2026-03-15", "title": "GPSSA — Feb 2026",                                  "category": "pf" },
+    { "date": "2026-04-15", "title": "GPSSA — Mar 2026",                                  "category": "pf" },
+    { "date": "2026-04-28", "title": "VAT Return Q1 2026",                                 "category": "gst" },
+    { "date": "2026-05-15", "title": "GPSSA — Apr 2026",                                  "category": "pf" },
+    { "date": "2026-06-30", "title": "ESR annual report — prior FY",                       "category": "corporate", "act": "Cabinet Res 57/2020" },
+    { "date": "2026-07-28", "title": "VAT Return Q2 2026",                                 "category": "gst" },
+    { "date": "2026-09-30", "title": "Corporate Tax return — FY ending Dec-25",             "category": "corporate", "act": "Federal Decree-Law 47/2022" },
+    { "date": "2026-10-28", "title": "VAT Return Q3 2026",                                 "category": "gst" }
+  ]
+}

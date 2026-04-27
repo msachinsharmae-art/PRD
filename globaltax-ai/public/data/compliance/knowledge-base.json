@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "GlobalTax.AI Compliance Knowledge Base",
+    "scope": "Verified compliance + tax knowledge for India, US, UAE, KSA, Egypt — used as grounding for AI assistant",
+    "updated": "2026-04-24",
+    "sources": "Authoritative — statute/regulation with citations. Where pending official publication, flagged 'uncertain'."
+  },
+  "IN": {
+    "corporate_tax_fy25_26": {
+      "default_rate": "30% (turnover > ₹400cr in prev FY); 25% if turnover ≤ ₹400cr in FY23-24",
+      "s115BAA": {
+        "rate": "22% + 10% surcharge + 4% cess = 25.168% effective",
+        "conditions": "No exemptions/deductions; no MAT; irrevocable election"
+      },
+      "s115BAB": {
+        "rate": "15% + 10% surcharge + 4% cess = 17.16% effective",
+        "conditions": "New manufacturing co. incorporated on/before 31-Mar-2024 (sunset); commence mfg by 31-Mar-2024"
+      },
+      "foreign_co": "35% (reduced from 40% via Finance Act 2024) + surcharge 2%/5% + 4% cess",
+      "MAT": "15% of book profit + surcharge + cess (NOT applicable under 115BAA/115BAB); AMT 18.5% for LLP/non-corp",
+      "surcharge_domestic": "7% (income 1-10cr); 12% (>10cr); 10% flat under 115BAA/BAB",
+      "filing_dates": {
+        "ITR_non_audit": "31 July",
+        "ITR_audit": "31 October",
+        "ITR_TP": "30 November",
+        "tax_audit_44AB": "30 September (threshold: turnover ₹1cr / ₹10cr if cash ≤5% / profession ₹50L)"
+      },
+      "cite": "ITA 1961 §§115BAA, 115BAB, 115JB, 44AB; Finance Acts 2024/2025"
+    },
+    "gst": {
+      "current_slabs": "0%, 5%, 12%, 18%, 28% + compensation cess on sin/luxury (tobacco, aerated drinks, autos)",
+      "reform_2025": "GST Council Sep-2025 announced rationalisation to 2 main slabs (5%, 18%) + 40% demerit rate; phased FY25-26",
+      "registration": "Goods ₹40L (₹20L special category states); Services ₹20L (₹10L special)",
+      "composition_scheme": "Goods ≤₹1.5cr (1% / 5% restaurants); Services ≤₹50L @6%; no ITC, no interstate",
+      "QRMP": "AATO ≤₹5cr: quarterly GSTR-1/3B with monthly PMT-06 (35% challan or self-assessment)",
+      "e_invoicing": "Mandatory if AATO > ₹5cr (since 01-Aug-2023); 30-day IRN reporting mandate for AATO ≥₹10cr from 01-Apr-2025",
+      "ITC_rules": "§16 CGST Act; invoice must appear in GSTR-2B; supplier must file GSTR-1 and pay; 180-day payment rule; blocked credits §17(5)",
+      "cite": "CGST Act 2017; Notif 10/2023-CT; GSTN advisory Nov-2024"
+    },
+    "labour_codes_status": {
+      "as_of": "April 2026",
+      "status": "4 Codes enacted (Wages 2019; IR/SS/OSH 2020); Centre 'appointed day' NOT yet notified — repeatedly deferred",
+      "state_rules": "32+ states/UTs have pre-published draft rules across all 4 codes; full harmonised notification pending; Wages Code rules most advanced",
+      "expectation": "Staggered implementation likely; Code on Wages may notify ahead; exact date uncertain",
+      "source": "MoLE dashboard"
+    }
+  },
+  "US": {
+    "federal_2026": {
+      "fit_single_brackets": [
+        { "from": 0,      "to": 12400,  "rate": "10%", "base_tax": "10% of taxable" },
+        { "from": 12401,  "to": 50400,  "rate": "12%", "base_tax": "$1,240 + 12% over $12,400" },
+        { "from": 50401,  "to": 105700, "rate": "22%", "base_tax": "$5,800 + 22% over $50,400" },
+        { "from": 105701, "to": 201775, "rate": "24%", "base_tax": "$17,966 + 24% over $105,700" },
+        { "from": 201776, "to": 256225, "rate": "32%", "base_tax": "$41,024 + 32% over $201,775" },
+        { "from": 256226, "to": 640600, "rate": "35%", "base_tax": "$58,448 + 35% over $256,225" },
+        { "from": 640601, "to": null,   "rate": "37%", "base_tax": "$192,979.25 + 37% over $640,600" }
+      ],
+      "std_deduction": { "single": 16100, "mfj": 32200, "hoh": 24150, "mfs": 16100 },
+      "senior_bonus_dedn": { "single_hoh": 2000, "married_per_person": 1600 },
+      "fica": { "ss_rate": "6.2% ee + 6.2% er", "ss_wage_base": 176100, "medicare_rate": "1.45% each + 0.9% ee additional above $200k" },
+      "futa": { "rate_net": "0.6%", "wage_base": 7000, "max_per_employee": 42 },
+      "supplemental_wages": { "flat": "22%", "flat_over_1M": "37%" }
+    },
+    "obbba_2026": {
+      "salt_cap": "$40,400 (up from $10,000)",
+      "senior_deduction_bonus": "up to $6,000 single / $12,000 couples; phase-out begins $75,000 AGI",
+      "overtime_deduction": "up to $12,500 (qualified OT, personal return only)",
+      "tips_deduction": "up to $25,000 (qualified tips, personal return only)",
+      "car_loan_interest": "up to $10,000 (new US-assembled vehicles under 14,000 lbs)",
+      "roth_catch_up_rule": "High earners (>$150k prior-year income) age 50+ must make catch-up contributions on Roth (after-tax) basis"
+    },
+    "states_summary_pointer": "See /data/compliance/us-states-2026.json — all 50 states + DC with income tax rate, SUI wage base, min wage, notable rules."
+  },
+  "AE": {
+    "corporate_tax": {
+      "law": "Federal Decree-Law 47/2022 (FY starting on/after 01-Jun-2023)",
+      "rates": {
+        "small": "0% on taxable income ≤ AED 375,000",
+        "standard": "9% above AED 375,000",
+        "pillar_two_DMTT": "15% Domestic Minimum Top-up Tax for MNEs with consolidated revenue ≥ €750M, effective FY starting on/after 01-Jan-2025 (Cabinet Decision 142/2024)"
+      },
+      "small_business_relief": "Revenue ≤ AED 3M per tax period → NIL taxable income; available through tax periods ending on/before 31-Dec-2026 (MD 73/2023)",
+      "QFZP": {
+        "rate": "0% on Qualifying Income; 9% on non-qualifying",
+        "conditions": "Adequate substance; qualifying income per CD 100/2023 & 265/2023; de-minimis (lower of 5% or AED 5M); audited FS; no election out; arm's-length TP"
+      },
+      "participation_exemption": "Art. 23: 5% min ownership, 12-month holding, subject to 9%+ tax, ≤50% non-qualifying assets",
+      "filing": "Return + payment within 9 months of tax period end; registration mandatory via FTA portal; no advance tax",
+      "cite": "FDL 47/2022; MD 73/2023; CD 55/2023, 100/2023, 142/2024, 265/2023"
+    },
+    "vat": { "standard": "5% (since 2018)", "zero_rated": "exports, healthcare, education", "exempt": "financial services, bare land, local passenger transport" },
+    "free_zones": {
+      "DIFC": "Financial FZ (Dubai); English common law + DIFC Courts; DIFC Employment Law 2/2019 (amended 4/2021, 2024); DEWS mandatory; QFZP-eligible",
+      "ADGM": "Financial FZ (Abu Dhabi); direct English common law; ADGM Employment Regs 2019 (amended 2024); WPS; QFZP-eligible",
+      "JAFZA": "Industrial/logistics FZ (Dubai); UAE Federal Labour Law 33/2021 applies; MOHRE WPS; QFZP-eligible for trading/logistics",
+      "DMCC": "Commercial FZ (commodities, Dubai); UAE Federal Labour Law; QFZP-eligible; distribution from Designated Zone qualifies"
+    }
+  },
+  "SA": {
+    "zakat_and_tax": {
+      "zakat_rate": "2.5775% of Zakat base (Hijri) or 2.5% (Gregorian); Saudi/GCC shareholder share only",
+      "zakat_base": "ZATCA formula: higher of (adjusted net income) or (equity + provisions + LT liabilities − LT assets − investments)",
+      "cit_foreign": "20% on foreign (non-GCC) shareholder share",
+      "cit_oil_hydrocarbon": "85%",
+      "cit_natural_gas": "30%",
+      "mixed_entity": "Zakat on Saudi/GCC %; CIT on foreign %",
+      "wht": { "dividends": "5%", "interest": "5%", "royalties": "15%", "technical_consulting": "5%", "management_fees": "20%", "rent": "5%", "intl_telecom": "5%", "other": "15%" },
+      "vat": "15% standard (since 01-Jul-2020)",
+      "filing": "CIT/Zakat return within 120 days of FY-end; advance payments in 3 instalments (months 6, 9, 12) if prior tax ≥ SAR 500k",
+      "cite": "Income Tax Law RD M/1 of 1425H; Zakat Implementing Regs 2019 (amended 2024)"
+    },
+    "nitaqat_2026": {
+      "framework": "Saudization quotas by sector + firm size band (Entry/Low-Green/Mid-Green/High-Green/Platinum); Nitaqat 2.0 from 2021, rolling phase-ins 2024-26",
+      "indicative_pct": "Wholesale/retail 15-30%; construction 8-25%; ICT 20-40%; finance 30-50%; professional services 30-45%; hospitality 10-25% (varies by firm size)",
+      "weighting": "Saudi female workers often 1.5-2x weighted; high-wage Saudis weighted; part-time rules",
+      "penalties": "Red band: block new work visas, no visa renewals, no govt service access, license-suspension risk, tenders ineligible",
+      "cite": "HRSD Nitaqat Program; Qiwa platform"
+    }
+  },
+  "EG": {
+    "corporate_tax": {
+      "standard_rate": "22.5% on net taxable profits",
+      "special": "Suez Canal Authority, EGPC, CBE: 40%; oil & gas E&P: 40.55%",
+      "filing": "Within 4 months after FY-end (Law 91/2005 Art. 82); self-assessment; monthly instalments for large taxpayers",
+      "sme_regime": "Law 6/2025 simplified regime: turnover ≤ EGP 20M → tiered tax 0.4%-1.5% of turnover",
+      "wht": { "services_domestic": "1%", "dividends": "10% (5% if ≥25% holding + 2yr)", "interest": "20%", "royalties": "20%" },
+      "cite": "Income Tax Law 91/2005; Law 30/2023; Law 6/2025 (SME)"
+    },
+    "vat": {
+      "standard": "14% (since Sep-2017)",
+      "export": "0%",
+      "schedule_tax": "Simplified table rates on specific goods (professional services 10%; media 20%; petroleum varied)",
+      "exempt": "Basic foodstuffs, healthcare, education, financial services, residential rent, some insurance (Law 67/2016)",
+      "registration_threshold": "Annual turnover EGP 500,000",
+      "einvoicing": "Mandatory B2B/B2C (e-receipt) nationwide by ETA; all taxpayers covered as of 2024",
+      "filing": "Monthly return; normal VAT within 1 month of period end, schedule tax within 2 months"
+    }
+  }
+}

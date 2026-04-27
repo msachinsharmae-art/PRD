@@ -1,0 +1,61 @@
+{
+  "lastFetched": "2026-04-22",
+  "items": [
+    {
+      "country": "IN",
+      "date": "2025-02-01",
+      "category": "Budget",
+      "title": "Budget 2025 — revised new-regime slabs",
+      "summary": "Finance Bill 2025 expands the new-regime rebate so no tax is payable up to ₹12L taxable income (₹12.75L with standard deduction). Slabs restructured to 7 bands from 0% to 30%.",
+      "source": "https://www.indiabudget.gov.in"
+    },
+    {
+      "country": "IN",
+      "date": "2024-07-23",
+      "category": "Budget",
+      "title": "Standard deduction raised to ₹75,000 (new regime)",
+      "summary": "Standard deduction in the new tax regime raised from ₹50,000 to ₹75,000 for salaried individuals.",
+      "source": "https://www.indiabudget.gov.in"
+    },
+    {
+      "country": "US",
+      "date": "2024-10-22",
+      "category": "IRS",
+      "title": "2025 inflation-adjusted tax brackets published",
+      "summary": "IRS Rev. Proc. 2024-40 details 2025 brackets, standard deduction ($15k / $30k), and gift-tax exclusion ($19k).",
+      "source": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2025"
+    },
+    {
+      "country": "US",
+      "date": "2024-10-10",
+      "category": "SSA",
+      "title": "SS wage base raised to $176,100 for 2025",
+      "summary": "Social Security taxable maximum increases from $168,600 (2024) to $176,100 (2025).",
+      "source": "https://www.ssa.gov/cola"
+    },
+    {
+      "country": "AE",
+      "date": "2024-12-09",
+      "category": "Corporate Tax",
+      "title": "Domestic Minimum Top-up Tax from Jan 2025",
+      "summary": "UAE introduces a 15% Domestic Minimum Top-up Tax for multinational groups with global revenues ≥ €750M, effective financial years starting 1 Jan 2025.",
+      "source": "https://tax.gov.ae"
+    },
+    {
+      "country": "SA",
+      "date": "2025-01-01",
+      "category": "GOSI",
+      "title": "Gradual increase in GOSI contributions (Saudis)",
+      "summary": "Stepped GOSI contribution rate increases for new Saudi entrants starting 2025 under the revised Social Insurance Law.",
+      "source": "https://www.gosi.gov.sa"
+    },
+    {
+      "country": "EG",
+      "date": "2024-08-15",
+      "category": "Income Tax",
+      "title": "Top bracket threshold adjusted",
+      "summary": "Law amending Law 91/2005 raises the threshold for the top 27.5% bracket and adjusts personal exemption guidance.",
+      "source": "https://www.eta.gov.eg"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "company": "Acme Technologies KSA LLC",
+    "country": "SA",
+    "currency": "SAR",
+    "fy": "2026",
+    "note": "Saudi Arabia payroll. Salaries annual gross SAR. Saudization-aware: Saudi nationals pay 9.75% GOSI, expats only covered for occ-hazards (2% employer). Basic 60% / Housing 25% typical."
+  },
+  "employees": [
+    { "id": "S001", "name": "Abdullah Al-Qahtani",  "designation": "Country Manager",       "dept": "Executive",   "city": "Riyadh", "doj": "2016-02-14", "salary": 720000, "nationality": "SA",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S002", "name": "Fahad Al-Otaibi",      "designation": "Senior SWE",            "dept": "Engineering", "city": "Riyadh", "doj": "2019-07-22", "salary": 360000, "nationality": "SA",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S003", "name": "Noor Al-Harbi",        "designation": "HR Manager",            "dept": "People",      "city": "Jeddah", "doj": "2018-11-03", "salary": 300000, "nationality": "SA",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S004", "name": "Rakesh Iyer",          "designation": "DevOps Engineer",       "dept": "Engineering", "city": "Riyadh", "doj": "2021-04-12", "salary": 216000, "nationality": "IN",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S005", "name": "Khaled Al-Dosari",     "designation": "Sales Director",        "dept": "Sales",       "city": "Riyadh", "doj": "2015-09-30", "salary": 480000, "nationality": "SA",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S006", "name": "Michelle Garcia",      "designation": "Marketing Lead",        "dept": "Marketing",   "city": "Jeddah", "doj": "2022-06-08", "salary": 228000, "nationality": "PH",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S007", "name": "Sultan Al-Shammari",   "designation": "Finance Analyst",       "dept": "Finance",     "city": "Riyadh", "doj": "2023-01-10", "salary": 168000, "nationality": "SA",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S008", "name": "Ameer Shah",           "designation": "Product Designer",      "dept": "Product",     "city": "Dammam", "doj": "2020-08-19", "salary": 252000, "nationality": "PK",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S009", "name": "Sarah Clarkson",       "designation": "Regional Counsel",      "dept": "Legal",       "city": "Riyadh", "doj": "2019-03-25", "salary": 540000, "nationality": "UK",   "basicPct": 0.60, "housingPct": 0.25 },
+    { "id": "S010", "name": "Majed Al-Saud",        "designation": "Software Engineer",     "dept": "Engineering", "city": "Riyadh", "doj": "2023-10-01", "salary": 180000, "nationality": "SA",   "basicPct": 0.60, "housingPct": 0.25 }
+  ]
+}

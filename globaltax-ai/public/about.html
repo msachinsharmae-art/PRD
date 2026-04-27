@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Multi Country Payroll, Taxation and Compliance</title>
+<meta name="description" content="A unified platform for multi-country payroll, statutory taxation, and compliance — deterministic rule engines, source-cited rates, and an AI assistant that explains every number.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Multi Country Payroll, Taxation and Compliance">
+<meta property="og:description" content="Run payroll, monitor statutory deadlines, and compute every deduction — with formula and citation in plain view.">
+<meta property="og:url" content="https://globaltax-ai.vercel.app/about">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+<style>
+  .about-hero { padding: 28px 0 12px; }
+  .about-hero h1 { font-size: 30px; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 10px; font-weight: 700; }
+  .about-hero h1 .grad { background: linear-gradient(90deg, var(--accent), var(--info)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .about-hero p { font-size: 15.5px; color: var(--muted); max-width: 780px; line-height: 1.6; }
+
+  .about-section { margin-top: 32px; }
+  .about-section h2 { font-size: 20px; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .about-section p, .about-section li { font-size: 14px; line-height: 1.65; color: var(--text); }
+  .about-section ul { padding-left: 22px; }
+  .about-section li { margin-bottom: 6px; }
+
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+  @media (max-width: 900px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 18px; }
+  .pillar h3 { margin: 0 0 6px; font-size: 14.5px; font-weight: 700; color: var(--text); }
+  .pillar p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+  .pillar .badge { background: var(--accent-soft); color: var(--accent); font-size: 10.5px; padding: 3px 8px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; display: inline-block; margin-bottom: 8px; }
+
+  .quote {
+    background: var(--surface-2); border-left: 4px solid var(--accent);
+    padding: 14px 18px; margin: 18px 0; border-radius: 4px;
+    font-size: 14px; color: var(--text); line-height: 1.6;
+  }
+  .quote b { color: var(--accent); }
+
+  .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 8px; }
+  @media (max-width: 720px) { .stats-strip { grid-template-columns: repeat(2, 1fr); } }
+  .stat-tile { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; text-align: center; }
+  .stat-tile .n { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .stat-tile .l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px; }
+
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<div class="container wide">
+
+  <header class="about-hero">
+    <span class="hero-pill" style="display:inline-block;padding:4px 12px;font-size:12px;font-weight:600;background:var(--accent-soft);color:var(--accent);border-radius:999px;margin-bottom:14px;letter-spacing:0.01em">About the platform</span>
+    <h1>One platform for <span class="grad">payroll, taxation and compliance</span> — anywhere you operate.</h1>
+    <p>Modern HR and finance teams shouldn't have to maintain a spreadsheet of statutory rates per country, then pray it's still current next quarter. This product is a single engine where every payroll deduction, every filing deadline, and every compliance head is computed from a versioned, source-cited rule file — with an AI assistant that explains the numbers in plain English.</p>
+    <div class="cta-row">
+      <a class="btn" href="/dashboard">Open the dashboard</a>
+      <a class="btn secondary" href="/calculators">Try the calculators</a>
+    </div>
+  </header>
+
+  <div class="stats-strip">
+    <div class="stat-tile"><div class="n">8</div><div class="l">Calculators</div></div>
+    <div class="stat-tile"><div class="n">92</div><div class="l">US counties</div></div>
+    <div class="stat-tile"><div class="n">21</div><div class="l">IN states + UTs</div></div>
+    <div class="stat-tile"><div class="n">100%</div><div class="l">Citation-backed</div></div>
+  </div>
+
+  <section class="about-section">
+    <h2>Why this exists</h2>
+    <p>Every payroll team I've worked with hits the same wall: rates change, ceilings change, the wage definition itself changes (looking at you, India Code on Wages 2019), and the spreadsheet that ran payroll last quarter is now subtly wrong. Most "global" payroll tools paper over this with hardcoded rates and a release every six months. That's not good enough when ZATCA, GOSI, EPFO, IRS, and CBDT are all updating simultaneously.</p>
+    <div class="quote">
+      <b>The thesis:</b> compliance numbers belong in deterministic rule files, not in code branches and not in an LLM. The AI's job is to <i>narrate</i> what the rule engine computed — never to invent a rate or guess a deadline.
+    </div>
+    <p>This separation is what makes the tool auditable. Every rate, every ceiling, every deadline ships with the act, section, and effective date. If a rule changes, you edit one file and the dashboard, calculator, and AI explanation all update together.</p>
+  </section>
+
+  <section class="about-section">
+    <h2>Three pillars</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="badge">Deterministic</span>
+        <h3>Rule engines per jurisdiction</h3>
+        <p>Pure JavaScript modules per country. No magic, no external API calls during compute. Read them, fork them, audit them.</p>
+      </div>
+      <div class="pillar">
+        <span class="badge">Source-cited</span>
+        <h3>Statutory rule library</h3>
+        <p>Every PF, ESI, FICA, GOSI, GPSSA, SI rule with the act, section, rate, ceiling, deadline, and penalty — visible, editable, exportable.</p>
+      </div>
+      <div class="pillar">
+        <span class="badge">AI-narrated</span>
+        <h3>Plain-English explainer</h3>
+        <p>Ask "why is my PF 1,800?" or "what changed in FY 2026-27 perquisites?" and get the answer with the section reference attached.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>Who it's for</h2>
+    <ul>
+      <li><b>Payroll heads</b> running multi-country teams who need a single source of truth across India, US, UAE, KSA, and Egypt.</li>
+      <li><b>Finance controllers</b> forecasting employer-side cost of statutory contributions across regimes (Old Acts vs New Labour Codes, Saudi vs expat GOSI, IRS percentage method).</li>
+      <li><b>HR business analysts</b> validating new payroll vendors against an independent reference engine.</li>
+      <li><b>Founders and CFOs</b> sizing total compensation cost in a new market before they hire.</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2>What's inside today</h2>
+    <ul>
+      <li><b>Payroll dashboard</b> with KPIs, 6-month trend, statutory outflow breakdown, department mix, and employee-level detail per country.</li>
+      <li><b>8 calculators</b>: net pay, PF, ESI, gratuity, HRA exemption, TDS, leave encashment, hourly — each with formula and citation.</li>
+      <li><b>Compliance calendar</b> with payroll-burn analytics overlay — headcount, gross outflow, per-head cost, statutory share.</li>
+      <li><b>Multi-layer compliance explorer</b>: Federal / State / County / Free-zone drill-down with full statutory coverage.</li>
+      <li><b>Statutory rule library</b> editable in the UI — every rate, ceiling, deadline persists locally for what-if scenarios.</li>
+      <li><b>Labour Codes diff tool</b> (India) — Old Acts vs New Codes side-by-side with a live impact calculator on your CTC.</li>
+      <li><b>AI assistant</b> grounded in the verified knowledge base. Available from any page via the "Ask AI" button.</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2>The roadmap</h2>
+    <ul>
+      <li>Add UK PAYE + NI, Singapore CPF, and Philippines SSS engines (Q3).</li>
+      <li>Server-side accounts (Postgres) so admin telemetry persists across browsers.</li>
+      <li>Bulk CSV upload → run payroll → export Form 16 / W-2 / Salary Certificate.</li>
+      <li>Webhook integrations with leading HRIS so the rule engine can be the system-of-record for compliance.</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2>Built and operated by SMVPS Pvt Ltd</h2>
+    <p><b>SMVPS Pvt Ltd</b> is the publisher of this platform. We build payroll, taxation, and compliance technology for multi-country teams — with a bias for deterministic, source-cited rule engines over black-box automation.</p>
+    <p class="muted">For partnerships, enterprise pilots, or integration engagements, write to us via the <span style="color:var(--text)">Contact</span> page in the sidebar.</p>
+  </section>
+
+  <p class="disclaimer" style="margin-top:32px">
+    This platform is published by <b>SMVPS Pvt Ltd</b>. Numbers are computed from the rule engine, not from a live tax authority feed — always verify material decisions with a qualified local professional. Source code and deterministic rule files are auditable on request.
+  </p>
+
+</div>
+
+</body>
+</html>

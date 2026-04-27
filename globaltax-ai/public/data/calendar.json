@@ -1,0 +1,57 @@
+{
+  "lastUpdated": "2026-04-22",
+  "deadlines": [
+    { "country": "IN", "date": "2026-07-31", "form": "ITR",         "category": "Personal", "note": "Individual income tax return for AY 2026-27 (non-audit cases)." },
+    { "country": "IN", "date": "2026-05-31", "form": "TDS Q4",      "category": "Payroll",  "note": "Q4 FY2025-26 TDS return (24Q/26Q)." },
+    { "country": "IN", "date": "2026-06-15", "form": "Form 16",     "category": "Payroll",  "note": "Employers issue Form 16 to employees." },
+    { "country": "IN", "date": "2026-09-30", "form": "Tax audit",   "category": "Corporate","note": "Section 44AB tax-audit report due for FY 2025-26." },
+
+    { "country": "US", "date": "2026-04-15", "form": "Form 1040",   "category": "Personal", "note": "Individual federal income tax return and tax payment." },
+    { "country": "US", "date": "2026-04-15", "form": "Form 1120",   "category": "Corporate","note": "C-corp return for calendar-year filers." },
+    { "country": "US", "date": "2026-01-31", "form": "W-2 / 1099",  "category": "Payroll",  "note": "Employer wage & non-employee compensation filings." },
+    { "country": "US", "date": "2026-10-15", "form": "1040 ext.",   "category": "Personal", "note": "Extended filing deadline (tax still due 15 Apr)." },
+
+    { "country": "GB", "date": "2026-01-31", "form": "SA100",       "category": "Personal", "note": "Online Self-Assessment return for 2025/26 + balancing payment." },
+    { "country": "GB", "date": "2026-05-31", "form": "P60",         "category": "Payroll",  "note": "Employers must give employees their P60 by this date." },
+    { "country": "GB", "date": "2026-07-06", "form": "P11D",        "category": "Payroll",  "note": "Benefits-in-kind return for 2025/26." },
+    { "country": "GB", "date": "2027-01-01", "form": "CT600",       "category": "Corporate","note": "Example: 12 months after a 31-Dec year-end." },
+
+    { "country": "CA", "date": "2026-04-30", "form": "T1",          "category": "Personal", "note": "Personal income tax return and balance owing." },
+    { "country": "CA", "date": "2026-06-15", "form": "T1 (SE)",     "category": "Personal", "note": "Self-employed filing deadline (tax still due 30 Apr)." },
+    { "country": "CA", "date": "2026-02-28", "form": "T4",          "category": "Payroll",  "note": "Employer information return filing." },
+
+    { "country": "AU", "date": "2026-10-31", "form": "Tax return",  "category": "Personal", "note": "Self-lodgement deadline (extensions via registered agent)." },
+    { "country": "AU", "date": "2026-07-28", "form": "STP finalise","category": "Payroll",  "note": "Single Touch Payroll finalisation for FY 2025-26." },
+
+    { "country": "DE", "date": "2026-07-31", "form": "Einkommensteuer", "category": "Personal", "note": "Individual return for 2025 (without advisor)." },
+    { "country": "DE", "date": "2026-02-28", "form": "Lohnsteuer-Bescheinigung", "category": "Payroll", "note": "Employer wage-certificate transmission." },
+
+    { "country": "SG", "date": "2026-04-18", "form": "IR8A / Form B", "category": "Personal", "note": "Individual e-filing YA 2026." },
+    { "country": "SG", "date": "2026-03-01", "form": "IR8A",        "category": "Payroll",  "note": "AIS employer submission." },
+    { "country": "SG", "date": "2026-11-30", "form": "Form C-S/C",  "category": "Corporate","note": "Corporate income tax filing." },
+
+    { "country": "IE", "date": "2026-10-31", "form": "Form 11",     "category": "Personal", "note": "Pay & file income tax; mid-November if using ROS." },
+    { "country": "IE", "date": "2026-02-28", "form": "P30",         "category": "Payroll",  "note": "PAYE monthly remittance (illustrative)." },
+
+    { "country": "NL", "date": "2026-05-01", "form": "Aangifte",    "category": "Personal", "note": "Income tax return 2025 due via MijnBelastingdienst." },
+    { "country": "NL", "date": "2026-06-01", "form": "VPB",         "category": "Corporate","note": "Corporate income tax return (5 months after year end; extension possible)." },
+
+    { "country": "JP", "date": "2026-03-15", "form": "Kakutei Shinkoku", "category": "Personal", "note": "Final tax return for 2025 calendar year." },
+    { "country": "JP", "date": "2026-01-31", "form": "Nenmatsu chōsei",  "category": "Payroll", "note": "Year-end adjustment submission." },
+
+    { "country": "BR", "date": "2026-05-31", "form": "DAA IRPF",    "category": "Personal", "note": "Annual personal income tax return." },
+    { "country": "BR", "date": "2026-07-31", "form": "ECF",         "category": "Corporate","note": "Federal tax bookkeeping (Lucro Real)." },
+
+    { "country": "ZA", "date": "2026-10-23", "form": "ITR12",       "category": "Personal", "note": "Indicative personal filing-season close (non-provisional)." },
+    { "country": "ZA", "date": "2026-02-28", "form": "EMP501",      "category": "Payroll",  "note": "Employer annual reconciliation." },
+
+    { "country": "AE", "date": "2026-09-30", "form": "CT Return",   "category": "Corporate","note": "9-month deadline after CT period end." },
+    { "country": "AE", "date": "2026-01-28", "form": "VAT return",  "category": "VAT",      "note": "Monthly/quarterly VAT filing (illustrative 28th of month)." },
+
+    { "country": "SA", "date": "2026-04-30", "form": "Zakat/CIT",   "category": "Corporate","note": "ZATCA income tax / Zakat return for calendar-year filers." },
+    { "country": "SA", "date": "2026-01-31", "form": "VAT return",  "category": "VAT",      "note": "Monthly VAT filing (illustrative)." },
+
+    { "country": "EG", "date": "2026-03-31", "form": "Individual return", "category": "Personal", "note": "Personal income tax return." },
+    { "country": "EG", "date": "2026-04-30", "form": "Corporate return",  "category": "Corporate","note": "Standard deadline for calendar-year filers." }
+  ]
+}

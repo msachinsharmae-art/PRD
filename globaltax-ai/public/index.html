@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi Country Payroll, Taxation and Compliance</title>
+<meta name="description" content="One platform for multi-country payroll, statutory taxation, and compliance — deterministic rule engines, source-cited rates, and an AI assistant that explains every number.">
+<meta name="keywords" content="multi country payroll, global payroll, statutory compliance, tax calculator, PF, ESI, gratuity, FICA, GOSI, GPSSA, labour codes, perquisites, India payroll, US payroll, UAE payroll, KSA payroll, Egypt payroll, HRTech, payroll engine">
+<meta name="author" content="Sachin Kumar Sharma">
+<meta name="theme-color" content="#2563EB">
+<link rel="canonical" href="https://globaltax-ai.vercel.app/">
+
+<!-- Open Graph (LinkedIn / Facebook / Slack preview) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Multi Country Payroll, Taxation and Compliance">
+<meta property="og:title" content="Multi Country Payroll, Taxation and Compliance">
+<meta property="og:description" content="Run payroll, monitor statutory deadlines, and compute every deduction — with formula and citation in plain view. Deterministic rule engines + an AI assistant grounded in verified knowledge.">
+<meta property="og:url" content="https://globaltax-ai.vercel.app/">
+<meta property="og:image" content="https://globaltax-ai.vercel.app/favicon.svg">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Multi Country Payroll, Taxation and Compliance">
+<meta name="twitter:description" content="One platform for multi-country payroll, statutory taxation, and compliance.">
+<meta name="twitter:image" content="https://globaltax-ai.vercel.app/favicon.svg">
+
+<!-- Schema.org / structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Multi Country Payroll, Taxation and Compliance",
+  "url": "https://globaltax-ai.vercel.app/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Multi-country payroll, statutory taxation, and compliance platform with deterministic rule engines and an AI assistant. Companies can connect their HRIS / payroll data via CSV, REST API, or webhooks.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Sachin Kumar Sharma" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SMVPS Pvt Ltd",
+    "url": "https://globaltax-ai.vercel.app/about"
+  }
+}
+</script>
+
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+<style>
+  .hero-wrap { padding: 40px 24px 12px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 1fr; gap: 36px; align-items: center; }
+  @media (max-width: 900px) { .hero-wrap { grid-template-columns: 1fr; gap: 22px; padding: 24px 14px 14px; } }
+  .hero-lede h1 { font-size: 38px; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px; font-weight: 700; }
+  .hero-lede h1 .grad { background: linear-gradient(90deg, #2563EB, #0891B2); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero-lede p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 560px; margin: 0 0 22px; }
+  .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .hero-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-art {
+    background: linear-gradient(135deg, #E9F0FB, #F0F9FF);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px;
+    aspect-ratio: 1.3;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-card {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 13px;
+    box-shadow: 0 4px 14px rgba(30, 58, 138, 0.06);
+    font-size: 12px;
+  }
+  .hero-card .n { font-size: 18px; font-weight: 700; color: var(--accent); }
+  .hero-card .l { color: var(--muted); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .h1 { top: 22px; left: 22px; }
+  .h2 { top: 22px; right: 22px; }
+  .h3 { bottom: 26px; left: 22px; }
+  .h4 { bottom: 26px; right: 22px; }
+  .h-center {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: white; border: 1px solid var(--accent);
+    border-radius: 4px; padding: 12px 16px;
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.18);
+    text-align: center;
+  }
+  .h-center .n { font-size: 16px; font-weight: 700; color: var(--accent); }
+  .h-center .l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+
+  .section-head { display: flex; justify-content: space-between; align-items: baseline; padding: 28px 24px 12px; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; gap: 8px; }
+  .section-head h2 { margin: 0; font-size: 20px; font-weight: 600; }
+  .section-head .muted { font-size: 13px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 1100px; margin: 0 auto; padding: 0 24px 24px; }
+  @media (max-width: 900px) { .feature-grid { grid-template-columns: 1fr; padding: 0 14px 16px; } }
+  .feature-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+    padding: 18px; display: flex; flex-direction: column; gap: 6px;
+    transition: border-color 0.15s, transform 0.08s;
+  }
+  .feature-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .feature-card .icon {
+    width: 36px; height: 36px; border-radius: 4px;
+    background: var(--accent-soft); color: var(--accent);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 6px;
+  }
+  .feature-card h3 { margin: 0; font-size: 14px; font-weight: 600; }
+  .feature-card p { margin: 0 0 6px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .feature-card a { font-size: 13px; font-weight: 500; margin-top: auto; }
+
+  .use-cases { padding: 8px 24px 32px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .use-cases { grid-template-columns: repeat(2, 1fr); padding: 8px 14px 24px; } }
+  @media (max-width: 560px) { .use-cases { grid-template-columns: 1fr; } }
+  .use-case { padding: 12px 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px; font-size: 12.5px; }
+  .use-case b { display: block; margin-bottom: 4px; color: var(--text); font-size: 13px; font-weight: 600; }
+  .use-case p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.45; }
+</style>
+</head>
+<body>
+
+<section class="hero-wrap">
+  <div class="hero-lede">
+    <span class="hero-pill">Enterprise compliance platform</span>
+    <h1><span class="grad">Multi Country Payroll, Taxation and Compliance</span></h1>
+    <p>Run payroll, monitor statutory deadlines, and compute every deduction to the smallest unit — with the formula and legal citation in plain view. Deterministic rule files per jurisdiction. AI explains in plain English.</p>
+    <div class="hero-cta">
+      <a class="btn" href="/dashboard">Open Dashboard</a>
+      <a class="btn secondary" href="/calculators">Try Calculators</a>
+      <a class="btn ghost" href="/compliance">Compliance Library →</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <div class="hero-card h1"><div class="n">8</div><div class="l">Calculators</div></div>
+    <div class="hero-card h2"><div class="n">92</div><div class="l">US counties</div></div>
+    <div class="h-center"><div class="n">Federal · State · County</div><div class="l">Multi-layer coverage</div></div>
+    <div class="hero-card h3"><div class="n">21</div><div class="l">IN states</div></div>
+    <div class="hero-card h4"><div class="n">Live</div><div class="l">Rule library</div></div>
+  </div>
+</section>
+
+<div class="section-head">
+  <h2>What's inside</h2>
+  <span class="muted">Every feature runs across all jurisdictions</span>
+</div>
+
+<div class="feature-grid">
+  <div class="feature-card">
+    <div class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></div>
+    <h3>Payroll Dashboard</h3>
+    <p>Country-switchable dashboard: KPIs, 6-month trends, department mix, employee-level detail. Each country runs on its own rule engine.</p>
+    <a href="/dashboard">Open dashboard →</a>
+  </div>
+  <div class="feature-card">
+    <div class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="5" y="3" width="14" height="18" rx="1"/><rect x="8" y="6" width="8" height="3"/></svg></div>
+    <h3>8 Calculators</h3>
+    <p>Net pay, PF, FICA / GPSSA / GOSI / SI, gratuity, EOS, HRA exemption, TDS, leave encashment, hourly. Each shows the formula + legal citation.</p>
+    <a href="/calculators">Try calculators →</a>
+  </div>
+  <div class="feature-card">
+    <div class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
+    <h3>Compliance Calendar</h3>
+    <p>Filing deadlines per country with a payroll-burn analytics overlay — headcount, gross outflow, per-head cost, statutory share.</p>
+    <a href="/calendar">View calendar →</a>
+  </div>
+  <div class="feature-card">
+    <div class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+    <h3>Compliance Explorer</h3>
+    <p>Federal / State / County / Free-zone drill-down with full statutory coverage and citations down to the section level.</p>
+    <a href="/compliance">Open explorer →</a>
+  </div>
+  <div class="feature-card">
+    <div class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33"/></svg></div>
+    <h3>Statutory Rule Library</h3>
+    <p>Every payroll rule the engine uses — rates, ceilings, deadlines, penalties, and editable values. Source-cited and version-tracked.</p>
+    <a href="/configure">Explore rules →</a>
+  </div>
+  <div class="feature-card">
+    <div class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8A8.5 8.5 0 018.7 3.9a8.38 8.38 0 013.8-.9h.5A8.48 8.48 0 0121 11v.5z"/></svg></div>
+    <h3>AI Assistant</h3>
+    <p>Ask anything — "QFZP UAE conditions", "OBBBA SALT cap", "Egypt SI ceiling 2026". Grounded in a verified, deterministic knowledge base.</p>
+    <a href="/dashboard">Open dashboard →</a>
+  </div>
+</div>
+
+<div class="section-head">
+  <h2>Built for these workflows</h2>
+  <span class="muted">Whatever your role, the same engine works</span>
+</div>
+<div class="use-cases">
+  <div class="use-case"><b>Run payroll</b><p>Compute net pay for any country, period, frequency. Tag wage components, apply old vs new wage code, handle LOP and bonus arrears.</p></div>
+  <div class="use-case"><b>Stay compliant</b><p>Track every filing deadline. See penalty risk, days remaining, and the legal authority that mandates each return.</p></div>
+  <div class="use-case"><b>Forecast cost</b><p>Project employer cost across countries with a single CTC input. Compare regimes side-by-side.</p></div>
+  <div class="use-case"><b>Answer questions</b><p>The AI assistant knows every rule, rate, ceiling, and deadline currently in the engine — and shows you which file it pulled from.</p></div>
+</div>
+
+<p class="disclaimer" style="text-align:center;max-width:700px;margin:0 auto;padding:14px 24px 36px">
+  Deterministic rule files are the source of truth. AI narrates only — never invents numbers. Always verify material decisions with a qualified local professional.
+</p>
+
+</body>
+</html>

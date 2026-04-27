@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — Multi Country Payroll, Taxation and Compliance</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+</head>
+<body>
+
+<div class="container wide">
+  <div class="page-title-row">
+    <div>
+      <h1>Admin Console</h1>
+      <p class="muted">Registered users, currently active sessions, recent activity. All state is stored client-side in this browser.</p>
+    </div>
+    <div class="filter-row" style="margin:0">
+      <button class="btn secondary" id="exportBtn">Export JSON</button>
+      <button class="btn ghost" id="clearActivityBtn">Clear activity log</button>
+    </div>
+  </div>
+
+  <div id="adminBody" style="display:none">
+    <div class="admin-grid" id="statsGrid"></div>
+
+    <div class="admin-tabs">
+      <div class="admin-tab active" data-tab="users">Users</div>
+      <div class="admin-tab"        data-tab="active">Active sessions</div>
+      <div class="admin-tab"        data-tab="activity">Activity log</div>
+    </div>
+
+    <div class="card" id="paneUsers"></div>
+    <div class="card" id="paneActive" style="display:none"></div>
+    <div class="card" id="paneActivity" style="display:none"></div>
+  </div>
+</div>
+
+<script type="module">
+  function ready(fn) {
+    if (window.GTAuth) return fn();
+    setTimeout(() => ready(fn), 30);
+  }
+
+  ready(() => {
+    const { getUsers, getActivity, saveActivity, saveUsers, getSession, isAdmin } = window.GTAuth;
+    const session = getSession();
+
+    if (!session) { location.replace("/login?next=%2Fadmin"); return; }
+    if (!isAdmin(session)) {
+      // Silent bounce — non-admins should never see this page
+      location.replace("/");
+      return;
+    }
+    document.getElementById("adminBody").style.display = "block";
+
+    const fmtTs = (iso) => {
+      const d = new Date(iso);
+      return d.toLocaleString(undefined, { year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    };
+    const escape = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    function renderStats() {
+      const users = getUsers();
+      const log = getActivity();
+      const now = Date.now();
+      const within = (mins) => log.filter(a => (now - new Date(a.ts).getTime()) < mins * 60_000);
+      const active15 = new Set(within(15).filter(a => a.email).map(a => a.email));
+      const logins24h = log.filter(a => a.type === "login" && (now - new Date(a.ts).getTime()) < 24 * 60 * 60_000).length;
+      const failed24h = log.filter(a => a.type === "failed_login" && (now - new Date(a.ts).getTime()) < 24 * 60 * 60_000).length;
+      const tiles = [
+        { l: "Registered users", v: users.length },
+        { l: "Active in last 15 min", v: active15.size, s: active15.size ? Array.from(active15).slice(0, 3).join(", ") : "—" },
+        { l: "Sign-ins (24 h)", v: logins24h },
+        { l: "Failed sign-ins (24 h)", v: failed24h }
+      ];
+      document.getElementById("statsGrid").innerHTML = tiles.map(t => `
+        <div class="admin-stat">
+          <div class="l">${t.l}</div>
+          <div class="v">${t.v}</div>
+          ${t.s ? `<div class="s">${escape(t.s)}</div>` : ""}
+        </div>
+      `).join("");
+    }
+
+    function renderUsers() {
+      const users = getUsers();
+      const log = getActivity();
+      const lastSeen = (email) => {
+        const e = log.filter(a => a.email === email).slice(-1)[0];
+        return e ? fmtTs(e.ts) : "—";
+      };
+      const loginCount = (email) => log.filter(a => a.type === "login" && a.email === email).length;
+      const rows = users.length ? users.map(u => `
+        <tr>
+          <td>${escape(u.name)}</td>
+          <td>${escape(u.email)}</td>
+          <td>${u.role === "admin" ? '<span class="badge new">admin</span>' : '<span class="badge">user</span>'}</td>
+          <td>${fmtTs(u.createdAt)}</td>
+          <td>${lastSeen(u.email)}</td>
+          <td class="num">${loginCount(u.email)}</td>
+          <td>
+            ${u.email === session.email ? '<span class="muted">you</span>' :
+              `<button class="btn ghost" data-del="${escape(u.id)}" style="padding:4px 8px;font-size:12px">Delete</button>`}
+          </td>
+        </tr>
+      `).join("") : `<tr><td colspan="7" class="muted">No users yet — go to <a href="/signup">/signup</a> to register.</td></tr>`;
+      document.getElementById("paneUsers").innerHTML = `
+        <h3 style="margin:0 0 10px">Registered users — ${users.length}</h3>
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th><th>Last activity</th><th>Logins</th><th></th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      `;
+      document.querySelectorAll("[data-del]").forEach(b => b.addEventListener("click", () => {
+        if (!confirm("Delete this user? They will lose access immediately.")) return;
+        saveUsers(getUsers().filter(u => u.id !== b.dataset.del));
+        renderAll();
+      }));
+    }
+
+    function renderActive() {
+      const log = getActivity();
+      const now = Date.now();
+      // Group by email, keep latest
+      const byEmail = new Map();
+      for (const a of log) {
+        if (!a.email) continue;
+        const prev = byEmail.get(a.email);
+        if (!prev || new Date(a.ts) > new Date(prev.ts)) byEmail.set(a.email, a);
+      }
+      const rows = Array.from(byEmail.values())
+        .sort((a, b) => new Date(b.ts) - new Date(a.ts))
+        .map(a => {
+          const ageMin = Math.round((now - new Date(a.ts).getTime()) / 60_000);
+          const online = ageMin < 15;
+          return `
+            <tr>
+              <td>${online ? '<span class="activity-online"></span>' : ""}${escape(a.name || a.email)}</td>
+              <td>${escape(a.email)}</td>
+              <td>${escape(a.page || "—")}</td>
+              <td class="muted">${escape(a.type)}</td>
+              <td>${ageMin < 1 ? "just now" : ageMin < 60 ? `${ageMin}m ago` : `${Math.round(ageMin/60)}h ago`}</td>
+            </tr>`;
+        }).join("");
+      document.getElementById("paneActive").innerHTML = `
+        <h3 style="margin:0 0 10px">Sessions — last activity per user</h3>
+        <p class="muted text-small">A user is shown as <b>online</b> (green dot) if they had any activity in the last 15 minutes.</p>
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Name</th><th>Email</th><th>Last page</th><th>Last action</th><th>When</th></tr></thead>
+            <tbody>${rows || `<tr><td colspan="5" class="muted">No activity yet.</td></tr>`}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderActivityLog() {
+      const log = getActivity().slice().reverse();
+      const TYPE_ORDER = ["login", "failed_login", "signup", "logout", "page_view"];
+      const filterRow = `
+        <div class="filter-row" style="margin:0 0 10px">
+          ${["all", ...TYPE_ORDER].map(t => `<button class="chip ${t === "all" ? "active" : ""}" data-filter="${t}">${t}</button>`).join("")}
+        </div>
+      `;
+      const html = log.map(a => `
+        <div class="activity-row" data-type="${escape(a.type)}">
+          <span class="ar-ts muted">${fmtTs(a.ts)}</span>
+          <span><span class="ar-type ${escape(a.type)}">${escape(a.type)}</span>&nbsp;${escape(a.email || "anon")}${a.name ? ` <span class="muted">(${escape(a.name)})</span>` : ""}</span>
+          <span class="muted">${escape(a.page || "")}${a.detail ? " · " + escape(a.detail) : ""}</span>
+          <span class="muted text-small" title="${escape(a.ua || "")}">${escape((a.ua || "").split(")")[0].split("(")[1] || "—")}</span>
+        </div>
+      `).join("");
+      document.getElementById("paneActivity").innerHTML = `
+        <h3 style="margin:0 0 10px">Activity log — ${log.length} events (newest first)</h3>
+        ${filterRow}
+        <div id="activityList">${html || '<p class="muted">No activity recorded yet.</p>'}</div>
+      `;
+      document.querySelectorAll("[data-filter]").forEach(b => b.addEventListener("click", () => {
+        document.querySelectorAll("[data-filter]").forEach(x => x.classList.toggle("active", x === b));
+        const t = b.dataset.filter;
+        document.querySelectorAll(".activity-row").forEach(r => {
+          r.style.display = (t === "all" || r.dataset.type === t) ? "" : "none";
+        });
+      }));
+    }
+
+    function renderAll() {
+      renderStats();
+      renderUsers();
+      renderActive();
+      renderActivityLog();
+    }
+    renderAll();
+
+    // Tabs
+    document.querySelectorAll(".admin-tab").forEach(t => t.addEventListener("click", () => {
+      document.querySelectorAll(".admin-tab").forEach(x => x.classList.toggle("active", x === t));
+      const id = t.dataset.tab;
+      document.getElementById("paneUsers").style.display    = id === "users" ? "block" : "none";
+      document.getElementById("paneActive").style.display   = id === "active" ? "block" : "none";
+      document.getElementById("paneActivity").style.display = id === "activity" ? "block" : "none";
+    }));
+
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      const dump = {
+        exported_at: new Date().toISOString(),
+        exported_by: session.email,
+        users: getUsers().map(u => ({ ...u, passwordHash: "***" })),
+        activity_log: getActivity()
+      };
+      const blob = new Blob([JSON.stringify(dump, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url; a.download = `gtax-admin-${Date.now()}.json`;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    });
+    document.getElementById("clearActivityBtn").addEventListener("click", () => {
+      if (!confirm("Clear the entire activity log? This cannot be undone.")) return;
+      saveActivity([]);
+      renderAll();
+    });
+
+    // Refresh stats every 30s so "Active in last 15 min" stays current
+    setInterval(renderStats, 30_000);
+  });
+</script>
+
+</body>
+</html>

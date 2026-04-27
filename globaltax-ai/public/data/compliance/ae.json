@@ -1,0 +1,31 @@
+{
+  "country": "AE",
+  "lastUpdated": "2025-01-01",
+  "topics": [
+    {
+      "title": "No personal income tax",
+      "summary": "UAE levies no personal income tax on salaries, capital gains, or dividends. Applies to residents and expats alike.",
+      "source": "https://tax.gov.ae"
+    },
+    {
+      "title": "Corporate Tax (effective 1 Jun 2023)",
+      "summary": "9% corporate tax on taxable profits above AED 375,000. Qualifying Free Zone persons may be taxed at 0% on qualifying income.",
+      "source": "https://tax.gov.ae/en/taxes/corporate.tax.aspx"
+    },
+    {
+      "title": "VAT",
+      "summary": "5% standard VAT since 1 Jan 2018. Mandatory registration above AED 375,000 taxable supplies; voluntary from AED 187,500.",
+      "source": "https://tax.gov.ae/en/taxes/vat.aspx"
+    },
+    {
+      "title": "GPSSA pension (Nationals)",
+      "summary": "UAE/GCC nationals contribute 5% (employee) + 12.5% (employer) + 2.5% (government) of pensionable salary. Does not apply to expats.",
+      "source": "https://gpssa.gov.ae"
+    },
+    {
+      "title": "End-of-Service Gratuity",
+      "summary": "Expats receive gratuity on termination: 21 days' wages/year for first 5 years, 30 days/year thereafter, capped at 2 years' total wage.",
+      "source": "https://u.ae"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "meta": { "country": "SA", "year": 2026, "note": "ZATCA VAT + GOSI + Zakat/CT + WPS. Dates follow lunar & Gregorian per current ZATCA notifications." },
+  "events": [
+    { "date": "2026-01-15", "title": "GOSI contribution — Dec 2025",                 "category": "pf",  "act": "Royal Decree M/33" },
+    { "date": "2026-01-31", "title": "VAT monthly return — Dec 2025 (turnover > 40M SAR)", "category": "gst", "act": "VAT Implementing Regulations Art 62" },
+    { "date": "2026-01-31", "title": "WPS salary upload — Jan 2026",                  "category": "pf",  "act": "MHRSD WPS Rules" },
+    { "date": "2026-02-15", "title": "GOSI — Jan 2026",                                "category": "pf" },
+    { "date": "2026-02-28", "title": "VAT quarterly return Q4 2025",                   "category": "gst" },
+    { "date": "2026-03-15", "title": "GOSI — Feb 2026",                                "category": "pf" },
+    { "date": "2026-04-15", "title": "GOSI — Mar 2026",                                "category": "pf" },
+    { "date": "2026-04-30", "title": "Zakat / CT return — FY ending Dec-25",            "category": "corporate", "act": "Income Tax Law / Zakat Regulations" },
+    { "date": "2026-05-15", "title": "GOSI — Apr 2026",                                "category": "pf" },
+    { "date": "2026-05-31", "title": "VAT quarterly return Q1 2026",                   "category": "gst" },
+    { "date": "2026-06-15", "title": "Withholding Tax return — prior month",            "category": "tds" },
+    { "date": "2026-08-31", "title": "VAT quarterly return Q2 2026",                   "category": "gst" },
+    { "date": "2026-11-30", "title": "VAT quarterly return Q3 2026",                   "category": "gst" }
+  ]
+}

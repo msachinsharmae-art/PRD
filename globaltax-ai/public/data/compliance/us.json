@@ -1,0 +1,31 @@
+{
+  "country": "US",
+  "lastUpdated": "2024-11-01",
+  "topics": [
+    {
+      "title": "Federal income tax filing",
+      "summary": "Form 1040 due April 15. Extension (Form 4868) to October 15 but tax still due April 15.",
+      "source": "https://www.irs.gov"
+    },
+    {
+      "title": "2025 brackets & standard deduction",
+      "summary": "7 brackets from 10% to 37%. Standard deduction: $15,000 single / $30,000 MFJ (2025). Inflation-adjusted annually (Rev. Proc. 2024-40).",
+      "source": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2025"
+    },
+    {
+      "title": "FICA (Social Security + Medicare)",
+      "summary": "6.2% Social Security on wages up to $176,100 (2025) + 1.45% Medicare (no cap). Additional 0.9% Medicare surtax above $200k single / $250k MFJ.",
+      "source": "https://www.ssa.gov"
+    },
+    {
+      "title": "State income tax",
+      "summary": "States vary widely. No state tax: TX, FL, WA, NV, SD, WY, AK, TN, NH. California tops out ~13.3% for high earners.",
+      "source": "https://taxfoundation.org"
+    },
+    {
+      "title": "Estimated quarterly taxes",
+      "summary": "If you owe >$1,000 at year-end, pay estimated taxes quarterly (Apr 15, Jun 15, Sep 15, Jan 15) or face underpayment penalty.",
+      "source": "https://www.irs.gov/forms-pubs/about-form-1040-es"
+    }
+  ]
+}

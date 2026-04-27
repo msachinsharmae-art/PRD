@@ -1,0 +1,28 @@
+{
+  "meta": { "country": "US", "year": 2026, "note": "US federal payroll & tax compliance calendar. Plus indicative state quarterlies." },
+  "events": [
+    { "date": "2026-01-15", "title": "Form 1040-ES — Q4 2025 estimated tax (individuals)", "category": "tds", "act": "IRC §6654" },
+    { "date": "2026-01-31", "title": "Form W-2 — issue to employees + file SSA copy",       "category": "tds", "act": "IRC §6051 / §6057" },
+    { "date": "2026-01-31", "title": "Form 1099-NEC — contractors; copy to IRS",            "category": "tds", "act": "IRC §6041A" },
+    { "date": "2026-01-31", "title": "Form 940 — FUTA annual return (2025)",                "category": "tds", "act": "IRC §3301 / Pub 15" },
+    { "date": "2026-02-02", "title": "Form 941 — Q4 2025 employer's quarterly return",       "category": "tds", "act": "IRC §6011" },
+    { "date": "2026-02-17", "title": "Form 1099-B / 1099-S / 1099-MISC — recipients",        "category": "tds" },
+    { "date": "2026-02-28", "title": "Form 1099 paper filing to IRS",                        "category": "tds" },
+    { "date": "2026-03-02", "title": "Form 1095-C ACA — furnish to employees",               "category": "corporate", "act": "ACA §6056" },
+    { "date": "2026-03-15", "title": "Form 1120-S / 1065 — S-corp & partnership returns",    "category": "corporate" },
+    { "date": "2026-03-31", "title": "Form 1099 — electronic filing with IRS",               "category": "tds" },
+    { "date": "2026-04-15", "title": "Form 1040 — individual income-tax return",             "category": "tds", "act": "IRC §6072" },
+    { "date": "2026-04-15", "title": "Form 1120 — C-corp income-tax return",                 "category": "corporate" },
+    { "date": "2026-04-15", "title": "Form 1040-ES — Q1 2026 estimated tax",                 "category": "tds" },
+    { "date": "2026-04-30", "title": "Form 941 — Q1 2026 quarterly return",                  "category": "tds" },
+    { "date": "2026-05-15", "title": "Form 990 — non-profit annual (calendar-year)",         "category": "corporate" },
+    { "date": "2026-06-15", "title": "Form 1040-ES — Q2 2026 estimated tax",                 "category": "tds" },
+    { "date": "2026-07-31", "title": "Form 941 — Q2 2026 quarterly return",                  "category": "tds" },
+    { "date": "2026-07-31", "title": "Form 5500 — employee-benefit plan return",             "category": "corporate" },
+    { "date": "2026-09-15", "title": "Form 1120-S / 1065 — extended returns",                "category": "corporate" },
+    { "date": "2026-09-15", "title": "Form 1040-ES — Q3 2026 estimated tax",                 "category": "tds" },
+    { "date": "2026-10-15", "title": "Form 1040 — extended deadline",                         "category": "tds" },
+    { "date": "2026-11-02", "title": "Form 941 — Q3 2026 quarterly return",                   "category": "tds" },
+    { "date": "2026-12-15", "title": "Form 1120 — corporate estimated tax final instalment", "category": "corporate" }
+  ]
+}

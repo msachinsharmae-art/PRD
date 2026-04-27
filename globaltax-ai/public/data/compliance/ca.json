@@ -1,0 +1,31 @@
+{
+  "country": "CA",
+  "lastUpdated": "2025-01-01",
+  "topics": [
+    {
+      "title": "T1 Personal Income Tax",
+      "summary": "T1 return due 30 April each year for most individuals; 15 June for self-employed (balance still due 30 April). Balance owing accrues interest after 30 April.",
+      "source": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return.html"
+    },
+    {
+      "title": "CPP & EI",
+      "summary": "CPP 5.95% employee on pensionable earnings up to YMPE $68,500 (2025). Additional CPP2 4% on earnings $68,500–$73,200. EI 1.64% up to $65,700.",
+      "source": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll.html"
+    },
+    {
+      "title": "GST/HST",
+      "summary": "Federal GST 5%. Harmonized HST in ON/NB/NS/NL/PEI at 13–15%. QC uses GST + QST (9.975%). Small-supplier threshold $30,000 in revenue over four consecutive quarters.",
+      "source": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses.html"
+    },
+    {
+      "title": "T4 Information Returns",
+      "summary": "Employers issue T4 slips to employees and file with CRA by the last day of February following the calendar year.",
+      "source": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/t4-slip.html"
+    },
+    {
+      "title": "Corporate Income Tax (T2)",
+      "summary": "Federal rate 15% general (net of SBD); small-business rate 9% on first $500k of active income. T2 due 6 months after year-end.",
+      "source": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/corporations.html"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "company": "Acme Technologies Egypt LLC",
+    "country": "EG",
+    "currency": "EGP",
+    "fy": "2026",
+    "note": "Egypt payroll. Salaries annual gross EGP. SI 11/18.75% capped at EGP 16,700/mo. Progressive IT 0-27.5%."
+  },
+  "employees": [
+    { "id": "G001", "name": "Omar El-Sayed",     "designation": "Country Manager",  "dept": "Executive",   "city": "Cairo",      "doj": "2017-03-15", "salary": 1800000 },
+    { "id": "G002", "name": "Nour Abdel-Rahman", "designation": "Senior SWE",       "dept": "Engineering", "city": "Cairo",      "doj": "2020-06-08", "salary": 720000  },
+    { "id": "G003", "name": "Youssef Mahmoud",   "designation": "Software Engineer","dept": "Engineering", "city": "Alexandria", "doj": "2022-02-18", "salary": 420000  },
+    { "id": "G004", "name": "Salma Hassan",      "designation": "HR Lead",          "dept": "People",      "city": "Cairo",      "doj": "2019-11-12", "salary": 540000  },
+    { "id": "G005", "name": "Karim Fouad",       "designation": "Product Manager",  "dept": "Product",     "city": "Cairo",      "doj": "2018-04-22", "salary": 900000  },
+    { "id": "G006", "name": "Aya Ibrahim",       "designation": "UX Designer",      "dept": "Product",     "city": "Giza",       "doj": "2021-08-10", "salary": 360000  },
+    { "id": "G007", "name": "Ahmed Khaled",      "designation": "Sales Executive",  "dept": "Sales",       "city": "Cairo",      "doj": "2022-09-01", "salary": 300000  },
+    { "id": "G008", "name": "Mariam Adel",       "designation": "Finance Analyst",  "dept": "Finance",     "city": "Cairo",      "doj": "2023-05-20", "salary": 240000  },
+    { "id": "G009", "name": "Hassan Mostafa",    "designation": "DevOps Engineer",  "dept": "Engineering", "city": "Cairo",      "doj": "2021-03-04", "salary": 480000  },
+    { "id": "G010", "name": "Dina El-Naggar",    "designation": "Support Associate","dept": "Support",     "city": "Alexandria", "doj": "2023-08-15", "salary": 180000  }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "meta": { "country": "EG", "year": 2026, "note": "Egypt social-insurance / withholding / VAT calendar 2026." },
+  "events": [
+    { "date": "2026-01-15", "title": "Social Insurance — Dec 2025 (11% + 18.75% on capped base)", "category": "pf", "act": "Law 148/2019" },
+    { "date": "2026-01-15", "title": "Withholding tax — Dec 2025",                                 "category": "tds", "act": "Income Tax Law" },
+    { "date": "2026-02-15", "title": "Social Insurance — Jan 2026",                                 "category": "pf" },
+    { "date": "2026-02-28", "title": "Payroll tax reconciliation Q4 2025",                          "category": "tds" },
+    { "date": "2026-03-15", "title": "Social Insurance — Feb 2026",                                 "category": "pf" },
+    { "date": "2026-03-31", "title": "Corporate income tax return — FY ending Dec-25",              "category": "corporate" },
+    { "date": "2026-04-15", "title": "Social Insurance — Mar 2026",                                 "category": "pf" },
+    { "date": "2026-04-30", "title": "Personal income tax return — individuals",                    "category": "tds" },
+    { "date": "2026-05-15", "title": "Social Insurance — Apr 2026",                                 "category": "pf" },
+    { "date": "2026-05-31", "title": "Payroll tax reconciliation Q1 2026",                          "category": "tds" },
+    { "date": "2026-06-15", "title": "Social Insurance — May 2026",                                 "category": "pf" },
+    { "date": "2026-07-15", "title": "Social Insurance — June 2026",                                "category": "pf" },
+    { "date": "2026-08-31", "title": "Payroll tax reconciliation Q2 2026",                          "category": "tds" },
+    { "date": "2026-11-30", "title": "Payroll tax reconciliation Q3 2026",                          "category": "tds" },
+    { "date": "2026-12-31", "title": "VAT annual reconciliation",                                   "category": "gst" }
+  ]
+}

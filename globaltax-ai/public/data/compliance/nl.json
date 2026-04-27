@@ -1,0 +1,31 @@
+{
+  "country": "NL",
+  "lastUpdated": "2025-01-01",
+  "topics": [
+    {
+      "title": "Income Tax Return (Box 1)",
+      "summary": "Aangifte inkomstenbelasting due 1 May following tax year. Box 1 2025 bands: 35.82% to €38,441; 37.48% to €76,817; 49.5% above.",
+      "source": "https://www.belastingdienst.nl/"
+    },
+    {
+      "title": "Payroll Tax (Loonheffingen)",
+      "summary": "Employers remit Loonheffingen monthly (income tax + national insurance premium + employee insurance contributions). 30%-ruling for qualifying expats reduced to 27% from 2027 (phased).",
+      "source": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/"
+    },
+    {
+      "title": "BTW (VAT)",
+      "summary": "Standard 21%, reduced 9%, zero for certain supplies. Small-business scheme (KOR) available up to €20,000 turnover.",
+      "source": "https://www.belastingdienst.nl/btw"
+    },
+    {
+      "title": "Corporate Income Tax (VPB)",
+      "summary": "19% on first €200,000; 25.8% above. Return due within 5 months of year-end (extension available).",
+      "source": "https://www.belastingdienst.nl/"
+    },
+    {
+      "title": "30%-ruling phase-down",
+      "summary": "From 2027 the expat 30%-ruling reduces to a single 27% rate. Salary norm applies. Employers reassess applications yearly.",
+      "source": "https://www.belastingdienst.nl/"
+    }
+  ]
+}

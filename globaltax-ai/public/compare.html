@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare Countries — GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">GlobalTax<span class="dot">.</span>AI</div>
+    <a class="link" href="/">Home</a>
+    <a class="link" href="/ask">Ask AI</a>
+    <a class="link" href="/calculator">Calculator</a>
+    <a class="link" href="/compliance">Compliance</a>
+    <a class="link" href="/calendar">Calendar</a>
+    <a class="link" href="/updates">Updates</a>
+    <a class="link active" href="/compare">Compare</a>
+    <a class="link" href="/dashboard">Dashboard</a>
+    <a class="link" href="/labour-code">Labour Code</a>
+  </nav>
+
+  <div class="container">
+    <h2>Compare take-home across countries</h2>
+    <p style="color:var(--muted)">Enter a <em>USD-equivalent</em> gross and see indicative take-home in each country. Useful for expat / offer-comparison decisions.</p>
+
+    <div class="card">
+      <div class="field">
+        <label>Gross annual income (USD equivalent)</label>
+        <input id="usdIncome" type="number" placeholder="e.g. 80000" value="80000" />
+      </div>
+      <button class="btn" id="compareBtn">Compare</button>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="card">
+      <div id="compareResult" class="loading">Enter an amount and click Compare.</div>
+    </div>
+
+    <p class="disclaimer">FX rates are indicative static values — real product would plug in a live FX API. Tax math uses each country's rule engine.</p>
+  </div>
+
+  <button id="voiceFab" class="voice-fab">🎙️</button>
+  <div id="voicePanel" class="voice-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <strong>Ask the AI</strong>
+      <button class="btn ghost" id="voiceClose">✕</button>
+    </div>
+    <div id="voiceLog" class="voice-log"></div>
+  </div>
+
+  <script type="module" src="/js/compare.js"></script>
+  <script type="module" src="/js/voice.js"></script>
+</body>
+</html>

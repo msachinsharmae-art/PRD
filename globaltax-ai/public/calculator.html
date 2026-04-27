@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculator — GlobalTax AI</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/shell.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">GlobalTax<span class="dot">.</span>AI</div>
+    <a class="link" href="/">Home</a>
+    <a class="link" href="/ask">Ask AI</a>
+    <a class="link active" href="/calculator">Calculator</a>
+    <a class="link" href="/compliance">Compliance</a>
+    <a class="link" href="/calendar">Calendar</a>
+    <a class="link" href="/updates">Updates</a>
+    <a class="link" href="/compare">Compare</a>
+    <a class="link" href="/dashboard">Dashboard</a>
+    <a class="link" href="/labour-code">Labour Code</a>
+  </nav>
+
+  <div class="container">
+    <h2>Tax Calculator</h2>
+    <p style="color:var(--muted)">Pick a country, enter your details, get a breakdown plus an AI explanation.</p>
+
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="field">
+          <label>Country</label>
+          <select id="country">
+            <option value="IN">🇮🇳 India</option>
+            <option value="US">🇺🇸 United States</option>
+            <option value="GB">🇬🇧 United Kingdom</option>
+            <option value="CA">🇨🇦 Canada</option>
+            <option value="AU">🇦🇺 Australia</option>
+            <option value="DE">🇩🇪 Germany</option>
+            <option value="SG">🇸🇬 Singapore</option>
+            <option value="IE">🇮🇪 Ireland</option>
+            <option value="NL">🇳🇱 Netherlands</option>
+            <option value="JP">🇯🇵 Japan</option>
+            <option value="BR">🇧🇷 Brazil</option>
+            <option value="ZA">🇿🇦 South Africa</option>
+            <option value="AE">🇦🇪 United Arab Emirates</option>
+            <option value="SA">🇸🇦 Saudi Arabia</option>
+            <option value="EG">🇪🇬 Egypt</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Gross annual income</label>
+          <input id="income" type="number" placeholder="e.g. 1800000" />
+        </div>
+
+        <!-- Country-specific extras -->
+        <div id="extras"></div>
+
+        <button class="btn" id="calcBtn">Calculate</button>
+        <button class="btn secondary" id="explainBtn" style="margin-left:8px" disabled>Explain with AI ✨</button>
+      </div>
+
+      <div class="card">
+        <h3>Result</h3>
+        <div id="result" class="result">
+          <p class="loading">Enter details and click Calculate.</p>
+        </div>
+        <div id="aiExplain" style="margin-top:14px"></div>
+      </div>
+    </div>
+
+    <p class="disclaimer">Rule engine is deterministic JS. AI only explains — never overrides — the numbers.</p>
+  </div>
+
+  <button id="voiceFab" class="voice-fab">🎙️</button>
+  <div id="voicePanel" class="voice-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <strong>Ask the AI</strong>
+      <button class="btn ghost" id="voiceClose">✕</button>
+    </div>
+    <div id="voiceLog" class="voice-log"></div>
+  </div>
+
+  <script type="module" src="/js/calculator.js"></script>
+  <script type="module" src="/js/voice.js"></script>
+</body>
+</html>
